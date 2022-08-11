@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, Group, PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
 
 
@@ -17,6 +17,10 @@ class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
         extra_fields.setdefault('is_superuser', False)
+        if extra_fields.get("role") != "admin":
+            extra_fields.setdefault('is_staff', True)
+        else:
+            extra_fields.setdefault('is_staff', False)
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
@@ -27,17 +31,16 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     class Role(models.TextChoices):
         NONE = 'none'
         ADMIN = 'admin'
         SUPPORT = 'support'
-        COMMERCIAL = 'commercial'
+        SALES = 'sales'
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     role = models.CharField(choices=Role.choices, max_length=16, default='none')
-    is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     objects = UserManager()
@@ -52,8 +55,10 @@ class User(AbstractBaseUser):
         """Is the user a member of staff?"""
         return self.is_superuser or self.role == "admin"
 
-    def has_perm(self, perm, obj=None):
-        return self.is_staff
-
-    def has_module_perms(self, app_label):
-        return self.is_staff
+    def save(self, *args, **kwargs):
+        try:
+            default_group = Group.objects.get(name=self.role)
+            self.groups.add(default_group)
+        except Group.DoesNotExist:
+            pass
+        super().save()

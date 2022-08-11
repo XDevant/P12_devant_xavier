@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import GroupAdmin, UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import Group
 from .models import User
 from .forms import UserChangeForm, UserCreationForm
 
@@ -8,21 +9,21 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'first_name', 'last_name', 'role', 'is_active')
+    list_display = ('first_name', 'last_name', 'email', 'role', 'is_active')
     list_filter = ('role',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name',)}),
+        (None, {'fields': ('first_name', 'last_name',)}),
+        ('Personal info', {'fields': ('email', 'password')}),
         ('Permissions', {'fields': ('role', 'is_active',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'first_name', 'last_name', 'role', 'password1', 'password2'),
+            'fields': ('first_name', 'last_name', 'email', 'role', 'password1', 'password2'),
         }),
     )
     search_fields = ('email', 'last_name',)
-    ordering = ('last_name',)
+    ordering = ('role', 'last_name')
     filter_horizontal = ()
 
 
