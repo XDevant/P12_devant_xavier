@@ -56,9 +56,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.is_superuser or self.role == "admin"
 
     def save(self, *args, **kwargs):
+        super().save()
         try:
             default_group = Group.objects.get(name=self.role)
             self.groups.add(default_group)
         except Group.DoesNotExist:
             pass
-        super().save()

@@ -1,6 +1,6 @@
 
 def create_groups(apps, schema_migration):
-    """Used in authentication.migrations.0003_auto... to create our 2 user groups"""
+    """Used in authentication.migrations.0002_auto... to create our user groups"""
     User = apps.get_model('authentication', 'User')
     Group = apps.get_model('auth', 'Group')
     Permission = apps.get_model('auth', 'Permission')
@@ -11,34 +11,44 @@ def create_groups(apps, schema_migration):
             self.change = Permission.objects.get(codename=f'change_{model_name}')
             self.delete = Permission.objects.get(codename=f'delete_{model_name}')
             self.view = Permission.objects.get(codename=f'view_{model_name}')
-            self.permissions = [self.add, self.change, self.delete, self.view]
+            self.permissions = [self.add, self.view, self.change, self.delete]
 
     contract_permissions = ModelPermissions('contract')
     client_permissions = ModelPermissions('client')
     event_permissions = ModelPermissions('event')
+    user_permissions = ModelPermissions('user')
 
     support = Group(name='support')
     support.save()
-    support.permissions.set(event_permissions.permissions)
+    support.permissions.set(event_permissions.permissions[1:3])
     support.permissions.add(contract_permissions.view)
     support.permissions.add(client_permissions.view)
 
     sales = Group(name='sales')
     sales.save()
-    support.permissions.set(
-                            client_permissions.permissions +
-                            contract_permissions.permissions +
-                            event_permissions.permissions
-                            )
+    support.permissions.set(client_permissions.permissions[:3] +
+                            contract_permissions.permissions[:3] +
+                            event_permissions.permissions[:2])
+    support.permissions.add(event_permissions.view)
+    support.permissions.add(event_permissions.add)
+
+    visitor = Group(name='visitor')
+    visitor.save()
+
+    admin = Group(name='admin')
+    admin.save()
+    support.permissions.set(client_permissions.permissions[1:3] +
+                            contract_permissions.permissions[1:3] +
+                            event_permissions.permissions[1:3] +
+                            user_permissions.permissions)
 
     for user in User.objects.all():
         if user.role == 'support':
             user.groups.add(support)
-        if user.role == 'sales':
+        elif user.role == 'sales':
             user.groups.add(sales)
-
-
-"""
-add this to migration.0002 list
-        migrations.RunPython(create_groups)
-"""
+        elif user.role == 'admin':
+            user.groups.add(admin)
+        else:
+            if not user.is_superuser:
+                user.groups.add('visitor')
