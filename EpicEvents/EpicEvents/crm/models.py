@@ -17,6 +17,9 @@ class Client(models.Model):
                                       related_name='client_contact'
                                       )
 
+    def __str__(self):
+        return str(self.id)
+
 
 class Contract(models.Model):
     sales_contact = models.ForeignKey(
@@ -49,7 +52,11 @@ class Event(models.Model):
                                         on_delete=models.CASCADE,
                                         related_name='event_support'
                                         )
-    event_status = models.CharField(max_length=20)
+    event_status = models.ForeignKey(
+                               to=Contract,
+                               on_delete=models.CASCADE,
+                               related_name='event_contract'
+                               )
     attendees = models.IntegerField
     event_date = models.DateTimeField()
     notes = models.TextField()

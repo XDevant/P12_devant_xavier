@@ -2,6 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from rest_framework.serializers import ValidationError
 from datetime import datetime
 from .models import Client, Contract, Event
 from .serializers import ClientSerializerSelector, ContractSerializerSelector, EventSerializerSelector
@@ -46,14 +47,14 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
         queryset = super(ClientViewSet, self).get_queryset()
         user = self.request.user
         user_groups = getattr(user, 'groups')
-        user_events = Event.objects.filter(support_contact=user)
-        user_client_ids = [event.client.id for event in user_events]
         if isinstance(user, User):
             if user_groups.filter(name='admin').exists() or user.is_superuser:
                 return queryset
             elif user_groups.filter(name='sales').exists():
                 return queryset.filter(sales_contact=user)
             elif user_groups.filter(name='support').exists():
+                user_events = Event.objects.filter(support_contact=user)
+                user_client_ids = [event.client.id for event in user_events]
                 return queryset.filter(id__in=user_client_ids)
         return None
 
@@ -69,7 +70,13 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         We set the user as sales_contact while saving the new client
         """
         current_user = self.request.user
-        serializer.save(sales_contact=current_user)
+        try:
+            client_id = serializer.initial_data['client_id']
+            client = User.objects.get(id=client_id)
+        except Exception:
+            message = "Invalid client id"
+            raise ValidationError(message)
+        serializer.save(sales_contact=current_user, client=client)
 
     def perform_update(self, serializer):
         serializer.save(date_updated=datetime.now())

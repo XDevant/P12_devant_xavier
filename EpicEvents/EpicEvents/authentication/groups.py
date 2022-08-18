@@ -26,21 +26,19 @@ def create_groups(apps, schema_migration):
 
     sales = Group(name='sales')
     sales.save()
-    support.permissions.set(client_permissions.permissions[:3] +
-                            contract_permissions.permissions[:3] +
-                            event_permissions.permissions[:2])
-    support.permissions.add(event_permissions.view)
-    support.permissions.add(event_permissions.add)
+    sales.permissions.set(client_permissions.permissions[:3] +
+                          contract_permissions.permissions[:3] +
+                          event_permissions.permissions[:2])
 
     visitor = Group(name='visitor')
     visitor.save()
 
     admin = Group(name='admin')
     admin.save()
-    support.permissions.set(client_permissions.permissions[1:3] +
-                            contract_permissions.permissions[1:3] +
-                            event_permissions.permissions[1:3] +
-                            user_permissions.permissions)
+    admin.permissions.set(client_permissions.permissions[1:3] +
+                          contract_permissions.permissions[1:3] +
+                          event_permissions.permissions[1:3] +
+                          user_permissions.permissions)
 
     for user in User.objects.all():
         if user.role == 'support':

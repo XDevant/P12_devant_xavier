@@ -21,13 +21,10 @@ from .crm.views import ClientViewSet, ContractViewSet, EventViewSet
 
 router = routers.SimpleRouter()
 router.register(r'clients', ClientViewSet, basename='client')
-
-client_router = routers.NestedSimpleRouter(router, r'clients', lookup='client')
-client_router.register(r'contracts', ContractViewSet, basename='contract')
-client_router.register(r'events', EventViewSet, basename='events')
+router.register(r'contracts', ContractViewSet, basename='contract')
+router.register(r'events', EventViewSet, basename='event')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(r'', include(router.urls)),
-    path(r'', include(client_router.urls)),
 ]
