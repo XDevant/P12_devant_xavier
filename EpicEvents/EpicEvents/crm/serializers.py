@@ -58,25 +58,27 @@ class ContractSerializerSelector:
 
 class EventListSerializer(serializers.ModelSerializer):
     """"""
-    contact = serializers.StringRelatedField(source='support_contact')
-    related_client = serializers.StringRelatedField(source='client')
+    contact_email = serializers.EmailField(source='support_contact')
+    client_id = serializers.CharField(source='client')
+    contract_id = serializers.CharField(source='event_status')
 
     class Meta:
         model = Event
-        fields = ['id', 'contact', 'related_client', 'date_created', ]
-        read_only_fields = ['contact', 'related_client', 'date_created']
+        fields = ['id', 'contact_email', 'client_id', 'contract_id', 'date_created',
+                  'attendees', 'event_date', 'notes']
+        read_only_fields = ['date_created']
 
 
 class EventDetailSerializer(serializers.ModelSerializer):
-    contact = serializers.StringRelatedField(source='support_contact')
-    related_client = serializers.StringRelatedField(source='client')
-    related_contract = serializers.StringRelatedField(source='event_status')
+    contact_email = serializers.EmailField(source='support_contact')
+    client_id = serializers.CharField(source='client')
+    contract_id = serializers.CharField(source='event_status')
 
     class Meta:
         model = Event
-        fields = ['id', 'contact', 'related_client', 'related_contract', 'date_created',
+        fields = ['id', 'contact_email', 'client_id', 'contract_id', 'date_created',
                   'date_updated', 'attendees', 'event_date', 'notes']
-        read_only_fields = ['contact', 'related_client', 'date_created', 'date_updated']
+        read_only_fields = ['date_created', 'date_updated']
 
 
 class EventSerializerSelector:
