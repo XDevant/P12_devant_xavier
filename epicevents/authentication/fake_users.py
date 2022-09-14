@@ -41,3 +41,9 @@ def create_test_users(apps, schema_migration):
       role="admin",
       password=make_password("mdp5")
     )
+    user.objects.create(
+        first_name="Zo",
+        last_name="Zo",
+        email="zo@zo.co",
+        password=make_password("mdp6")
+    )

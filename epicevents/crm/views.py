@@ -1,13 +1,13 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import status, filters
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.serializers import ValidationError
 from datetime import datetime
 from .models import Client, Contract, Event
 from .serializers import ClientSerializerSelector, ContractSerializerSelector, EventSerializerSelector
-from .permissions import IsSaleContactOrReadOnly, IsInChargeOrReadOnly
-from ..authentication.models import User
+from .permissions import IsSaleContactOrReadOnly
+from authentication.models import User
 
 
 class MultipleSerializerMixin:
@@ -58,7 +58,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
                 user_events = Event.objects.filter(support_contact=user)
                 user_client_ids = [event.client.id for event in user_events]
                 return queryset.filter(id__in=user_client_ids)
-        return None
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
@@ -100,7 +100,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
                 return queryset
             elif user_groups.filter(name='sales').exists():
                 return queryset.filter(sales_contact=user)
-        return None
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class EventViewSet(MultipleSerializerMixin, ModelViewSet):
@@ -155,4 +155,4 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
                 return queryset.filter(client__sales_contact=user)
             elif user_groups.filter(name='support').exists():
                 return queryset.filter(support_contact=user)
-        return None
+        return Response(status=status.HTTP_204_NO_CONTENT)
