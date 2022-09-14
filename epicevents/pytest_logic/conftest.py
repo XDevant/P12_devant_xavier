@@ -3,6 +3,7 @@ from rest_framework.test import APIClient
 from django.db import connections
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from psycopg2.errors import DuplicateDatabase
 
 
 def run_sql(sql):
@@ -20,7 +21,11 @@ def django_db_setup():
     settings.DATABASES['default']['NAME'] = 'test_Epic-Events'
 
     run_sql('DROP DATABASE IF EXISTS "test_Epic-Events"')
-    run_sql('CREATE DATABASE "test_Epic-Events" TEMPLATE "Epic-Events"')
+    try:
+        run_sql('CREATE DATABASE "copy_Epic-Events" TEMPLATE "Epic-Events"')
+    except DuplicateDatabase:
+        pass
+    run_sql('CREATE DATABASE "test_Epic-Events" TEMPLATE "copy_Epic-Events"')
 
     yield
 

@@ -58,7 +58,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
                 user_events = Event.objects.filter(support_contact=user)
                 user_client_ids = [event.client.id for event in user_events]
                 return queryset.filter(id__in=user_client_ids)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return User.objects.none()
 
 
 class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
@@ -76,14 +76,20 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         current_user = self.request.user
         try:
             client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id)
+            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
         serializer.save(sales_contact=current_user, client=client)
 
     def perform_update(self, serializer):
-        serializer.save(date_updated=datetime.now())
+        try:
+            client_id = serializer.initial_data['client_id']
+            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
+        except Exception:
+            message = "Invalid client id"
+            raise ValidationError(message)
+        serializer.save(client=client, date_updated=datetime.now())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
@@ -98,9 +104,8 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         if isinstance(user, User):
             if user_groups.filter(name='admin').exists() or user.is_superuser:
                 return queryset
-            elif user_groups.filter(name='sales').exists():
+            else:
                 return queryset.filter(sales_contact=user)
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class EventViewSet(MultipleSerializerMixin, ModelViewSet):
@@ -123,20 +128,42 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
             raise ValidationError(message)
         try:
             client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id)
+            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
         try:
             contract_id = serializer.initial_data['contract_id']
-            contract = Contract.objects.get(id=contract_id)
+            contract = Contract.objects.get(id=contract_id, sales_contact=self.request.user)
         except Exception:
             message = "Invalid contract id"
             raise ValidationError(message)
         serializer.save(support_contact=contact, client=client, event_status=contract)
 
     def perform_update(self, serializer):
-        serializer.save(date_updated=datetime.now())
+        old_event = Event.objects.get(id=serializer.initial_data['id'])
+        try:
+            contact_email = serializer.initial_data['contact_email']
+            contact = User.objects.get(email=contact_email)
+            assert contact == self.request.user
+        except Exception:
+            message = "Invalid support contact email"
+            raise ValidationError(message)
+        try:
+            client_id = serializer.initial_data['client_id']
+            client = Client.objects.get(id=client_id)
+            assert client == old_event.client
+        except Exception:
+            message = "Invalid client id"
+            raise ValidationError(message)
+        try:
+            contract_id = serializer.initial_data['contract_id']
+            contract = Contract.objects.get(id=contract_id)
+            assert contract == old_event.event_status
+        except Exception:
+            message = "Invalid contract id"
+            raise ValidationError(message)
+        serializer.save(support_contact=contact, client=client, event_status=contract, date_updated=datetime.now())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
@@ -155,4 +182,4 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
                 return queryset.filter(client__sales_contact=user)
             elif user_groups.filter(name='support').exists():
                 return queryset.filter(support_contact=user)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return User.objects.none()
