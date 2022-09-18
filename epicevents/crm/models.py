@@ -13,7 +13,7 @@ class Client(models.Model):
     date_updated = models.DateTimeField(default=None, null=True)
     sales_contact = models.ForeignKey(
                                       to=settings.AUTH_USER_MODEL,
-                                      on_delete=models.CASCADE,
+                                      on_delete=models.PROTECT,
                                       related_name='client_contact'
                                       )
 
@@ -24,7 +24,7 @@ class Client(models.Model):
 class Contract(models.Model):
     sales_contact = models.ForeignKey(
                                       to=settings.AUTH_USER_MODEL,
-                                      on_delete=models.CASCADE,
+                                      on_delete=models.PROTECT,
                                       related_name='contract_contact'
                                       )
     client = models.ForeignKey(
@@ -52,7 +52,7 @@ class Event(models.Model):
     date_updated = models.DateTimeField(default=None, null=True)
     support_contact = models.ForeignKey(
                                         to=settings.AUTH_USER_MODEL,
-                                        on_delete=models.CASCADE,
+                                        on_delete=models.PROTECT,
                                         related_name='event_support'
                                         )
     event_status = models.ForeignKey(

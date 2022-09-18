@@ -1,9 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.common.by import By
 import pytest
 from time import sleep
+import pages
 
 
 @pytest.fixture(scope="module", params=["chrome"])
@@ -30,20 +30,45 @@ def selenium(request):
     service.stop()
 
 
-class TestUserStories:
-    def test_live_server(self, selenium):
+class TestAdminStories:
+    def test_admin_login(self, selenium):
         selenium.get('http://127.0.0.1:8000/admin/')
-        assert selenium.title == "Log in | Django site admin"
-        email = selenium.find_element(By.CSS_SELECTOR, 'input[id="id_username"]')
-        email.clear()
-        email.send_keys("za@za.co")
-        sleep(1)
-        password = selenium.find_element(By.CSS_SELECTOR, 'input[id="id_password"]')
-        password.clear()
-        password.send_keys("mdp5")
-        password.submit()
-        sleep(1)
-        assert selenium.current_url == 'http://127.0.0.1:8000/admin/'
+        login_page = pages.LoginPage(selenium)
+        assert login_page.title_url_matches()
+        login_page.fill_form()
+        login_page.submit_form()
+        sleep(2)
+        home_page = pages.HomePage(selenium)
+        assert home_page.title_url_matches()
 
-    def test_admin_story_1(self, selenium):
-        pass
+    def test_admin_can_cru_user(self, selenium):
+        selenium.get('http://127.0.0.1:8000/admin/')
+        home_page = pages.HomePage(selenium)
+        assert home_page.title_url_matches()
+        home_page.find_link_and_follow('user', 'add')
+
+        add_user_page = pages.AddUserPage(selenium)
+        assert add_user_page.title_url_matches()
+        add_user_page.fill_form()
+        add_user_page.submit_form()
+
+        change_user_page = pages.ChangeUserPage(selenium)
+        assert change_user_page.get_pk_and_update_url('user')
+        assert change_user_page.title_url_matches()
+        change_user_page.fill_form()
+        change_user_page.submit_form()
+
+        user_page = pages.UserPage(selenium)
+        assert user_page.title_url_matches()
+
+    def test_admin_can_find_and_delete_user(self, selenium):
+        selenium.get('http://127.0.0.1:8000/admin/')
+        home_page = pages.HomePage(selenium)
+        assert home_page.title_url_matches()
+        home_page.find_link_and_follow('user')
+
+        user_page = pages.UserPage(selenium)
+        assert user_page.title_url_matches()
+        user_page.search_created()
+        sleep(4)
+        assert "No results found." not in selenium.page_source
