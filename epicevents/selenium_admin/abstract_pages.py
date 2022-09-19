@@ -16,16 +16,18 @@ class BasePage:
     def title_url_matches(self):
         """Verifies that we reached the expected page of the admin site"""
         print(f" Asserting  {self.title} in Page Title and url == {self.url}")
-        return self.title in self.driver.title and self.url == self.driver.current_url
+        return self.title in self.driver.title and self.url in self.driver.current_url
 
-    def fill_form(self):
-        for key, value in self.form.items():
+    def fill_form(self, form=None):
+        if not form:
+            form = self.form
+        for key, value in form.items():
             form_input = self.driver.find_element(By.ID, 'id_' + key)
             try:
                 form_input.clear()
-                form_input.send_keys(value)
             except InvalidElementStateException:
-                form_input.send_keys(value)
+                pass
+            form_input.send_keys(value)
             sleep(1)
 
     def submit_form(self):
@@ -39,12 +41,15 @@ class BasePage:
         link = self.driver.find_element(By.CSS_SELECTOR, selector)
         link.click()
 
+    def logout(self):
+        selector = (By.ID, "logout-form")
+        link = self.driver.find_element(*selector)
+        link.submit()
+
 
 class PkPage(BasePage):
     def __init__(self, driver, data):
         super().__init__(driver, data)
-        self.url_start = data.url_start
-        self.url_end = data.url_end
         self.pk = data.pk
 
     def get_pk_and_update_url(self, model):
@@ -56,7 +61,7 @@ class PkPage(BasePage):
                 print("wrong model")
                 return 0
             pk = url_parts[1].split('/')[0]
-            self.url = self.url_start + pk + self.url_end
+            self.url = self.url.replace("$pk$", pk)
             self.pk = int(pk)
             return self.pk > 0
 
@@ -70,3 +75,14 @@ class SearchPage(BasePage):
         search_input = self.driver.find_element(By.ID, "searchbar")
         search_input.send_keys(self.search)
         search_input.submit()
+
+    def check_result_1_box(self):
+        selector = (By.NAME, "_selected_action")
+        link = self.driver.find_element(*selector)
+        link.click()
+
+    def select_action_and_go(self, action):
+        selector = (By.CSS_SELECTOR, f"option[value='{action}_selected']")
+        select_input = self.driver.find_element(*selector)
+        select_input.click()
+        select_input.submit()

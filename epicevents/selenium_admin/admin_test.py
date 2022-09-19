@@ -35,9 +35,7 @@ class TestAdminStories:
         selenium.get('http://127.0.0.1:8000/admin/')
         login_page = pages.LoginPage(selenium)
         assert login_page.title_url_matches()
-        login_page.fill_form()
-        login_page.submit_form()
-        sleep(2)
+        login_page.log_user()
         home_page = pages.HomePage(selenium)
         assert home_page.title_url_matches()
 
@@ -70,5 +68,16 @@ class TestAdminStories:
         user_page = pages.UserPage(selenium)
         assert user_page.title_url_matches()
         user_page.search_created()
-        sleep(4)
-        assert "No results found." not in selenium.page_source
+        assert ">0 results" not in selenium.page_source
+        user_page.check_result_1_box()
+        user_page.select_action_and_go('delete')
+
+        confirmation_page = pages.ConfirmationPage(selenium, 'authentication', 'user')
+        assert confirmation_page.title_url_matches()
+        confirmation_page.confirm_delete()
+        assert user_page.title_url_matches()
+        user_page.search_created()
+        assert ">0 results" in selenium.page_source
+        user_page.logout()
+        logout_page = pages.LogoutPage(selenium)
+        assert logout_page.title_url_matches()
