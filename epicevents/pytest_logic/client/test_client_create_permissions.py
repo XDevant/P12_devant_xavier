@@ -1,5 +1,4 @@
 import pytest
-from pytest_logic.fake_logs import user_logs
 
 data = {
                 "first_name":  "third",
@@ -13,16 +12,14 @@ data = {
 
 @pytest.mark.django_db
 class TestClientCreation:
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i]) for i in [0, 1]])
-    def test_sales_create_client(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
-        response = api_client.post('http://127.0.0.1:8000/clients/', data=data)
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
+    def test_sales_create_client(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.post('/clients/', data=data)
         assert response.status_code == 201
 
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i]) for i in [2, 3, 4, 5]])
-    def test_unauthorized_do_not_create_client(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
-        response = api_client.post('http://127.0.0.1:8000/clients/', data=data)
+    @pytest.mark.parametrize("user", ["support_1", "support_2", "admin_1", "visitor_1"])
+    def test_unauthorized_do_not_create_client(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.post('/clients/', data=data)
         assert response.status_code == 403

@@ -1,5 +1,4 @@
 import pytest
-from pytest_logic.fake_logs import user_logs
 
 data = {
                 "client_id":  1,
@@ -11,23 +10,23 @@ data = {
 
 @pytest.mark.django_db
 class TestContractCreation:
-    def test_sales_create_contract(self, api_client):
-        username, password = user_logs[0]
-        api_client.login(username=username, password=password)
-        response = api_client.post('http://127.0.0.1:8000/contracts/', data=data)
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
+    def test_sales_create_contract(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        data["client_id"] = int(user.split('_')[-1])
+        response = api_client.post('/contracts/', data=data)
         assert response.status_code == 201
 
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i]) for i in range(1, 6)])
-    def test_unauthorized_do_not_create_contract(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
+    @pytest.mark.parametrize("user", ["support_1", "support_2", "admin_1", "visitor_1"])
+    def test_unauthorized_do_not_create_contract(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
         data["client_id"] = 1
-        response = api_client.post('http://127.0.0.1:8000/contracts/', data=data)
+        response = api_client.post('/contracts/', data=data)
         assert response.status_code >= 400
 
-    def test_sales_create_contract_2(self, api_client):
-        username, password = user_logs[1]
-        api_client.login(username=username, password=password)
-        data["client_id"] = 2
-        response = api_client.post('http://127.0.0.1:8000/contracts/', data=data)
-        assert response.status_code == 201
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
+    def test_sales_do_not_create_contract_for_wrong_client(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        data["client_id"] = int(user.split('_')[-1]) % 2 + 1
+        response = api_client.post('/contracts/', data=data)
+        assert response.status_code == 400

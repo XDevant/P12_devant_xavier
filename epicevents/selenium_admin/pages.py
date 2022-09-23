@@ -1,24 +1,18 @@
-from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.errorhandler import NoSuchElementException
 import pages_data
-from abstract_pages import BasePage, PkPage, SearchPage
+from abstract_pages import BasePage, PkPage, ListPage, SearchPage
+from locators import ConfirmationPageLocator
 
 
 class LoginPage(BasePage):
-    """Login page data and action methods come here."""
+    """Login methods are BasePage methods to allow autolog from any page."""
     def __init__(self, driver, data=pages_data.LoginData):
         super().__init__(driver, data)
-        self.super_form = data.super_form
 
-    def submit_form(self):
-        submit = self.driver.find_element(By.ID, 'id_username')
-        submit.submit()
-
-    def log_user(self, superuser=False):
-        if superuser:
-            self.fill_form(self.super_form)
-        else:
-            self.fill_form()
-        self.submit_form()
+    def log_user(self, email=None):
+        self.get_page(email)
+        print(self.driver.title)
+        return self.title_url_matches(pages_data.HomeData.title, pages_data.HomeData.url)
 
 
 class LogoutPage(BasePage):
@@ -50,28 +44,41 @@ class ChangeUserPage(PkPage):
 
 
 class ConfirmationPage(BasePage):
-    def __init__(self, driver, app_name, model, data=pages_data.ConfirmationData):
+    def __init__(self, driver, app, model, data=None):
+        if data is None:
+            data = pages_data.ConfirmationData(app, model)
         super().__init__(driver, data)
-        self.url += app_name + '/' + model + '/'
 
     def confirm_delete(self):
-        selector = (By.CSS_SELECTOR, "input[value='Yes, I’m sure']")
-        confirm_input = self.driver.find_element(*selector)
-        confirm_input.click()
+        try:
+            locator = ConfirmationPageLocator.confirm_delete
+            confirm_input = self.driver.find_element(*locator)
+            confirm_input.click()
+            return True
+        except NoSuchElementException:
+            return False
 
 
-class ItemPage(SearchPage):
+class ItemPage(ListPage):
     def __init__(self, driver, model, data=None):
         if data is None:
             data = pages_data.ItemData(model)
         super().__init__(driver, data)
 
 
-class AddItemPage(PkPage):
+class AddItemPage(BasePage):
     def __init__(self, driver, model, data=None):
         if data is None:
             data = pages_data.AddItemData(model)
         super().__init__(driver, data)
+        self.pk = 0
+
+    def send_form(self, login=False, form_update=None):
+        ok = super().send_form(login, form_update)
+        if ok:
+            ok, pk = self._was_created_with_pk()
+            self.pk = pk
+        return ok
 
 
 class ChangeItemPage(PkPage):

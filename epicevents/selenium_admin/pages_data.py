@@ -1,58 +1,63 @@
+BASE_URL = "http://127.0.0.1:8000/"
+
+
 class BaseData:
     url = ""
     title = ""
     form = {}
     search = ""
-    super_form = {}
     pk = 0
 
 
 class LoginData(BaseData):
-    url = "http://127.0.0.1:8000/admin/login/?next=/admin/"
+    url = BASE_URL + "admin/login/?next=/admin/"
     title = "Log in | Django site admin"
-    form = {"username": "za@za.co", "password": "mdp5"}
-    super_form = {"username": "super@user.co", "password": "supermdp"}
+    forms = [{"username": "super@user.com", "password": "supermdp"}, {"username": "za@za.co", "password": "mdp5"}]
+    form = forms[1]
 
 
 class LogoutData(BaseData):
-    url = "http://127.0.0.1:8000/admin/logout/"
+    url = BASE_URL + "admin/logout/"
     title = "Logged out | Django site admin"
 
 
 class HomeData(BaseData):
-    url = "http://127.0.0.1:8000/admin/"
+    url = BASE_URL + "admin/"
     title = "Site administration | Django site admin"
 
 
 class UserData(BaseData):
-    url = "http://127.0.0.1:8000/admin/authentication/user/"
+    url = BASE_URL + "admin/authentication/user/"
     title = "Select user to change | Django site admin"
     search = "ma@la.co"
 
 
 class AddUserData(BaseData):
-    url = "http://127.0.0.1:8000/admin/authentication/user/add/"
+    url = BASE_URL + "admin/authentication/user/add/"
     title = "Add user | Django site admin"
     form = {"first_name": "Mi", "last_name": "Lou", "email": "mi@lou.co", "role": "support"}
 
 
 class ChangeUserData(BaseData):
+    url = BASE_URL + "admin/authentication/user/$pk$/change/"
     title = "Change user | Django site admin"
-    form = {"first_name": "Ma", "last_name": "La", "email": "ma@la.co", "role": "support"}
-    url = "http://127.0.0.1:8000/admin/authentication/user/$pk$/change/"
+    form = {"first_name": "Ma", "last_name": "La", "email": "ma@la.co", "role": "sales"}
 
     def __init__(self, pk=-1):
         self.pk = pk
 
 
 class ConfirmationData(BaseData):
-    url = "http://127.0.0.1:8000/admin/"
+    url = BASE_URL + "admin/"
     title = "Are you sure? | Django site admin"
+
+    def __init__(self, app, model):
+        self.url += app + '/' + model + '/'
 
 
 class ItemData(BaseData):
-    _item_search = {"client": "", "contract": "", "event": ""}
-    url = "http://127.0.0.1:8000/admin/crm/"
+    _item_search = {"client": "third@client.co", "contract": "", "event": ""}
+    url = BASE_URL + "admin/crm/"
 
     def __init__(self, model):
         self.url += model + '/'
@@ -61,11 +66,28 @@ class ItemData(BaseData):
 
 
 class AddItemData(BaseData):
-    _client_form = {}
-    _contract_form = {}
-    _event_form = {}
+    _client_form = {"first_name":  "third",
+                    "last_name":  "client",
+                    "email":  "third@client.co",
+                    "phone":  "01",
+                    "mobile":  "08",
+                    "company_name":  "World",
+                    "sales_contact": "ma@la.co"}
+    _contract_form = {"sales_contact": "ma@la.co",
+                      "client":  1,
+                      "status":  "False",
+                      "amount":  25,
+                      "payment_due_0":  "2022-08-17",
+                      "payment_due_1":  "18:33:30"}
+    _event_form = {"support_contact": "bi@bi.co",
+                   "client":  1,
+                   "event_status":  1,
+                   "attendees":  25,
+                   "event_date_0":  "2022-08-17",
+                   "event_date_1": "18:33:30",
+                   "notes": "bla"}
     _item_form = {"client": _client_form, "contract": _contract_form, "event": _event_form}
-    url = "http://127.0.0.1:8000/admin/crm/"
+    url = BASE_URL + "admin/crm/"
 
     def __init__(self, model):
         self.url += f"{model}/add/"
@@ -78,7 +100,7 @@ class ChangeItemData(BaseData):
     _contract_form = {}
     _event_form = {}
     _item_form = {"client": _client_form, "contract": _contract_form, "event": _event_form}
-    url = "http://127.0.0.1:8000/admin/crm/"
+    url = BASE_URL + "admin/crm/"
 
     def __init__(self, model, pk=-1):
         self.url += f"{model}/$pk$/change/"

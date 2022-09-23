@@ -1,48 +1,34 @@
 import pytest
-from pytest_logic.fake_logs import user_logs
 
 
 @pytest.mark.django_db
 class TestContractRead:
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i]) for i in [0, 1, 4]])
-    def test_sales_see_contracts(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/')
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
+    def test_sales_see_contracts(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.get('/contracts/')
         assert response.status_code == 200
 
-    def test_unauthorized_do_not_see_contracts(self, api_client):
-        username, password = user_logs[5]
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/')
+    @pytest.mark.parametrize("user", ["support_1", "support_2", "visitor_1"])
+    def test_unauthorized_do_not_see_contracts(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.get('/contracts/')
         assert response.status_code in [204, 403]
 
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i],) for i in [0, 4]])
-    def test_contact_see_contract_1(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/1/')
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
+    def test_sales_i_see_contract_i(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.get(f"/contracts/{int(user.split('_')[-1])}/")
         assert response.status_code == 200
 
-    @pytest.mark.parametrize("user", [pytest.param(user_logs[i], ) for i in [1, 2, 3, 5]])
-    def test_non_contact_do_not_see_contract_1(self, api_client, user):
-        username, password = user
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/1/')
+    @pytest.mark.parametrize("user", ["support_1", "support_2", "visitor_1"])
+    def test_non_sales_do_not_see_contract_1(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.get('/contracts/1/')
         assert response.status_code in [204, 403, 404]
 
-    def test_contact_see_contract_2(self, api_client):
-        username, password = user_logs[1]
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/2/')
-        assert response.status_code == 200
-
-    def test_non_contact_do_not_see_client_2(self, api_client):
-        username, password = user_logs[0]
-        api_client.login(username=username, password=password)
-        response = api_client.get('http://127.0.0.1:8000/contracts/2/')
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
+    def test_sales_non_contact_do_not_see_contract(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
+        response = api_client.get(f"/contracts/{int(user.split('_')[-1]) % 2 + 1}/")
         assert response.status_code in [204, 403, 404]
-
-
-
-

@@ -1,8 +1,5 @@
-[
+test_clients = [
   {
-    "model": "crm.client",
-    "pk": 1,
-    "fields": {
       "first_name":  "first",
       "last_name":  "client",
       "email":  "first@client.co",
@@ -10,13 +7,9 @@
       "mobile":  "06",
       "company_name":  "World",
       "date_created": "2022-08-17",
-      "sales_contact":  "2"
-    }
+      "sales_contact":  0
   },
   {
-    "model": "crm.client",
-    "pk": 2,
-    "fields": {
       "first_name":  "second",
       "last_name":  "client",
       "email":  "second@client.co",
@@ -24,57 +17,44 @@
       "mobile":  "07",
       "company_name":  "Mega",
       "date_created": "2022-09-17",
-      "sales_contact":  "3"
-    }
+      "sales_contact":  1
   },
+]
+test_contracts = [
   {
-    "model": "crm.contract",
-    "pk": 1,
-    "fields": {
-      "sales_contact": "2",
-      "client":  "1",
+      "sales_contact": 0,
+      "client":  0,
       "date_created": "2022-08-01",
       "status":  "True",
       "amount":  "10",
       "payment_due": "2023-08-01"
-    }
   },
   {
-    "model": "crm.contract",
-    "pk": 2,
-    "fields": {
-      "sales_contact": "3",
-      "client":  "2",
+      "sales_contact": 1,
+      "client":  1,
       "date_created": "2022-08-02",
       "status":  "True",
       "amount":  "10",
       "payment_due": "2023-08-02"
-    }
   },
+]
+test_events = [
   {
-    "model": "crm.event",
-    "pk": 1,
-    "fields": {
-      "support_contact":  "4",
-      "client":  "1",
-      "event_status":  "1",
+      "support_contact":  0,
+      "client":  0,
+      "event_status":  0,
       "attendees":  "1",
       "date_created": "2022-08-17",
       "event_date":  "2023-08-17",
       "notes": "test event 1"
-    }
   },
   {
-    "model": "crm.event",
-    "pk": 2,
-    "fields": {
-      "support_contact":  "5",
-      "client":  "2",
-      "event_status":  "2",
-      "attendees":  "1",
+      "support_contact":  1,
+      "client":  1,
+      "event_status":  1,
+      "attendees":  "2",
       "date_created": "2022-09-17",
       "event_date":  "2023-09-17",
       "notes": "test event 2"
-    }
-  }
+  },
 ]
