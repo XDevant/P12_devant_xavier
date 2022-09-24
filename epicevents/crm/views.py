@@ -26,8 +26,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
     multi_serializer_class = ClientSerializerSelector
     permission_classes = [DjangoModelPermissions, IsSaleContactCRUOrSupportContactReadOnly]
     queryset = Client.objects.all()
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['last_name', 'email']
+    filterset_fields = {'last_name': ['exact', 'icontains'], 'email': ['exact', 'icontains']}
 
     def perform_create(self, serializer):
         """
@@ -66,8 +65,10 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
     multi_serializer_class = ContractSerializerSelector
     permission_classes = [DjangoModelPermissions, IsSaleContactCRU]
     queryset = Contract.objects.all()
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['client__last_name', 'client__email', 'date_created', 'amount']
+    filterset_fields = {'client__last_name': ['exact', 'icontains'],
+                        'client__email': ['exact', 'icontains'],
+                        'date_created': ['exact'],
+                        'amount': ['exact', 'gt', 'lt']}
 
     def perform_create(self, serializer):
         """
@@ -113,8 +114,9 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
     multi_serializer_class = EventSerializerSelector
     permission_classes = [DjangoModelPermissions, IsInChargeOrReadOnly]
     queryset = Event.objects.all()
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['client__last_name', 'client__email', 'date_created']
+    filterset_fields = {'client__last_name': ['exact', 'icontains'],
+                        'client__email': ['exact', 'icontains'],
+                        'date_created': ['exact']}
 
     def perform_create(self, serializer):
         """

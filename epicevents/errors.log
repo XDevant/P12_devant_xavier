@@ -287,3 +287,1539 @@ Traceback (most recent call last):
   File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 235, in __set__
     raise ValueError(
 ValueError: Cannot assign "'1'": "Contract.client" must be a "Client" instance.
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 325, in get_filters
+    field = get_model_field(cls._meta.model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 144, in get_model_field
+    fields = get_field_parts(model, field_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\utils.py", line 160, in get_field_parts
+    parts = field_name.split(LOOKUP_SEP)
+AttributeError: 'tuple' object has no attribute 'split'
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 83, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: last_name_contains
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 68, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 20, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\rest_framework\backends.py", line 51, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 62, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django_filters\filterset.py", line 349, in get_filters
+    raise TypeError(
+TypeError: 'Meta.fields' must not contain non-model field names: @last_name, @email
+"GET /clients/?email=irst@clie HTTP/1.1" 500 120969
