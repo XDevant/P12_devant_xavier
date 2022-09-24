@@ -3,8 +3,9 @@ import pytest
 
 @pytest.mark.django_db
 class TestClientUpdate:
-    def test_contact_update_client(self, api_client, logins):
-        api_client.login(**logins.sales_1)
+    @pytest.mark.parametrize("user", ["sales_1", "admin_1"])
+    def test_contact_update_client(self, api_client, logins, user):
+        api_client.login(**getattr(logins, user))
         response = api_client.get('/clients/')
         data = response.data[0]
         assert '0123456789' not in data["phone"]

@@ -9,6 +9,7 @@ class TestContractUpdate:
         response = api_client.get('/contracts/')
         data = response.data[0]
         assert data["amount"] == 10
+        data["sales_contact"] = data["contact"].split("couriel:")[-1]
         data["amount"] = 15
         response = api_client.put(f"/contracts/{int(user.split('_')[-1])}/", data=data)
         assert response.status_code == 200

@@ -6,7 +6,7 @@ from rest_framework.serializers import ValidationError
 from datetime import datetime
 from .models import Client, Contract, Event
 from .serializers import ClientSerializerSelector, ContractSerializerSelector, EventSerializerSelector
-from .permissions import IsSaleContactOrReadOnly
+from .permissions import IsSaleContactCRUOrSupportContactReadOnly, IsSaleContactCRU, IsInChargeOrReadOnly
 from authentication.models import User
 
 
@@ -24,7 +24,7 @@ class MultipleSerializerMixin:
 class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ClientSerializerSelector.list
     multi_serializer_class = ClientSerializerSelector
-    permission_classes = [DjangoModelPermissions, IsSaleContactOrReadOnly]
+    permission_classes = [DjangoModelPermissions, IsSaleContactCRUOrSupportContactReadOnly]
     queryset = Client.objects.all()
     filter_backends = [filters.SearchFilter]
     search_fields = ['last_name', 'email']
@@ -64,7 +64,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
 class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ContractSerializerSelector.list
     multi_serializer_class = ContractSerializerSelector
-    permission_classes = [DjangoModelPermissions, IsSaleContactOrReadOnly]
+    permission_classes = [DjangoModelPermissions, IsSaleContactCRU]
     queryset = Contract.objects.all()
     filter_backends = [filters.SearchFilter]
     search_fields = ['client__last_name', 'client__email', 'date_created', 'amount']
@@ -85,7 +85,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
     def perform_update(self, serializer):
         try:
             client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
+            client = Client.objects.get(id=client_id)
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
@@ -111,7 +111,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
 class EventViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EventSerializerSelector.list
     multi_serializer_class = EventSerializerSelector
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [DjangoModelPermissions, IsInChargeOrReadOnly]
     queryset = Event.objects.all()
     filter_backends = [filters.SearchFilter]
     search_fields = ['client__last_name', 'client__email', 'date_created']
@@ -145,7 +145,7 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
         try:
             contact_email = serializer.initial_data['contact_email']
             contact = User.objects.get(email=contact_email)
-            assert contact == self.request.user
+            assert contact == self.request.user or self.request.user.groups.filter(name='admin').exists()
         except Exception:
             message = "Invalid support contact email"
             raise ValidationError(message)

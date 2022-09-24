@@ -7,7 +7,7 @@ class TestEventUpdate:
     def test_contact_update_event(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
         response = api_client.get('/events/')
-        data = response.data[-1]
+        data = response.data[0]
         assert f"test event {int(user.split('_')[-1])}" == data["notes"]
         data["contact_email"] = data["contact_email"].split("couriel:")[-1]
         data["notes"] = "bla"
@@ -19,7 +19,7 @@ class TestEventUpdate:
     def test_unauthorized_do_not_update_events(self, api_client, logins, user):
         api_client.login(**logins.admin_1)
         response = api_client.get('/events/')
-        data = response.data[-1]
+        data = response.data[0]
         assert data["notes"] == "test event 1"
         data["contact_email"] = data["contact_email"].split("couriel:")[-1]
         api_client.login(**getattr(logins, user))
