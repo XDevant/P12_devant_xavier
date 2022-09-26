@@ -3,7 +3,7 @@ from rest_framework import status, filters
 from rest_framework.response import Response
 from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.serializers import ValidationError
-from datetime import datetime
+from datetime import date
 from .models import Client, Contract, Event
 from .serializers import ClientSerializerSelector, ContractSerializerSelector, EventSerializerSelector
 from .permissions import IsSaleContactCRUOrSupportContactReadOnly, IsSaleContactCRU, IsInChargeOrReadOnly
@@ -36,7 +36,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
         serializer.save(sales_contact=current_user)
 
     def perform_update(self, serializer):
-        serializer.save(date_updated=datetime.now())
+        serializer.save(date_updated=date.today())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
@@ -67,7 +67,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
     queryset = Contract.objects.all()
     filterset_fields = {'client__last_name': ['exact', 'icontains'],
                         'client__email': ['exact', 'icontains'],
-                        'date_created': ['exact'],
+                        'date_created': ['exact', 'gt', 'lt'],
                         'amount': ['exact', 'gt', 'lt']}
 
     def perform_create(self, serializer):
@@ -90,7 +90,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
-        serializer.save(client=client, date_updated=datetime.now())
+        serializer.save(client=client, date_updated=date.today())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
@@ -116,7 +116,7 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
     queryset = Event.objects.all()
     filterset_fields = {'client__last_name': ['exact', 'icontains'],
                         'client__email': ['exact', 'icontains'],
-                        'date_created': ['exact']}
+                        'date_created': ['exact', 'range']}
 
     def perform_create(self, serializer):
         """
@@ -165,7 +165,7 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
         except Exception:
             message = "Invalid contract id"
             raise ValidationError(message)
-        serializer.save(support_contact=contact, client=client, event_status=contract, date_updated=datetime.now())
+        serializer.save(support_contact=contact, client=client, event_status=contract, date_updated=date.today())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""

@@ -9,8 +9,8 @@ class Client(models.Model):
     phone = models.CharField(max_length=20)
     mobile = models.CharField(max_length=20)
     company_name = models.CharField(max_length=250)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(default=None, null=True)
+    date_created = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(default=None, null=True)
     sales_contact = models.ForeignKey(
                                       to=settings.AUTH_USER_MODEL,
                                       on_delete=models.PROTECT,
@@ -32,11 +32,11 @@ class Contract(models.Model):
                                on_delete=models.CASCADE,
                                related_name='contractor'
                                )
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(default=None, null=True)
+    date_created = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(default=None, null=True)
     status = models.BooleanField()
     amount = models.FloatField()
-    payment_due = models.DateTimeField()
+    payment_due = models.DateField()
 
     def __str__(self):
         return str(self.id)
@@ -48,8 +48,8 @@ class Event(models.Model):
                                on_delete=models.CASCADE,
                                related_name='event_client'
                                )
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(default=None, null=True)
+    date_created = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(default=None, null=True)
     support_contact = models.ForeignKey(
                                         to=settings.AUTH_USER_MODEL,
                                         on_delete=models.PROTECT,

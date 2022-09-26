@@ -1,0 +1,87 @@
+Internal Server Error: /contracts/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 75, in update
+    return Response(serializer.data)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\fields.py", line 1300, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+Internal Server Error: /contracts/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 75, in update
+    return Response(serializer.data)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\fields.py", line 1300, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+Internal Server Error: /contracts/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\mixins.py", line 75, in update
+    return Response(serializer.data)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\fields.py", line 1300, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
