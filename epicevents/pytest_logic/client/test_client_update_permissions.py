@@ -3,14 +3,14 @@ import pytest
 
 @pytest.mark.django_db
 class TestClientUpdate:
-    @pytest.mark.parametrize("user", ["sales_1", "admin_1"])
+    @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_contact_update_client(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
         response = api_client.get('/clients/')
         data = response.data[0]
         assert '0123456789' not in data["phone"]
         data["phone"] = "0123456789"
-        response = api_client.put('/clients/1/', data=data)
+        response = api_client.put(f"/clients/{int(user.split('_')[-1])}/", data=data)
         assert response.status_code == 200
         assert '0123456789' in response.data["phone"]
 

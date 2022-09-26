@@ -80,15 +80,10 @@ WSGI_APPLICATION = "epicevents.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
         'NAME': 'Epic-Events',
-
         'USER': 'postgres',
-
         'PASSWORD': 'supermdp',
-
         'HOST': 'localhost',
-
         'PORT': '5432',
 
         'TEST': {
@@ -98,6 +93,14 @@ DATABASES = {
             'HOST': 'localhost',
             'PORT': '5432',
         },
+    },
+    "copy": {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'copy_Epic-Events',
+        'USER': 'postgres',
+        'PASSWORD': 'supermdp',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -158,7 +161,7 @@ LOGGING = {
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': 'C:\\Users\\xdeva\\Documents\\OC_projets\\P12_devant_xavier\\epicevents\\errors.log',
+            'filename': str(BASE_DIR) + '\\errors.log',
         },
     },
     'loggers': {

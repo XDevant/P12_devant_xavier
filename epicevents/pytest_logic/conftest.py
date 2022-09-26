@@ -22,10 +22,6 @@ def django_db_setup():
     settings.DATABASES['default']['NAME'] = 'test_Epic-Events'
 
     run_sql('DROP DATABASE IF EXISTS "test_Epic-Events"')
-    try:
-        run_sql('CREATE DATABASE "copy_Epic-Events" TEMPLATE "Epic-Events"')
-    except DuplicateDatabase:
-        pass
     run_sql('CREATE DATABASE "test_Epic-Events" TEMPLATE "copy_Epic-Events"')
 
     yield

@@ -1,3 +1,9 @@
+superuser = {
+        "first_name": "super",
+        "last_name": "user",
+        "email": "super@user.com",
+        "password": "supermdp"
+    }
 
 test_users = [
     {
