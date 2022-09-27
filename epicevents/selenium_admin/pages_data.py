@@ -96,9 +96,9 @@ class AddItemData(BaseData):
 
 
 class ChangeItemData(BaseData):
-    _client_form = {}
-    _contract_form = {}
-    _event_form = {}
+    _client_form = {"phone":  "01020304"}
+    _contract_form = {"amount": 100}
+    _event_form = {"notes": "selenium event"}
     _item_form = {"client": _client_form, "contract": _contract_form, "event": _event_form}
     url = BASE_URL + "admin/crm/"
 

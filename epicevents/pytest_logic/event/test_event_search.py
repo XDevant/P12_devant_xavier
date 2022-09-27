@@ -1,5 +1,5 @@
 import pytest
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 
 @pytest.mark.django_db
@@ -8,7 +8,7 @@ class TestEventSearch:
                                             ("client__last_name", "client"),
                                             ("client__emaill__icontains", "first@clie"),
                                             ("client__last_namel__icontains", "clien"),
-                                            ("date_created__lt", str(date.today() + timedelta(days=1))),
+                                            ("date_created__lt", str(datetime.now())),
                                             ("date_created__gt", str(date.today() - timedelta(days=15000)))
                                             ])
     def test_search_events_by(self, api_client, logins, key, value):
@@ -21,6 +21,7 @@ class TestEventSearch:
                                             ("client__last_name", "rarg"),
                                             ("client__email__icontains", "first@client.o"),
                                             ("client__last_name__icontains", "clieno"),
+                                            ("date_created__gt", str(date.today() + timedelta(days=1)))
                                             ])
     def test_search_events_no_result(self, api_client, logins, key, value):
         api_client.login(**logins.sales_1)

@@ -135,7 +135,7 @@ class PkPage(BasePage):
             locator = PkPageLocator().delete_item
             link = self.driver.find_element(*locator)
             link.click()
-            sleep(3)
+            sleep(1)
             return True
         except NoSuchElementException:
             return False
@@ -150,7 +150,6 @@ class ListPage(BasePage):
     def find_list_link_and_follow(self, pk):
         try:
             url = self.target_pk_url + str(pk) + '/change/'
-            print(url)
             locator = ListPageLocator(url).find_list_link_and_follow
             link = self.driver.find_element(*locator)
             link.click()

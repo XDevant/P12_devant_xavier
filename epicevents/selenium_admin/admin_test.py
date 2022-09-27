@@ -6,6 +6,7 @@ import pages
 
 
 class Memory:
+    """Stores pk of last created items"""
     last_created_user = 0
     last_created_client = 0
     last_created_contract = 0
@@ -73,8 +74,17 @@ class TestAdminStories:
         assert add_item_page.send_form(form_update=form_update)
         setattr(Memory, f"last_created_{item}", add_item_page.pk)
 
-    def test_admin_can_change_item(self, selenium):
-        pass
+    @pytest.mark.parametrize("item", ["client", "contract", "event"])
+    def test_admin_can_change_item(self, selenium, item):
+        item_page = pages.ItemPage(selenium, item)
+        assert item_page.get_page("za@za.co")
+        assert item_page.find_list_link_and_follow(getattr(Memory, f"last_created_{item}"))
+
+        change_item_page = pages.ChangeItemPage(selenium, item)
+        assert change_item_page.get_pk_and_update_url(item)
+        print(selenium.current_url, selenium.title)
+        assert change_item_page.title_url_matches()
+        assert change_item_page.send_form()
 
     def test_superuser_can_cascade_delete_items(self, selenium):
         client_page = pages.ItemPage(selenium, "client")
