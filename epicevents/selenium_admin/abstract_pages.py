@@ -13,6 +13,7 @@ class BasePage:
         self.url = data.url
         self.title = data.title
         self.form = data.form
+        self.sleep_time = data.sleep_time
 
     def title_url_matches(self, title=None, url=None):
         """Verifies that we reached the expected page of the admin site"""
@@ -28,6 +29,7 @@ class BasePage:
         if form_update is not None and isinstance(form_update, dict):
             for key, value in form_update.items():
                 form[key] = value
+
         for key, value in form.items():
             locator = BasePageLocator(key).fill_form
             form_input = self.driver.find_element(*locator)
@@ -36,7 +38,7 @@ class BasePage:
             except InvalidElementStateException:
                 pass
             form_input.send_keys(value)
-            sleep(1)
+            sleep(self.sleep_time)
 
     def _submit_form(self, login=False):
         if login:
@@ -68,7 +70,7 @@ class BasePage:
             locator = BasePageLocator.logout
             link = self.driver.find_element(*locator)
             link.submit()
-            sleep(1)
+            sleep(self.sleep_time)
             return True
         return False
 
@@ -135,7 +137,7 @@ class PkPage(BasePage):
             locator = PkPageLocator().delete_item
             link = self.driver.find_element(*locator)
             link.click()
-            sleep(1)
+            sleep(self.sleep_time)
             return True
         except NoSuchElementException:
             return False
@@ -178,5 +180,5 @@ class SearchPage(ListPage):
         locator = SearchPageLocator('', action=action).select_action_and_go
         select_input = self.driver.find_element(*locator)
         select_input.click()
-        sleep(1)
+        sleep(self.sleep_time)
         select_input.submit()

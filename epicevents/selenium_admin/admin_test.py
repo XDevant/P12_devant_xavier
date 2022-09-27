@@ -82,7 +82,6 @@ class TestAdminStories:
 
         change_item_page = pages.ChangeItemPage(selenium, item)
         assert change_item_page.get_pk_and_update_url(item)
-        print(selenium.current_url, selenium.title)
         assert change_item_page.title_url_matches()
         assert change_item_page.send_form()
 

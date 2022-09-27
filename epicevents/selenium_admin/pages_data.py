@@ -1,4 +1,5 @@
 BASE_URL = "http://127.0.0.1:8000/"
+SLEEP_TIME = 1
 
 
 class BaseData:
@@ -7,6 +8,7 @@ class BaseData:
     form = {}
     search = ""
     pk = 0
+    sleep_time = SLEEP_TIME
 
 
 class LoginData(BaseData):

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,25 +81,25 @@ WSGI_APPLICATION = "epicevents.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Epic-Events',
-        'USER': 'postgres',
-        'PASSWORD': 'supermdp',
+        'NAME': config.POSTGRES_NAME,
+        'USER': config.POSTGRES_USER,
+        'PASSWORD': config.POSTGRES_PASSWORD,
         'HOST': 'localhost',
         'PORT': '5432',
 
         'TEST': {
-            'NAME': 'test_Epic_Events',
-            'USER': 'postgres',
-            'PASSWORD': 'supermdp',
+            'NAME': 'test_' + config.POSTGRES_NAME,
+            'USER': config.POSTGRES_USER,
+            'PASSWORD': config.POSTGRES_PASSWORD,
             'HOST': 'localhost',
             'PORT': '5432',
         },
     },
     "copy": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'copy_Epic-Events',
-        'USER': 'postgres',
-        'PASSWORD': 'supermdp',
+        'NAME': 'copy_' + config.POSTGRES_NAME,
+        'USER': config.POSTGRES_USER,
+        'PASSWORD': config.POSTGRES_PASSWORD,
         'HOST': 'localhost',
         'PORT': '5432',
     }
