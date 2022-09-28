@@ -1,7 +1,7 @@
 from selenium.webdriver.remote.errorhandler import InvalidElementStateException, NoSuchElementException
 from time import sleep
-from locators import BasePageLocator, PkPageLocator, ListPageLocator, SearchPageLocator, Selector
-from pages_data import LoginData
+from .locators import BasePageLocator, PkPageLocator, ListPageLocator, SearchPageLocator, Selector
+from .pages_data import LoginData
 
 
 class BasePage:
@@ -74,37 +74,27 @@ class BasePage:
             return True
         return False
 
-    def _login(self, form=None):
+    def _login(self, form):
         self.driver.get(LoginData.url)
-        if form is None:
-            self._fill_form(LoginData.form)
-        else:
-            self._fill_form(form)
+        self._fill_form(form)
         self._submit_form(True)
 
-    def _get_admin_form(self, email):
-        for form in LoginData.forms:
-            if form["username"] == email:
-                return form
-        return {}
-
-    def get_page(self, email=None, autolog=True):
-        """Navigates to the page url. If admin email is provided, will first log the admin.
-        if no email is provided, default autolog=True will log the admin in pages_data.LoginData.form
-        only if no admin is currently logged"""
-        if email is not None:
-            if Selector(email).logged not in self.driver.page_source:
+    def get_page(self, logs=None):
+        """Navigates to the page url. If logs are provided, will first log the admin if needed.
+        Note that without logs provided, any page other than login page will only be reached if
+        an admin is already logged.
+         Returns True if the page is reached and False otherwise."""
+        if logs is not None:
+            logs["username"] = logs.pop("email")
+            if Selector(logs["username"]).logged not in self.driver.page_source:
                 self.logout()
-                form = self._get_admin_form(email)
+                form = logs
                 self._login(form)
-        else:
-            if Selector.logout not in self.driver.page_source:
-                if autolog:
-                    self._login()
         self.driver.get(self.url)
         return self.title_url_matches()
 
     def _was_created_with_pk(self):
+        """Looks for the message following a successfull creation and extracts the id of the created item"""
         locator = BasePageLocator.created_successfully
         try:
             link = self.driver.find_element(*locator)
@@ -120,6 +110,8 @@ class PkPage(BasePage):
         self.pk = data.pk
 
     def get_pk_and_update_url(self, model):
+        """Extracts the pk in the driver's current url to update page data that depends on pk
+        like url and pk. Return True if a pk is found."""
         real_url = self.driver.current_url
         needle = f'{model}/'
         if needle in real_url:

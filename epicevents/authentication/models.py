@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, Group, PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class UserManager(BaseUserManager):
@@ -57,8 +58,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         super().save()
+        self.groups.clear()
         try:
-            default_group = Group.objects.get(name=self.role)
-            self.groups.add(default_group)
-        except Group.DoesNotExist:
-            pass
+            group = Group.objects.get(name=self.role)
+            self.groups.add(group)
+        except ObjectDoesNotExist:
+            try:
+                group = Group.objects.get(name="visitor")
+                self.groups.add(group)
+            except ObjectDoesNotExist:
+                pass

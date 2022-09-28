@@ -2,8 +2,11 @@ The simplest way to test it is to:
 
 1. Postgres Credentials can be found/set in the config.py file in the epicevents folder:
 
-The app need to connect to a Postgres database. You can either create a Postgres account with the name and
-password in config.py or edit the config.py to enter your account name and password.
+The app need to connect to a Postgres database. You can either create a Postgres account with the username and
+password in config.py or edit POSTGRES_USER, POSTGRES_PASSWORD in config.py to enter your account username and password.
+
+## The install command will DROP the tables named Epic-Events, test_Epic-Events and copy_Epic-Events before recreating them.
+If this is a problem you can change the name in config.py (POSTGRES_NAME)
       
 2. Clone the repository on your own computer et navigate into the folder:
 
@@ -24,7 +27,7 @@ password in config.py or edit the config.py to enter your account name and passw
 
 6. Install the app:
 
-        python EpicEvents\manage.py install -sf
+        python epicevents\manage.py install -sf
 This will chain the makemigration and migrate commands, create groups and permissions,
 and generate a group of fake users and items to test the app.
 This will also create a database Epic-Events and duplicate it for use as testing template.

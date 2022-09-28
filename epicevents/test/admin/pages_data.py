@@ -1,5 +1,5 @@
 BASE_URL = "http://127.0.0.1:8000/"
-SLEEP_TIME = 1
+SLEEP_TIME = 0
 
 
 class BaseData:
@@ -14,8 +14,6 @@ class BaseData:
 class LoginData(BaseData):
     url = BASE_URL + "admin/login/?next=/admin/"
     title = "Log in | Django site admin"
-    forms = [{"username": "super@user.com", "password": "supermdp"}, {"username": "za@za.co", "password": "mdp5"}]
-    form = forms[1]
 
 
 class LogoutData(BaseData):

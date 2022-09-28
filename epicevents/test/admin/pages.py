@@ -1,7 +1,7 @@
 from selenium.webdriver.remote.errorhandler import NoSuchElementException
-import pages_data
-from abstract_pages import BasePage, PkPage, ListPage, SearchPage
-from locators import ConfirmationPageLocator
+from . import pages_data
+from .abstract_pages import BasePage, PkPage, ListPage, SearchPage
+from .locators import ConfirmationPageLocator
 
 
 class LoginPage(BasePage):
@@ -9,9 +9,8 @@ class LoginPage(BasePage):
     def __init__(self, driver, data=pages_data.LoginData):
         super().__init__(driver, data)
 
-    def log_user(self, email=None):
-        self.get_page(email)
-        print(self.driver.title)
+    def log_user(self, logs=None):
+        self.get_page(logs)
         return self.title_url_matches(pages_data.HomeData.title, pages_data.HomeData.url)
 
 

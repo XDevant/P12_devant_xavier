@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 import pytest
-import pages
+from . import pages
 
 
 class Memory:
@@ -38,14 +38,14 @@ def selenium(request):
 
 
 class TestAdminStories:
-    def test_admin_login(self, selenium):
+    def test_admin_login(self, selenium, logins):
         login_page = pages.LoginPage(selenium)
-        assert login_page.get_page(autolog=False)
-        assert login_page.log_user()
+        assert login_page.get_page()
+        assert login_page.log_user(logins.admin_1)
 
-    def test_admin_can_cru_user(self, selenium):
+    def test_admin_can_cru_user(self, selenium, logins):
         home_page = pages.HomePage(selenium)
-        assert home_page.get_page("za@za.co")
+        assert home_page.get_page(logins.admin_1)
         home_page.find_nav_link_and_follow('user', 'add')
 
         add_user_page = pages.AddUserPage(selenium)
@@ -61,9 +61,9 @@ class TestAdminStories:
         assert user_page.title_url_matches()
 
     @pytest.mark.parametrize("item", ["client", "contract", "event"])
-    def test_superuser_can_create_items(self, selenium, item):
+    def test_superuser_can_create_items(self, selenium, item, logins):
         home_page = pages.HomePage(selenium)
-        assert home_page.get_page("super@user.com")
+        assert home_page.get_page(logins.superuser)
         assert home_page.find_nav_link_and_follow(item, 'add')
 
         add_item_page = pages.AddItemPage(selenium, item)
@@ -75,9 +75,9 @@ class TestAdminStories:
         setattr(Memory, f"last_created_{item}", add_item_page.pk)
 
     @pytest.mark.parametrize("item", ["client", "contract", "event"])
-    def test_admin_can_change_item(self, selenium, item):
+    def test_admin_can_change_item(self, selenium, item, logins):
         item_page = pages.ItemPage(selenium, item)
-        assert item_page.get_page("za@za.co")
+        assert item_page.get_page(logins.admin_1)
         assert item_page.find_list_link_and_follow(getattr(Memory, f"last_created_{item}"))
 
         change_item_page = pages.ChangeItemPage(selenium, item)
@@ -85,9 +85,9 @@ class TestAdminStories:
         assert change_item_page.title_url_matches()
         assert change_item_page.send_form()
 
-    def test_superuser_can_cascade_delete_items(self, selenium):
+    def test_superuser_can_cascade_delete_items(self, selenium, logins):
         client_page = pages.ItemPage(selenium, "client")
-        assert client_page.get_page("super@user.com")
+        assert client_page.get_page(logins.superuser)
         assert client_page.find_list_link_and_follow(Memory.last_created_client)
 
         change_item_page = pages.ChangeItemPage(selenium, "client")
@@ -100,9 +100,9 @@ class TestAdminStories:
         assert confirmation_page.confirm_delete()
         assert client_page.title_url_matches()
 
-    def test_admin_can_find_and_delete_user(self, selenium):
+    def test_admin_can_find_and_delete_user(self, selenium, logins):
         home_page = pages.HomePage(selenium)
-        assert home_page.get_page("za@za.co")
+        assert home_page.get_page(logins.superuser)
         home_page.find_nav_link_and_follow('user')
 
         user_page = pages.UserPage(selenium)

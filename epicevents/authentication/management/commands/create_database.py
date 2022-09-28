@@ -1,18 +1,6 @@
 from django.core.management.base import BaseCommand
-import psycopg2
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from psycopg2.errors import ObjectInUse, OperationalError
-from django.conf import settings
-
-
-def run_sql(sql):
-    conn = psycopg2.connect(database=settings.DATABASES['default']['USER'],
-                            user=settings.DATABASES['default']['USER'],
-                            password=settings.DATABASES['default']['PASSWORD'])
-    conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-    cur = conn.cursor()
-    cur.execute(sql)
-    conn.close()
+from utils.utils import run_sql
 
 
 class Command(BaseCommand):

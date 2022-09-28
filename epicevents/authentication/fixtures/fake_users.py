@@ -1,8 +1,11 @@
+import config
+
+
 superuser = {
         "first_name": "super",
         "last_name": "user",
-        "email": "super@user.com",
-        "password": "supermdp"
+        "email": config.SUPERUSER_EMAIL,
+        "password": config.SUPERUSER_PASSWORD
     }
 
 test_users = [

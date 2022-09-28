@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.core.exceptions import ValidationError
-from django.core.management.utils import get_random_secret_key
+from django.core.mail import send_mail
+from django.utils.crypto import get_random_string
 from .models import User
 
 
@@ -14,11 +14,17 @@ class UserCreationForm(forms.ModelForm):
         fields = ('email', 'first_name', 'last_name', 'role')
 
     def save(self, commit=True):
+        chars = "abcdefghijklmnopqrstuvwxyz0123456789!£$*"
         user = super().save(commit=False)
-        password = get_random_secret_key()
+        password = get_random_string(40, chars)
         user.set_password(password)
-        # should send mail to user here
-        print(password)
+        send_mail(
+            'Admin Epic-Events',
+            f'Hi {user.first_name} this is your password: {password}',
+            'admin@epic-events.com',
+            [f'{user.email}'],
+            fail_silently=False,
+        )
         if commit:
             user.save()
         return user
