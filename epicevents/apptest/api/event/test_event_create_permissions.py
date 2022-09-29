@@ -8,7 +8,7 @@ class TestEventCreation:
     def test_sales_create_event(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
         data["client_id"] = int(user.split('_')[-1])
-        data["contract_id"] = int(user.split('_')[-1])
+        data["contract_id"] = int(user.split('_')[-1]) * 2
         response = api_client.post('/events/', data=data)
         assert response.status_code == 201
 
@@ -24,6 +24,6 @@ class TestEventCreation:
     def test_sales_can_not_create_impossible_event(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
         data["client_id"] = 1
-        data["contract_id"] = 2
+        data["contract_id"] = 3
         response = api_client.post('/events/', data=data)
         assert response.status_code >= 400

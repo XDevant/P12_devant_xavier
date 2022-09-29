@@ -17,7 +17,7 @@ contract_form = {
 event_form = {
         "contact_email": "bi@bi.co",
         "client_id":  1,
-        "contract_id":  1,
+        "contract_id":  3,
         "attendees":  15,
         "event_date":  "2022-08-17",
         "notes": "bla"

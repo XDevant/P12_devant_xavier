@@ -1,4 +1,4 @@
-from datetime import timedelta, date, timezone, datetime
+from datetime import timedelta, timezone, datetime
 
 
 test_clients = [
@@ -34,6 +34,20 @@ test_contracts = [
       "client":  1,
       "status":  "True",
       "amount":  "10",
+      "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
+  },
+{
+      "sales_contact": 0,
+      "client":  0,
+      "status":  "True",
+      "amount":  "100",
+      "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
+  },
+  {
+      "sales_contact": 1,
+      "client":  1,
+      "status":  "True",
+      "amount":  "100",
       "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
   },
 ]

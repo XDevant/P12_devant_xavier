@@ -11,7 +11,7 @@ class TestContractUpdate:
         assert data["amount"] != 156331
         data["sales_contact"] = data["contact"].split("couriel:")[-1]
         data["amount"] = 156331
-        response = api_client.put(f"/contracts/{int(user.split('_')[-1])}/", data=data)
+        response = api_client.put(f"/contracts/{int(user.split('_')[-1]) * 2}/", data=data)
         print(f"\n Trying to change first listed contract's amount: ", end='')
         assert response.status_code == 200
         assert response.data["amount"] == 156331

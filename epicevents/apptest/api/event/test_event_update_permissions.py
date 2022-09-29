@@ -28,7 +28,6 @@ class TestEventUpdate:
 
     @pytest.mark.parametrize("key, value", [pytest.param("contact_email", "bo@bo.co"),
                                             pytest.param("client_id", 2),
-                                            pytest.param("contract_id", 2),
                                             ])
     def test_support_do_not_update_impossible_events(self, api_client, logins, key, value):
         api_client.login(**logins.support_1)

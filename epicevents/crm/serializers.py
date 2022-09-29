@@ -40,9 +40,7 @@ class ContractListSerializer(serializers.ModelSerializer):
         read_only_fields = ['contact', 'date_created']
 
 
-class ContractDetailSerializer(serializers.ModelSerializer):
-    contact = serializers.StringRelatedField(source='sales_contact')
-    client_id = serializers.CharField(source='client')
+class ContractDetailSerializer(ContractListSerializer):
 
     class Meta:
         model = Contract
@@ -69,16 +67,14 @@ class EventListSerializer(serializers.ModelSerializer):
         read_only_fields = ['date_created']
 
 
-class EventDetailSerializer(serializers.ModelSerializer):
-    contact_email = serializers.EmailField(source='support_contact')
-    client_id = serializers.CharField(source='client')
-    contract_id = serializers.CharField(source='event_status')
+class EventDetailSerializer(EventListSerializer):
+    contract_id = serializers.StringRelatedField(source='event_status')
 
     class Meta:
         model = Event
         fields = ['id', 'contact_email', 'client_id', 'contract_id', 'date_created',
                   'date_updated', 'attendees', 'event_date', 'notes']
-        read_only_fields = ['date_created', 'date_updated']
+        read_only_fields = ['contract_id', 'date_created', 'date_updated']
 
 
 class EventSerializerSelector:

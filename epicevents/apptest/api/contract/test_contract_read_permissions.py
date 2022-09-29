@@ -19,7 +19,7 @@ class TestContractRead:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_sales_i_see_contract_i(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
-        response = api_client.get(f"/contracts/{int(user.split('_')[-1])}/")
+        response = api_client.get(f"/contracts/{int(user.split('_')[-1]) * 2}/")
         assert response.status_code == 200
         assert len(response.data) == 8
 
@@ -32,5 +32,5 @@ class TestContractRead:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
     def test_sales_non_contact_do_not_see_contract(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
-        response = api_client.get(f"/contracts/{int(user.split('_')[-1]) % 2 + 1}/")
+        response = api_client.get(f"/contracts/{4 - int(user.split('_')[-1])}/")
         assert response.status_code == 404
