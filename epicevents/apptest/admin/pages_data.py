@@ -72,16 +72,13 @@ class AddItemData(BaseData):
                     "phone":  "01",
                     "mobile":  "08",
                     "company_name":  "World",
-                    "sales_contact": "ma@la.co"}
-    _contract_form = {"sales_contact": "ma@la.co",
-                      "client":  1,
-                      "status":  "False",
+                    "sales_contact": "Ma La couriel:ma@la.co"}
+    _contract_form = {"client":  1,
                       "amount":  25,
                       "payment_due_0":  "2022-08-17",
                       "payment_due_1":  "18:33:30"}
-    _event_form = {"support_contact": "bi@bi.co",
-                   "client":  1,
-                   "event_status":  1,
+    _event_form = {"support_contact": "Bi Bi couriel:bi@bi.co",
+                   "contract":  1,
                    "attendees":  25,
                    "event_date_0":  "2022-08-17",
                    "event_date_1": "18:33:30",

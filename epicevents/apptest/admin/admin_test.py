@@ -69,8 +69,10 @@ class TestAdminStories:
         add_item_page = pages.AddItemPage(selenium, item)
         assert add_item_page.title_url_matches()
         form_update = None
-        if item != 'client':
+        if item == 'contract':
             form_update = {"client": Memory.last_created_client}
+        if item == 'event':
+            form_update = {"contract": Memory.last_created_contract}
         assert add_item_page.send_form(form_update=form_update)
         setattr(Memory, f"last_created_{item}", add_item_page.pk)
 

@@ -11,6 +11,13 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'email', 'phone', 'mobile', 'company_name', 'sales_contact')
     ordering = ('sales_contact', 'last_name')
 
+    def get_form(self, request, obj=None, **kwargs):
+        defaults = {}
+        if obj is None:
+            defaults['form'] = self.add_form
+        defaults.update(kwargs)
+        return super().get_form(request, obj, **defaults)
+
 
 class ContractAdmin(admin.ModelAdmin):
     add_form = ContractAddForm
