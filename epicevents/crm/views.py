@@ -81,8 +81,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
-        contract = serializer.save(sales_contact=current_user, client=client)
-        Status.objects.create(contract=contract)
+        serializer.save(sales_contact=current_user, client=client, status=False)
 
     def perform_update(self, serializer):
         try:
@@ -130,15 +129,13 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
             message = "Invalid support contact email, event contact must be a support team member"
             raise ValidationError(message)
         try:
-            client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
-        except Exception:
-            message = "Invalid client id"
-            raise ValidationError(message)
-        try:
-            contract_id = serializer.initial_data['contract_id']
-            event_status = Status.objects.get(contract__id=contract_id,
-                                              contract__sales_contact=self.request.user)
+            contract_id = serializer.initial_data['status']
+            contract = Contract.objects.get(id=contract_id, sales_contact=self.request.user, status=False)
+            client = contract.client
+            contract.status = True
+            assert client.sales_contact == self.request.user
+            contract.save()
+            event_status = Status.objects.create(contract=contract)
         except Exception:
             message = "Invalid contract id"
             raise ValidationError(message)

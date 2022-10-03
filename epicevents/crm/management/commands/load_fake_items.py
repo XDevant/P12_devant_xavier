@@ -33,6 +33,7 @@ class Command(BaseCommand):
 
             contract["sales_contact"] = sales_list[client_index]
             contract["client"] = new_client
+            contract["status"] = True
             new_contract = Contract.objects.db_manager(db).create(**contract)
             new_status = Status.objects.db_manager(db).create(contract=new_contract)
             contract_count += 1

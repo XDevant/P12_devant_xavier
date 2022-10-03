@@ -23,30 +23,22 @@ test_clients = [
 ]
 test_contracts = [
   {
-      "sales_contact": 0,
       "client":  0,
-      "status":  True,
       "amount":  10,
       "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
   },
   {
-      "sales_contact": 1,
       "client":  1,
-      "status":  True,
       "amount":  10,
       "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
   },
 {
-      "sales_contact": 0,
       "client":  0,
-      "status":  False,
       "amount":  100,
       "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
   },
   {
-      "sales_contact": 1,
       "client":  1,
-      "status":  False,
       "amount":  100,
       "payment_due": datetime.now(timezone.utc) + timedelta(days=28),
   },
@@ -54,7 +46,6 @@ test_contracts = [
 test_events = [
   {
       "support_contact":  0,
-      "client":  0,
       "event_status":  0,
       "attendees":  10,
       "event_date":  datetime.now(timezone.utc) + timedelta(days=40),
@@ -62,7 +53,6 @@ test_events = [
   },
   {
       "support_contact":  1,
-      "client":  1,
       "event_status":  1,
       "attendees":  20,
       "event_date":  datetime.now(timezone.utc) + timedelta(days=20),

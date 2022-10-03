@@ -27,7 +27,7 @@ class Contract(models.Model):
                                on_delete=models.CASCADE,
                                related_name='contractor'
                                )
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
     amount = models.FloatField()
     payment_due = models.DateTimeField()
     sales_contact = models.ForeignKey(
