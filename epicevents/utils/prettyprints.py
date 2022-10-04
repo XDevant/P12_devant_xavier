@@ -1,3 +1,7 @@
+from pathlib import Path
+
+
+BASE_DIR = str(Path(__file__).resolve().parent.parent)
 
 
 class Colors:
@@ -49,11 +53,11 @@ class PRR:
                 key = PRR.colorize(key, checks[0])
             if checks[1] is not None:
                 value = PRR.colorize(value, checks[1])
-            pretty = (23 - offset) * ' ' + key + (offset - len_key) * ' ' + ' : '
-            pretty += value + (23 - len_value) * ' '
+            result = (23 - offset) * ' ' + key + (offset - len_key) * ' '
+            result += ' : ' + value + (23 - len_value) * ' '
         else:
-            pretty = 49 * ' '
-        return pretty
+            result = 49 * ' '
+        return result
 
     @staticmethod
     def get_longest_key(list_of_key_values):
@@ -67,6 +71,7 @@ class PRR:
         headers = 17 * ' '
         expect = 'Expected Result'
         if method == 'PUT':
+            headers += '  '
             expect = 'Target Item'
         if method in ['POST', 'PUT']:
             headers += Colors.HEADER + 'Request  Body' + Colors.END + 35 * ' '
@@ -91,19 +96,33 @@ class PRR:
             title += 'logs: ' + str(request_logs)
         return title + '\n'
 
+    @staticmethod
+    def save_report_in_doc(report_rows):
+        file = BASE_DIR + '\\doc.txt'
+        with open(file, 'a', encoding='cp1252') as f:
+            for row in report_rows:
+                print(row, file=f)
+
+    @staticmethod
+    def print_doc():
+        file = BASE_DIR + '\\doc.txt'
+        with open(file, 'r', encoding='cp1252') as f:
+            for row in f:
+                print(row, end='')
+
 
 class PrettifyPostReport(PRR):
     """The init is the workhorse of the system. It builds a list of key, value tuples
     for each column of data we want to display from the passed dicts.
-    It also format the values and keys before any check, turning DateTimes into Dates.
-    Finally the init calls get_pretty rows and other helpers to build every line of
-    the repport.
+    It also formats the values and keys before any check, turning DateTimes into Dates.
+    Finally, the init calls get_pretty rows and other helpers to build every line of
+    the report.
     Args:
         request_dict: holds 3 keys: "url" is a string, "logs" a dict with the user logs
                 and body, the data of the POST request.
-        response_body: dict, raw response.body
+        response_body: dict
     Kwargs:
-        expected_response: dict expected to match the previous one, if not provided no check
+        expected_response: dict expected to match the previous one, if not provided, no check
                            will occur.
         mapping: a list of indexes where we want to insert a blank in the request column
                 needs to be the index of the existing key so if you want the first column
@@ -164,7 +183,7 @@ class PrettifyPostReport(PRR):
         """
         Builds each row with 2 (resp. 3) key_value pairs according to display_expected option
         Checks each key and each value with expected result if provided.
-        Failed checks are colored in red, successfull ones in green.
+        Failed checks are colored in red, successful ones in green.
         Returns the list of colored and justified rows.
         """
         result = []
@@ -207,13 +226,13 @@ class PrettifyPostReport(PRR):
 class PrettifyPutReport(PRR):
     """The init is the workhorse of the system. It builds a list of key, value tuples
     for each column of data we want to display from the passed dicts.
-    It also format the values and keys before any check, turning DateTimes into Dates.
-    Finally the init calls get_pretty rows and other helpers to build every line of
-    the repport.
+    It also formats the values and keys before any check, turning DateTimes into Dates.
+    Finally, the init calls get_pretty rows and other helpers to build every line of
+    the report.
     Args:
         request_dict: holds 3 keys: "url" is a string, "logs" a dict with the user logs
                 and 'body', the data of the POST request.
-        response_body: dict, raw response.body
+        response_body: dict
     Kwargs:
         expected_response: dict expected to match the previous one, if not provided, checks
                            will only occur against key values in request.
@@ -228,23 +247,23 @@ class PrettifyPutReport(PRR):
     def __init__(self,
                  request_dict,
                  response_body,
-                 expected_response=None,
+                 initial_data=None,
                  display_expected=True
                  ):
         items = request_dict["body"].items()
         self.request_body = [PRR.format(key, str(val)) for key, val in items]
         self.request_url = request_dict["url"]
         self.request_logs = request_dict["logs"]
-        self.expected_response = []
-        if expected_response is not None:
-            items = expected_response.items()
-            self.expected_response = [PRR.format(k, str(v)) for k, v in items]
+        self.initial_data = []
+        if initial_data is not None:
+            items = initial_data.items()
+            self.initial_data = [PRR.format(k, str(v)) for k, v in items]
         items = response_body.items()
         self.response_body = [PRR.format(k, str(v)) for k, v in items]
         self.longest_key = PRR.get_longest_key(
-            self.request_body + self.expected_response + self.response_body)
+            self.request_body + self.initial_data + self.response_body)
         self.display_expected = False
-        if len(self.expected_response) > 0 and display_expected:
+        if len(self.initial_data) > 0 and display_expected:
             self.display_expected = True
         self.title = PRR.get_title(self.method,
                                    self.request_url,
@@ -254,36 +273,42 @@ class PrettifyPutReport(PRR):
         self.errors = PRR.get_errors(self.key_mismatch, self.value_mismatch)
 
     def pretty_print(self):
+        result = []
         print(self.title)
+        result.append(self.title)
         print(self.headers)
+        result.append(self.headers)
         for row in self.result:
             print(row)
+            result.append(row)
         print(self.errors)
+        result.append(self.errors)
+        return result
 
     def get_pretty_rows(self):
         """
         Builds each row with 2 (resp. 3) key_value pairs according to display_expected option
         Checks each key and each value with expected result if provided.
-        Failed checks are colored in red, successfull ones in green.
+        Failed checks are colored in red, successful ones in green.
         Returns the list of colored and justified rows.
         """
         result = []
         data = dict(self.request_body)
-        expect = dict(self.expected_response)
+        initial = dict(self.initial_data)
         body = dict(self.response_body)
-        if len(self.expected_response) == 0:
-            expect = body
+        if len(self.initial_data) == 0:
+            initial = body
         else:
             for key, value in body.items():
                 row = ''
-                if key in data.keys() and key in expect.keys():
-                    check = data[key] == expect[key]
+                if key in data.keys() and key in initial.keys():
+                    check = data[key] == initial[key]
                     row += PRR.prettify_key_value(key,
                                                   data[key],
                                                   self.longest_key,
                                                   (True, check))
                     row += PRR.prettify_key_value(key,
-                                                  expect[key],
+                                                  initial[key],
                                                   self.longest_key,
                                                   (True, None))
                     row += PRR.prettify_key_value(key,
@@ -293,12 +318,12 @@ class PrettifyPutReport(PRR):
                     if not check:
                         self.value_mismatch += 1
                     data.pop(key, None)
-                    expect.pop(key, None)
-                elif key in expect.keys():
+                    initial.pop(key, None)
+                elif key in initial.keys():
                     row += ' ' * 49
-                    check = expect[key] == value
+                    check = initial[key] == value
                     row += PRR.prettify_key_value(key,
-                                                  expect[key],
+                                                  initial[key],
                                                   self.longest_key,
                                                   (True, check))
                     row += PRR.prettify_key_value(key,
@@ -307,7 +332,7 @@ class PrettifyPutReport(PRR):
                                                   (True, check))
                     if not check:
                         self.value_mismatch += 1
-                    expect.pop(key, None)
+                    initial.pop(key, None)
                 elif key in data.keys():
                     check = data[key] == value
                     row += PRR.prettify_key_value(key,
@@ -316,7 +341,7 @@ class PrettifyPutReport(PRR):
                                                   (False, check))
                     if not check:
                         self.value_mismatch += 1
-                    expect.pop(key, None)
+                    initial.pop(key, None)
                     self.key_mismatch += 1
                     data.pop(key, None)
                 else:
@@ -325,7 +350,7 @@ class PrettifyPutReport(PRR):
                                                   value,
                                                   self.longest_key)
                 result.append(row)
-        for key, value in expect.items():
+        for key, value in initial.items():
             row = ''
             if key in data.keys():
                 check = data[key] == value
@@ -345,7 +370,7 @@ class PrettifyPutReport(PRR):
                 row += PRR.prettify_key_value(key,
                                               value,
                                               self.longest_key)
-                if len(self.expected_response) != 0:
+                if len(self.initial_data) != 0:
                     self.key_mismatch += 1
             result.append(row)
 
@@ -357,24 +382,123 @@ class PrettifyPutReport(PRR):
         return result
 
 
+class PrettifyGetReport(PRR):
+    method = 'GET'
+
+    def __init__(self,
+                 request_dict,
+                 response_body,
+                 expected_data=None,
+                 display_expected=True
+                 ):
+        self.request_url = request_dict["url"]
+        self.request_logs = request_dict["logs"]
+        if isinstance(response_body, list):
+            self.response_body = [
+                [PRR.format(k, str(v)) for k, v in data.items()]
+                for data in response_body]
+        else:
+            self.response_body = [
+                [PRR.format(k, str(v)) for k, v in response_body.items()]]
+        if expected_data is None:
+            self.expected_response = []
+        elif isinstance(expected_data, list):
+            self.expected_response = [
+                [PRR.format(k, str(v)) for k, v in data.items()]
+                for data in expected_data]
+        else:
+            self.expected_response = [
+                [PRR.format(k, str(v)) for k, v in expected_data.items()]]
+        self.longest_key = PRR.get_longest_key(
+            self.response_body[0])
+        self.display_expected = False
+        if len(self.expected_response) > 0 and display_expected:
+            self.display_expected = True
+        self.title = PRR.get_title(self.method,
+                                   self.request_url,
+                                   self.request_logs)
+        self.headers = PRR.get_headers(self.method, self.display_expected)
+        self.result = self.get_pretty_rows()
+        self.errors = PRR.get_errors(self.key_mismatch, self.value_mismatch)
+
+    def pretty_print(self):
+        result = []
+        print(self.title)
+        result.append(self.title)
+        print(self.headers)
+        result.append(self.headers)
+        for row in self.result:
+            print(row)
+            result.append(row)
+        if len(self.expected_response) > 0:
+            print(self.errors)
+            result.append(self.errors)
+        return result
+
+    def get_pretty_rows(self):
+        result = []
+        if len(self.expected_response) == 0:
+            for resp in self.response_body:
+                for key, value in resp:
+                    result.append(PRR.prettify_key_value(key,
+                                                         value,
+                                                         self.longest_key))
+                result.append("\n")
+            result.append(40 * ' ' + 10 * '-')
+            return result
+
+        if len(self.response_body) != len(self.expected_response):
+            result.append(f"Response has unexpected length!")
+            result.append(f"Response: {str(self.response_body)}")
+            result.append(f"Expected: {str(self.expected_response)}")
+            return result
+
+        expects = [dict(exp) for exp in self.expected_response]
+        bodies = [dict(resp) for resp in self.response_body]
+        for resp, expect in zip(bodies, expects):
+            for key, value in resp.items():
+                check_1 = key in expect
+                check_2 = check_1 and expect[key] == value
+                if check_1 and self.display_expected:
+                    row = PRR.prettify_key_value(key,
+                                                 expect[key],
+                                                 self.longest_key,
+                                                 (check_1, check_2))
+                else:
+                    row = ' ' * 49
+                    if not check_1:
+                        self.key_mismatch += 1
+                row += PRR.prettify_key_value(key,
+                                              value,
+                                              self.longest_key,
+                                              (check_1, check_2))
+                result.append(row)
+                if not check_2:
+                    self.value_mismatch += 1
+            result.append(40 * ' ' + 10 * '-')
+
+        return result
+
+
 if __name__ == "__main__":
     request = {'status': 2,
                'contact_email': 'bi@bi.co',
                'attendees': 15,
                'event_date': '2022-08-17',
                'notes': 'bla'}
-    expected = {'id': 3,
+    expected = {'id': '3',
                 'client_id': '1',
                 'status': 'True',
                 'contact_email': 'Bi Bo couriel:bi@bi.co',
-                'attendees': 15, 'event_date': '2022-08-17T00:00:00Z',
+                'attendees': '15',
+                'event_date': '2022-08-17T00:00:00Z',
                 'notes': 'bla',
                 'date_created': '2022-09-29T15:55:46.37Z'}
-    response = {'id': 3,
+    response = {'id': '3',
                 'client_id': '1',
                 'status': 'True',
                 'contact_email': 'Bi Bi couriel:bi@bi.co',
-                'attendees': 15,
+                'attendees': '15',
                 'event_date': '2022-08-17T00:00:00Z',
                 'notes': 'bla',
                 'date_created': '2022-09-29T15:55:46.38Z'}
@@ -387,9 +511,12 @@ if __name__ == "__main__":
     request_dic = {"url": "/event/",
                    "logs": {"username": "de@de.co", "password": "xxxx"},
                    "body": request}
-    update_dic = {"url": "/event/",
+    update_dic = {"url": "/event/3/",
                   "logs": {"username": "de@de.co", "password": "xxxx"},
                   "body": update}
+    get_dic = {"url": "/event/3/",
+               "logs": {"username": "de@de.co", "password": "xxxx"}}
+
     report = PrettifyPostReport(request_dic, response, expected, [0, 0])
     report.pretty_print()
     report_2 = PrettifyPostReport(request_dic, expected)
@@ -400,3 +527,7 @@ if __name__ == "__main__":
     report_4.pretty_print()
     report_4 = PrettifyPutReport(update_dic, response, expected)
     report_4.pretty_print()
+    report_5 = PrettifyGetReport(get_dic, [response, response], [expected, expected])
+    report = report_5.pretty_print()
+    PRR.save_report_in_doc(report)
+    PRR.print_doc()
