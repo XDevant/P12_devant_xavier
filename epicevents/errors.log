@@ -1212,3 +1212,1192 @@ Traceback (most recent call last):
   File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\serializers.py", line 1148, in get_field_names
     assert field_name in fields, (
 AssertionError: The field 'client_id' was declared on serializer EventListSerializer, but has not been included in the 'fields' option.
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 34, in change_contact
+    return HttpResponseRedirect(f"/clients/change_contact/", context={selected: selected})
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 575, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 371, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: HttpResponseBase.__init__() got an unexpected keyword argument 'context'
+"POST /admin/crm/client/ HTTP/1.1" 500 119552
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 34, in change_contact
+    return HttpResponseRedirect(f"/clients/change_contact/", context={selected: selected})
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 575, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 371, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: HttpResponseBase.__init__() got an unexpected keyword argument 'context'
+"POST /admin/crm/client/ HTTP/1.1" 500 119552
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 34, in change_contact
+    return HttpResponseRedirect(f"/clients/change_contact/", context={selected: selected})
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 575, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\http\response.py", line 371, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: HttpResponseBase.__init__() got an unexpected keyword argument 'context'
+"POST /admin/crm/client/ HTTP/1.1" 500 119552
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 2056, in changelist_view
+    action_form.fields["action"].choices = self.get_action_choices(request)
+KeyError: 'action'
+"GET /admin/crm/client/ HTTP/1.1" 500 99466
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 2056, in changelist_view
+    action_form.fields["action"].choices = self.get_action_choices(request)
+KeyError: 'action'
+"GET /admin/crm/client/ HTTP/1.1" 500 99599
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 36, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/contact.html
+"POST /admin/crm/client/ HTTP/1.1" 500 125618
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 36, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/contact.html
+"POST /admin/crm/client/ HTTP/1.1" 500 125618
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 36, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/contact.html
+"POST /admin/crm/client/ HTTP/1.1" 500 125618
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'end'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 36, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 4: 'end', expected 'endblock'. Did you forget to register or load this tag?
+"POST /admin/crm/client/ HTTP/1.1" 500 201801
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 35, in change_contact
+    sales_team = User.objects.get()
+NameError: name 'User' is not defined
+"POST /admin/crm/client/ HTTP/1.1" 500 110267
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 36, in change_contact
+    sales_team = User.objects.get()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+authentication.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 7!
+"POST /admin/crm/client/ HTTP/1.1" 500 119543
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'app_list' with keyword arguments '{'app_label': ''}' not found. 1 pattern(s) tried: ['admin/(?P<app_label>auth|authentication|crm)/$']
+"POST /admin/crm/client/ HTTP/1.1" 500 309158
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 42, in change_contact
+    context=context)
+NameError: name 'contex' is not defined
+"POST /admin/crm/client/ HTTP/1.1" 500 115706
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 42, in change_contact
+    context=context)
+NameError: name 'contex' is not defined
+"POST /admin/crm/client/ HTTP/1.1" 500 115706
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'app_list' with keyword arguments '{'app_label': ''}' not found. 1 pattern(s) tried: ['admin/(?P<app_label>auth|authentication|crm)/$']
+"POST /admin/crm/client/ HTTP/1.1" 500 412746
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'app_list' with keyword arguments '{'app_label': ''}' not found. 1 pattern(s) tried: ['admin/(?P<app_label>auth|authentication|crm)/$']
+"POST /admin/crm/client/ HTTP/1.1" 500 412746
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/contact.html
+"POST /admin/crm/client/ HTTP/1.1" 500 141799
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'app_list' with keyword arguments '{'app_label': ''}' not found. 1 pattern(s) tried: ['admin/(?P<app_label>auth|authentication|crm)/$']
+"POST /admin/crm/client/ HTTP/1.1" 500 412758
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 514, in parse
+    self.extend_nodelist(nodelist, compiled_result, token)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 531, in extend_nodelist
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: <ExtendsNode: extends "admin/change_form.html"> must be the first tag in the template.
+"POST /admin/crm/client/ HTTP/1.1" 500 185440
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'app_list' with keyword arguments '{'app_label': ''}' not found. 1 pattern(s) tried: ['admin/(?P<app_label>auth|authentication|crm)/$']
+"POST /admin/crm/client/ HTTP/1.1" 500 412758
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: admin/base_admin.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 40, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 64, in render
+    reraise(exc, self.backend)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\backends\django.py", line 85, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: admin/base_admin.html
+"POST /admin/crm/client/ HTTP/1.1" 500 222353
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.SyntaxError: ERREUR:  la sous-requête doit renvoyer une seule colonne
+LINE 1: UPDATE "crm_client" SET "sales_contact_id" = (SELECT U0."id"...
+                                                     ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1988, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 39, in change_contact
+    queryset.update(sales_contact=new_contact)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 1190, in update
+    rows = query.get_compiler(self.db).execute_sql(CURSOR)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1819, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ERREUR:  la sous-requête doit renvoyer une seule colonne
+LINE 1: UPDATE "crm_client" SET "sales_contact_id" = (SELECT U0."id"...
+                                                     ^
+
+"POST /admin/crm/client/ HTTP/1.1" 500 166778
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1988, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 45, in change_contact
+    f"Changed sales contact for {contractt.count()} contracts.")
+NameError: name 'contractt' is not defined
+"POST /admin/crm/client/ HTTP/1.1" 500 115939
+Internal Server Error: /admin/crm/event/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1964, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 94, in change_contact
+    return render(request,
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/crm/events/contact.html
+"POST /admin/crm/event/ HTTP/1.1" 500 141610
+Internal Server Error: /admin/crm/event/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1988, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 88, in change_contact
+    new_contact_id = support_team[index]
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 414, in __getitem__
+    raise TypeError(
+TypeError: QuerySet indices must be integers or slices, not str.
+"POST /admin/crm/event/ HTTP/1.1" 500 119538
+Internal Server Error: /admin/crm/event/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1988, in changelist_view
+    response = self.response_action(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 1593, in response_action
+    response = func(self, request, queryset)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\EpicEvents\crm\admin.py", line 88, in change_contact
+    new_contact_id = support_team[int(index)]
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 446, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+"POST /admin/crm/event/ HTTP/1.1" 500 119500
