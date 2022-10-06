@@ -18,7 +18,7 @@
                 <select name="support_contact" required id="id_support_contact" class="form-row">
                     <option value="" selected="">---------</option>
                     {% for support_contact in support_contacts %}
-                    <option value="{{ forloop.counter }}">{{ support_contact.email }}</option>
+                    <option value="{{ support_contact.id }}">{{ support_contact.email }}</option>
                     {% endfor %}
                 </select>
                 </fieldset>

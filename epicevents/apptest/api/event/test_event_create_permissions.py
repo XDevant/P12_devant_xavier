@@ -1,7 +1,7 @@
 import pytest
 from copy import deepcopy
 from apptest.forms import event_form, expected_event
-from utils.prettyprints import PrettifyRequestReport
+from utils.prettyprints import PrettifyPostReport, PRR
 
 
 @pytest.fixture
@@ -25,9 +25,15 @@ class TestEventCreation:
         expected["id"] = int(user.split('_')[-1]) + 2
         expected["client_id"] = int(user.split('_')[-1])
         response = api_client.post('/events/', data=data)
-        print("\n")
-        report = PrettifyRequestReport(data, response.data, expected, [0, 1])
-        report.pretty_print()
+        if user == "sales_1":
+            request_dict = {'body': data,
+                            'url': '/events/',
+                            'logs': logins.sales_1}
+            report = PrettifyPostReport(request_dict, response.data, expected, [0, 1])
+            PRR.save_report(report.report, "add", model="events", mode='w')
+            print(f"\nComparing updated client with expected result: ", end='')
+            assert "0 key error" in report.report[-1]
+            assert "0 value error" in report.report[-1]
         assert response.status_code == 201
 
     @pytest.mark.parametrize("user", ["sales_2", "support_1", "support_2", "admin_1", "visitor_1"])

@@ -1,0 +1,18 @@
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?client__email=first@client.co[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?client__last_name=client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?client__email__icontains=first@client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?client__last_name__icontains=clien[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?date_created__lt=2022-10-06 01:37:51.812637[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+
+Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/?date_created__gt=1981-09-11[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+

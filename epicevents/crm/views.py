@@ -158,7 +158,10 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
             message = "Invalid client id"
             raise ValidationError(message)
 
-        serializer.save(support_contact=contact, client=client, date_updated=datetime.today())
+        serializer.save(support_contact=contact,
+                        client=client,
+                        event_status=old_event.event_status,
+                        date_updated=datetime.now())
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""

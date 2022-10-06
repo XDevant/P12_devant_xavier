@@ -26,14 +26,13 @@ class ClientAdmin(admin.ModelAdmin):
         return super().get_form(request, obj, **defaults)
 
     @admin.action(
-        description='Change clients sales contact, including their contracts',
+        description='Change clients sales contact',
         permissions=['change'])
     def change_contact(self, request, queryset):
         sales_team = User.objects.filter(role='sales')
         context = dict(self.admin_site.each_context(request))
         if 'apply' in request.POST:
-            index = request.POST["sales_contact"]
-            new_contact_id = sales_team[int(index) - 1]
+            new_contact_id = request.POST["sales_contact"]
             queryset.update(sales_contact=new_contact_id)
             self.message_user(request,
                               f"Changed sales contact for {queryset.count()} clients.")
@@ -85,8 +84,7 @@ class EventAdmin(admin.ModelAdmin):
         support_team = User.objects.filter(role='support')
         context = dict(self.admin_site.each_context(request))
         if 'apply' in request.POST:
-            index = request.POST["support_contact"]
-            new_contact_id = support_team[int(index) - 1]
+            new_contact_id = request.POST["support_contact"]
             queryset.update(support_contact=new_contact_id)
             self.message_user(request,
                               f"Changed support contact for {queryset.count()} events.")

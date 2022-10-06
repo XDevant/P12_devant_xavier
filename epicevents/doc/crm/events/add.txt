@@ -1,0 +1,13 @@
+
+Request:  [1;33mPOST[0m    [4;34mhttp://127.0.0.1:8000//events/[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+
+                 [4;33mRequest  Body[0m                                   [4;33mExpected Result[0m                                   [4;33mResponse Data[0m
+                                                           id            : 3                                [0;32mid[0m            : [0;32m3[0m                      
+          contact_email : bi@bi.co                         client_id     : 1                                [0;32mclient_id[0m     : [0;32m1[0m                      
+                                                           status        : True                             [0;32mstatus[0m        : [0;32mTrue[0m                   
+          status        : 2                                contact_email : bi@bi.co                         [0;32mcontact_email[0m : [0;32mbi@bi.co[0m               
+          attendees     : 15                               attendees     : 15                               [0;32mattendees[0m     : [0;32m15[0m                     
+          event_date    : 2022-08-17             [6;31m          event_date    : 2022-08-17Z            [0m          [0;32mevent_date[0m    : [6;31m2022-08-17[0m             
+          notes         : bla                              notes         : bla                              [0;32mnotes[0m         : [0;32mbla[0m                    
+                                                 [6;31m          date_created  : 2022-10-06             [0m          [0;32mdate_created[0m  : [6;31m2022-10-05[0m             
+[0;32m0 key error. [0m[6;31m2 value errors.[0m

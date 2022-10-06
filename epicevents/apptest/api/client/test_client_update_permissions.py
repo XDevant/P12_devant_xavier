@@ -1,17 +1,33 @@
 import pytest
+from copy import deepcopy
+from utils.prettyprints import PrettifyPutReport, PRR
 
 
 @pytest.mark.django_db
 class TestClientUpdate:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_contact_update_client(self, api_client, logins, user):
-        api_client.login(**getattr(logins, user))
+        logs = getattr(logins, user)
+        api_client.login(**logs)
         response = api_client.get('/clients/')
+        assert '0123456789' not in response.data[0]
         data = response.data[0]
-        assert '0123456789' not in data["phone"]
+        expected = deepcopy(data)
         data["phone"] = "0123456789"
-        response = api_client.put(f"/clients/{int(user.split('_')[-1])}/", data=data)
-        print(f"\n Trying to change first listed client's phone number: ", end='')
+        print(f"\n Changing first listed client's phone number to 0123456789  ",
+              end='')
+        url = f"/clients/{int(user.split('_')[-1])}/"
+        response = api_client.put(url, data=data)
+
+        if user == "sales_1":
+            request_dict = {'body': data, 'url': url, 'logs': logs}
+            report = PrettifyPutReport(request_dict, response.data, expected)
+            PRR.save_report(report.report, "change", model="clients",
+                            mode='w')
+            print(f"and comparing updated client with expected result: ", end='')
+            assert "0 key error" in report.report[-1]
+            assert "0 value error" in report.report[-1]
+
         assert response.status_code == 200
         assert '0123456789' in response.data["phone"]
 

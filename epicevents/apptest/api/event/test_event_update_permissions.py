@@ -1,17 +1,30 @@
 import pytest
+from copy import deepcopy
+from utils.prettyprints import PrettifyPutReport, PRR
 
 
 @pytest.mark.django_db
 class TestEventUpdate:
     @pytest.mark.parametrize("user", ["support_1", "support_2", "admin_1"])
     def test_contact_update_event(self, api_client, logins, user):
-        api_client.login(**getattr(logins, user))
-        response = api_client.get('/events/')
-        data = response.data[0]
+        logs = getattr(logins, user)
+        api_client.login(**logs)
+        url = f"/events/{int(user.split('_')[-1])}/"
+        response_1 = api_client.get(url)
+        data = deepcopy(response_1.data)
         assert f"test event {int(user.split('_')[-1])}" == data["notes"]
-        data["contact_email"] = data["contact_email"].split("couriel:")[-1]
         data["notes"] = "changing notes"
-        response = api_client.put(f"/events/{int(user.split('_')[-1])}/", data=data)
+        data["contact_email"] = data["contact_email"].split(':')[-1]
+        data.pop("date_updated", None)
+        response = api_client.put(url, data=data)
+        print(f"\n Trying to change first listed event's notes: ", end='')
+        if user == "support_1":
+            request_dict = {'body': data, 'url': url, 'logs': logs}
+            report = PrettifyPutReport(request_dict, response.data, response_1.data)
+            PRR.save_report(report.report, "change", model="events", mode='w')
+            print(f"Comparing updated event with expected result: ", end='')
+            assert "0 key error" in report.report[-1]
+            assert "0 value error" in report.report[-1]
         assert response.status_code == 200
         assert response.data["notes"] == 'changing notes'
 
