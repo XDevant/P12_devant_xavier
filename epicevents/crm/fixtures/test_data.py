@@ -5,13 +5,13 @@ from django.conf import settings
 
 test_clients = [
   {
-      "first_name":  "First",
-      "last_name":  "Client",
-      "email":  "first@client.co",
-      "phone":  "01",
-      "mobile":  "06",
-      "company_name":  "World",
-      "sales_contact":  0
+      "first_name":     "First",
+      "last_name":      "Client",
+      "email":          "first@client.co",
+      "phone":          "01",
+      "mobile":         "06",
+      "company_name":   "World",
+      "sales_contact":  0,
   },
   {
       "first_name":  "Second",

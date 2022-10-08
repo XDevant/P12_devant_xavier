@@ -143,7 +143,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=2
 
 
                                                                  ----------
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date-created__lt=2040-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created__lt=2040-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
@@ -183,7 +183,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date-created
 
 
                                                                  ----------
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date-created__gt=2010-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created__gt=2010-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      

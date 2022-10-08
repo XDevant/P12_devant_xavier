@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.core.management import call_command
 from django.db import connections
+from utils.errorlog import get_install_date, set_install_date
 
 
 class Command(BaseCommand):
@@ -30,3 +31,12 @@ class Command(BaseCommand):
         call_command('create_database', '--copy')
         if not options['fake']:
             call_command('load_fake_items', '--copy')
+        try:
+            set_install_date()
+            created = get_install_date()
+        except OSError:
+            created = None
+        if created:
+            print("An errors.log file has been successfully created in the base dir.")
+        else:
+            print("Unable to create errors.log")

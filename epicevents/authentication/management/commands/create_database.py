@@ -28,7 +28,7 @@ class Command(BaseCommand):
             print(f"Database {PRR.colorize(name, True)} successfully created")
         except ObjectInUse:
             db = PRR.colorize(name, False)
-            print(f"DB {bd} already in use, make sure to quit pgAdmin")
+            print(f"DB {db} already in use, make sure to quit pgAdmin")
         except OperationalError:
             db = PRR.colorize(name, False)
             print(f"Unable to connect to {db}, credentials are in config.py.")

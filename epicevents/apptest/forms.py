@@ -5,6 +5,7 @@ The expected_1 items are supposed to be the pk=1 of each model. This last one
 is heavily dependent on the copy_Epic-Events DB.
 """
 from datetime import datetime
+from utils.errorlog import get_install_date
 
 
 client_form = {
@@ -33,7 +34,7 @@ expected_client_1 = {'id': 1,
                      'phone': '01',
                      'mobile': '06',
                      'company_name': 'World',
-                     'date_created': '2022-09-29',
+                     'date_created': get_install_date(),
                      'contact': 'De De couriel:de@de.co'
                      }
 
@@ -60,7 +61,7 @@ expected_contract_1 = {
     "amount": 1000.,
     "payment_due": "2040-10-10T10:00:00+01:00",
     "contact": "de@de.co",
-    "date_created": "2022-10-05T23:00:00Z"
+    "date_created": get_install_date()
 }
 
 event_form = {
@@ -90,5 +91,5 @@ expected_event_1 = {
     'attendees': 10,
     'event_date': "2026-10-10T10:00:00+01:00",
     'notes': 'test event 1',
-    'date_created': '2022-09-29'
+    'date_created': get_install_date()
 }
