@@ -1,12 +1,13 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyPutReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.mark.django_db
 class TestClientUpdate:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_contact_update_client(self, api_client, logins, user):
+        url = f"/clients/{int(user.split('_')[-1])}/"
         logs = getattr(logins, user)
         api_client.login(**logs)
         response = api_client.get('/clients/')
@@ -16,17 +17,20 @@ class TestClientUpdate:
         data["phone"] = "0123456789"
         print(f"\n Changing first listed client's phone number to 0123456789  ",
               end='')
-        url = f"/clients/{int(user.split('_')[-1])}/"
         response = api_client.put(url, data=data)
 
         if user == "sales_1":
-            request_dict = {'body': data, 'url': url, 'logs': logs}
-            report = PrettifyPutReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "change", model="clients",
-                            mode='w')
+            report = Report(url=url,
+                            logs=logs,
+                            action="change",
+                            request_body=data,
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="clients", mode='w')
             print(f"and comparing updated client with expected result: ", end='')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
 
         assert response.status_code == 200
         assert '0123456789' in response.data["phone"]

@@ -1,15 +1,13 @@
-
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//events/1/[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-
-                 [4;33mExpected Result[0m                                   [4;33mResponse Data[0m
-          [0;32mid[0m            : [0;32m1[0m                                [0;32mid[0m            : [0;32m1[0m                      
-          [0;32mclient_id[0m     : [0;32m1[0m                                [0;32mclient_id[0m     : [0;32m1[0m                      
-          [0;32mstatus[0m        : [0;32mTrue[0m                             [0;32mstatus[0m        : [0;32mTrue[0m                   
-          [0;32mcontact_email[0m : [0;32mbi@bi.co[0m                         [0;32mcontact_email[0m : [0;32mbi@bi.co[0m               
-          [0;32mattendees[0m     : [0;32m10[0m                               [0;32mattendees[0m     : [0;32m10[0m                     
-          [0;32mevent_date[0m    : [6;31m2022-11-14Z[0m                      [0;32mevent_date[0m    : [6;31m2022-11-14[0m             
-          [0;32mnotes[0m         : [0;32mtest event 1[0m                     [0;32mnotes[0m         : [0;32mtest event 1[0m           
-          [0;32mdate_created[0m  : [6;31m2022-09-29Z[0m                      [0;32mdate_created[0m  : [6;31m2022-10-05[0m             
-          [0;32mdate_updated[0m  : [0;32mNone[0m                             [0;32mdate_updated[0m  : [0;32mNone[0m                   
-                                        ----------
-[0;32m0 key error. [0m[6;31m2 value errors.[0m
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   [4;33mExpected Result[0m
+          [0;32mid[0m            : [0;32m1[0m                      
+          [0;32mclient_id[0m     : [0;32m1[0m                      
+          [0;32mstatus[0m        : [0;32mTrue[0m                   
+          [0;32mcontact_email[0m : [0;32mbi@bi.co[0m               
+          [0;32mattendees[0m     : [0;32m10[0m                     
+          [0;32mevent_date[0m    : [0;32m2022-11-14[0m             
+          [0;32mnotes[0m         : [0;32mtest event 1[0m           
+          [0;32mdate_created[0m  : [6;31m2022-10-05[0m                       [0;32mdate_created[0m  : [6;31m2022-09-29[0m             
+          [0;32mdate_updated[0m  : [0;32mNone[0m                   
+                                                                 ----------

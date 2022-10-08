@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyPutReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.mark.django_db
@@ -17,17 +17,20 @@ class TestContractUpdate:
         print(f"\n Trying to change first listed contract's amount: ", end='')
         url = f"/contracts/{int(user.split('_')[-1]) * 2 - 1}/"
         response = api_client.put(url, data=data)
+        assert response.status_code == 200
 
         if user == "sales_1":
-            request_dict = {'body': data, 'url': url, 'logs': logs}
-            report = PrettifyPutReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "change", model="contracts",
-                            mode='w')
+            report = Report(url=url,
+                            logs=logs,
+                            action="change",
+                            request_body=data,
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="contracts", mode='w')
             print(f"and comparing updated contract with expected result: ", end='')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
-
-        assert response.status_code == 200
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert response.data["amount"] == 156331
 
     @pytest.mark.parametrize("user", ["sales_2", "support_1", "support_2", "visitor_1"])

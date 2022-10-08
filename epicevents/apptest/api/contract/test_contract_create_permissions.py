@@ -1,7 +1,7 @@
 import pytest
 from copy import deepcopy
 from apptest.forms import contract_form, expected_contract
-from utils.prettyprints import PrettifyPostReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.fixture
@@ -25,22 +25,24 @@ class TestContractCreation:
                                    user,
                                    data,
                                    expected):
+        url = '/contracts/'
         logs = getattr(logins, user)
         api_client.login(**logs)
         data["client_id"] = int(user.split('_')[-1])
-        response = api_client.post('/contracts/', data=data)
-
-        if user == "sales_1":
-            request_dict = {'body': data, 'url': '/contracts/', 'logs': logs}
-            report = PrettifyPostReport(request_dict,
-                                        response.data,
-                                        expected,
-                                        [0, 1])
-            PRR.save_report(report.report, "add", model="contracts", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
-
+        response = api_client.post(url, data=data)
         assert response.status_code == 201
+        if user == "sales_1":
+            report = Report(url=url,
+                            logs=logs,
+                            action="add",
+                            request_body=data,
+                            expected=expected,
+                            response_body=response.data,
+                            mapping=(0, 0))
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="contracts", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert logs["email"] in response.data["contact"]
 
     @pytest.mark.parametrize(

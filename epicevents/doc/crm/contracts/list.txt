@@ -1,13 +1,11 @@
-
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-
-                 [4;33mExpected Result[0m                                   [4;33mResponse Data[0m
-           [0;32mid[0m           : [0;32m1[0m                                 [0;32mid[0m           : [0;32m1[0m                      
-           [0;32mcontact[0m      : [0;32mde@de.co[0m                          [0;32mcontact[0m      : [0;32mde@de.co[0m               
-           [0;32mclient_id[0m    : [0;32m1[0m                                 [0;32mclient_id[0m    : [0;32m1[0m                      
-           [0;32mdate_created[0m : [0;32m2022-10-05[0m                        [0;32mdate_created[0m : [0;32m2022-10-05[0m             
-           [0;32mstatus[0m       : [0;32mTrue[0m                              [0;32mstatus[0m       : [0;32mTrue[0m                   
-           [0;32mamount[0m       : [0;32m10.0[0m                              [0;32mamount[0m       : [0;32m10.0[0m                   
-           [0;32mpayment_due[0m  : [6;31m2022-11-03[0m                        [0;32mpayment_due[0m  : [6;31m2022-11-02[0m             
-                                        ----------
-[0;32m0 key error. [0m[6;31m1 value error.[0m
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   [4;33mExpected Result[0m
+           [0;32mid[0m           : [0;32m1[0m                      
+           [0;32mcontact[0m      : [0;32mde@de.co[0m               
+           [0;32mclient_id[0m    : [0;32m1[0m                      
+           [0;32mdate_created[0m : [0;32m2022-10-05[0m             
+           [0;32mstatus[0m       : [0;32mTrue[0m                   
+           [0;32mamount[0m       : [0;32m10.0[0m                   
+           [0;32mpayment_due[0m  : [6;31m2022-11-02[0m                        [0;32mpayment_due[0m  : [6;31m2022-11-05[0m             
+                                                                 ----------

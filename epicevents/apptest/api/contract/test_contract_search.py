@@ -1,6 +1,6 @@
 import pytest
 from datetime import date, timedelta
-from utils.prettyprints import PrettifyTitleReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.mark.django_db
@@ -15,20 +15,20 @@ class TestContractSearch:
                                             ("date_created__lt", str(date.today() + timedelta(days=1))),
                                             ("date_created__gt", str(date.today() - timedelta(days=15000)))])
     def test_search_contracts_by(self, api_client, logins, key, value):
-        api_client.login(**logins.sales_1)
         url = f'/contracts/?{key}={value}'
+        logs = logins.sales_1
+        api_client.login(**logs)
         response = api_client.get(url)
-
-        request_dict = {'url': url,
-                        'logs': logins.sales_1,
-                        'method': 'GET'}
-        report = PrettifyTitleReport(request_dict, response.data)
+        assert response.status_code == 200
+        report = Report(url=url,
+                        logs=logs,
+                        action="search",
+                        response_body=response.data)
+        pretty_report = PrettifyReport(report)
         mode = 'a'
         if key == "client__email":
             mode = 'w'
-        PRR.save_report(report.report, "search", model="contracts", mode=mode)
-
-        assert response.status_code == 200
+        pretty_report.save(model="contracts", mode=mode)
         assert 1 <= len(response.data) <= 2
 
     @pytest.mark.parametrize("key, value", [("client__email", "first@claent.co"),

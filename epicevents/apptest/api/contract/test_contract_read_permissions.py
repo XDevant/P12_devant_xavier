@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyGetReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 from apptest.forms import expected_contract_1
 
 
@@ -15,16 +15,21 @@ def expected():
 class TestContractRead:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_sales_see_contracts(self, api_client, logins, user, expected):
-        api_client.login(**getattr(logins, user))
-        response = api_client.get('/contracts/')
+        url = '/contracts/'
+        logs = getattr(logins, user)
+        api_client.login(**logs)
+        response = api_client.get(url)
 
         if user == "sales_1":
-            request_dict = {'url': '/contracts/',
-                            'logs': logins.sales_1}
-            report = PrettifyGetReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "list", model="contracts", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
+            report = Report(url=url,
+                            logs=logs,
+                            action="list",
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="contracts", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
 
         assert response.status_code == 200
         assert len(response.data) > 0
@@ -37,17 +42,21 @@ class TestContractRead:
 
     @pytest.mark.parametrize("user", ["sales_1", "sales_2", "admin_1"])
     def test_sales_i_see_contract_i(self, api_client, logins, user, expected):
-        api_client.login(**getattr(logins, user))
         url = f"/contracts/{int(user.split('_')[-1]) * 2 - 1}/"
+        logs = getattr(logins, user)
+        api_client.login(**logs)
         response = api_client.get(url)
 
         if user == "sales_1":
-            request_dict = {'url': '/contracts/1/',
-                            'logs': logins.sales_1}
-            report = PrettifyGetReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "detail", model="contracts", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
+            report = Report(url=url,
+                            logs=logs,
+                            action="detail",
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="contracts", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
 
         assert response.status_code == 200
         assert len(response.data) == 8

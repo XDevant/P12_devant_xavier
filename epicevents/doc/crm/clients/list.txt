@@ -1,15 +1,13 @@
-
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//clients/[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-
-                 [4;33mExpected Result[0m                                   [4;33mResponse Data[0m
-           [0;32mid[0m           : [0;32m1[0m                                 [0;32mid[0m           : [0;32m1[0m                      
-           [0;32mfirst_name[0m   : [0;32mfirst[0m                             [0;32mfirst_name[0m   : [0;32mfirst[0m                  
-           [0;32mlast_name[0m    : [0;32mclient[0m                            [0;32mlast_name[0m    : [0;32mclient[0m                 
-           [0;32memail[0m        : [0;32mfirst@client.co[0m                   [0;32memail[0m        : [0;32mfirst@client.co[0m        
-           [0;32mphone[0m        : [0;32m01[0m                                [0;32mphone[0m        : [0;32m01[0m                     
-           [0;32mmobile[0m       : [0;32m06[0m                                [0;32mmobile[0m       : [0;32m06[0m                     
-           [0;32mcompany_name[0m : [0;32mWorld[0m                             [0;32mcompany_name[0m : [0;32mWorld[0m                  
-           [0;32mdate_created[0m : [6;31m2022-09-29Z[0m                       [0;32mdate_created[0m : [6;31m2022-10-05[0m             
-           [0;32mcontact[0m      : [0;32mde@de.co[0m                          [0;32mcontact[0m      : [0;32mde@de.co[0m               
-                                        ----------
-[0;32m0 key error. [0m[6;31m1 value error.[0m
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   [4;33mExpected Result[0m
+           [0;32mid[0m           : [0;32m1[0m                      
+           [0;32mfirst_name[0m   : [0;32mfirst[0m                  
+           [0;32mlast_name[0m    : [0;32mclient[0m                 
+           [0;32memail[0m        : [0;32mfirst@client.co[0m        
+           [0;32mphone[0m        : [0;32m01[0m                     
+           [0;32mmobile[0m       : [0;32m06[0m                     
+           [0;32mcompany_name[0m : [0;32mWorld[0m                  
+           [0;32mdate_created[0m : [6;31m2022-10-05[0m                        [0;32mdate_created[0m : [6;31m2022-09-29[0m             
+           [0;32mcontact[0m      : [0;32mde@de.co[0m               
+                                                                 ----------

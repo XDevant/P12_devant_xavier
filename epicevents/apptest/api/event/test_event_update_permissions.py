@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyPutReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.mark.django_db
@@ -18,31 +18,42 @@ class TestEventUpdate:
         data.pop("date_updated", None)
         response = api_client.put(url, data=data)
         print(f"\n Trying to change first listed event's notes: ", end='')
-        if user == "support_1":
-            request_dict = {'body': data, 'url': url, 'logs': logs}
-            report = PrettifyPutReport(request_dict, response.data, response_1.data)
-            PRR.save_report(report.report, "change", model="events", mode='w')
-            print(f"Comparing updated event with expected result: ", end='')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
         assert response.status_code == 200
+        if user == "sales_1":
+            report = Report(url=url,
+                            logs=logs,
+                            action="change",
+                            request_body=data,
+                            expected=response_1.data,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="events", mode='w')
+            print(f"Comparing updated event with expected result: ", end='')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert response.data["notes"] == 'changing notes'
 
-    @pytest.mark.parametrize("user", ["sales_1", "sales_2", "support_2", "visitor_1"])
-    def test_unauthorized_do_not_update_events(self, api_client, logins, user):
+    @pytest.mark.parametrize("user",
+                             ["sales_1", "sales_2", "support_2", "visitor_1"])
+    def test_unauthorized_cant_update_events(self, api_client, logins, user):
         api_client.login(**logins.admin_1)
         response = api_client.get('/events/')
         data = response.data[0]
         assert data["notes"] == "test event 1"
         data["contact_email"] = data["contact_email"].split("couriel:")[-1]
         api_client.login(**getattr(logins, user))
-        response = api_client.put(f"/events/{int(user.split('_')[-1])}/", data=data)
+        url = f"/events/{int(user.split('_')[-1])}/"
+        response = api_client.put(url, data=data)
         assert response.status_code >= 400
 
-    @pytest.mark.parametrize("key, value", [pytest.param("contact_email", "bo@bo.co"),
-                                            pytest.param("client_id", 2),
-                                            ])
-    def test_support_do_not_update_impossible_events(self, api_client, logins, key, value):
+    @pytest.mark.parametrize("key, value",
+                             [pytest.param("contact_email", "bo@bo.co"),
+                              pytest.param("client_id", 2)])
+    def test_support_do_not_corrupt_events(self,
+                                           api_client,
+                                           logins,
+                                           key,
+                                           value):
         api_client.login(**logins.support_1)
         response = api_client.get('/events/')
         data = response.data[0]

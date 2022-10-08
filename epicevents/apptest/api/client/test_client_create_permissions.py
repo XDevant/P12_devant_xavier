@@ -1,7 +1,7 @@
 import pytest
 from copy import deepcopy
 from apptest.forms import client_form, expected_client
-from utils.prettyprints import PrettifyPostReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 
 
 @pytest.fixture
@@ -20,14 +20,22 @@ def expected():
 class TestClientCreation:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
     def test_sales_create_client(self, api_client, logins, user, data, expected):
-        api_client.login(**getattr(logins, user))
-        response = api_client.post('/clients/', data=data)
+        url = '/clients/'
+        logs = getattr(logins, user)
+        api_client.login(**logs)
+        response = api_client.post(url, data=data)
         if user == "sales_1":
-            request_dict = {'body': data, 'url': '/clients/', 'logs': getattr(logins, user)}
-            report = PrettifyPostReport(request_dict, response.data, expected, [0, 1])
-            PRR.save_report(report.report, "add", model="clients", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
+            report = Report(url=url,
+                            logs=logs,
+                            action="add",
+                            request_body=data,
+                            expected=expected,
+                            response_body=response.data,
+                            mapping=(0, 0))
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="clients", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert response.status_code == 201
 
     @pytest.mark.parametrize("user", ["support_1", "support_2", "admin_1", "visitor_1"])

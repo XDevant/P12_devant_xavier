@@ -33,7 +33,7 @@ expected_client_1 = {'id': 1,
                      'phone': '01',
                      'mobile': '06',
                      'company_name': 'World',
-                     'date_created': '2022-09-29Z',
+                     'date_created': '2022-09-29',
                      'contact': 'De De couriel:de@de.co'
                      }
 
@@ -50,7 +50,7 @@ expected_contract = {
     "date_created": datetime.now(),
     "status": False,
     "amount":  15.,
-    "payment_due": datetime.now() + timedelta(days=28)
+    "payment_due": "2022-08-17"
 }
 
 expected_contract_1 = {
@@ -67,7 +67,7 @@ event_form = {
         "contact_email": "bi@bi.co",
         "status":  3,
         "attendees":  15,
-        "event_date":  "2022-08-17",
+        "event_date":  "2022-08-17T00:00:00Z",
         "notes": "bla"
 }
 
@@ -77,7 +77,7 @@ expected_event = {
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 15,
-    'event_date': '2022-08-17Z',
+    'event_date': '2022-08-17',
     'notes': 'bla',
     'date_created': datetime.now()
 }
@@ -88,7 +88,7 @@ expected_event_1 = {
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 10,
-    'event_date': '2022-11-14Z',
+    'event_date': '2022-11-14',
     'notes': 'test event 1',
-    'date_created': '2022-09-29Z'
+    'date_created': '2022-09-29'
 }

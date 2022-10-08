@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyGetReport, PRR
+from utils.prettyprints import PrettifyReport, Report
 from apptest.forms import expected_event_1
 
 
@@ -16,18 +16,21 @@ class TestEventRead:
     @pytest.mark.parametrize(
         "user", ["sales_1", "sales_2", "support_1", "support_2", "admin_1"])
     def test_contact_see_events(self, api_client, logins, user, expected):
-        api_client.login(**getattr(logins, user))
-        response = api_client.get('/events/')
-
-        if user == "sales_1":
-            request_dict = {'url': '/events/',
-                            'logs': logins.sales_1}
-            report = PrettifyGetReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "list", model="events", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
-
+        url = '/events/'
+        logs = getattr(logins, user)
+        api_client.login(**logs)
+        response = api_client.get(url)
         assert response.status_code == 200
+        if user == "sales_1":
+            report = Report(url=url,
+                            logs=logs,
+                            action="list",
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="events", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert len(response.data) > 0
 
     @pytest.mark.parametrize("user", ["visitor_1"])
@@ -39,18 +42,21 @@ class TestEventRead:
     @pytest.mark.parametrize(
         "user", ["sales_1", "sales_2", "support_1", "support_2", "admin_1"])
     def test_contact_i_see_event_i(self, api_client, logins, user, expected):
-        api_client.login(**getattr(logins, user))
-        response = api_client.get(f"/events/{int(user.split('_')[-1])}/")
-
-        if user == "sales_1":
-            request_dict = {'url': '/events/1/',
-                            'logs': logins.sales_1}
-            report = PrettifyGetReport(request_dict, response.data, expected)
-            PRR.save_report(report.report, "detail", model="events", mode='w')
-            assert "0 key error" in report.report[-1]
-            assert "0 value error" in report.report[-1]
-
+        url = f"/events/{int(user.split('_')[-1])}/"
+        logs = getattr(logins, user)
+        api_client.login(**logs)
+        response = api_client.get(url)
         assert response.status_code == 200
+        if user == "sales_1":
+            report = Report(url=url,
+                            logs=logs,
+                            action="detail",
+                            expected=expected,
+                            response_body=response.data)
+            pretty_report = PrettifyReport(report)
+            pretty_report.save(model="events", mode='w')
+            assert "0 key error" in pretty_report.errors
+            assert "0 value error" in pretty_report.errors
         assert len(response.data) == 9
 
     @pytest.mark.parametrize(

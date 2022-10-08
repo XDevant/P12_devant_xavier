@@ -2563,3 +2563,103 @@ Traceback (most recent call last):
   File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\views.py", line 162, in perform_update
     status=old_event.status, date_updated=datetime.now())
 AttributeError: 'Event' object has no attribute 'status'
+Internal Server Error: /admin/crm/client/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 282, in ensure_connection
+    self.connect()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 263, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\postgresql\base.py", line 215, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: n'a pas pu lancer le nouveau processus fils pour la connexion : unrecognized winsock error 10004
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\admin\sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 646, in get
+    num = len(clone)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 376, in __len__
+    self._fetch_all()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1393, in execute_sql
+    cursor = self.connection.cursor()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 323, in cursor
+    return self._cursor()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 299, in _cursor
+    self.ensure_connection()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 281, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 282, in ensure_connection
+    self.connect()
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\base\base.py", line 263, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\db\backends\postgresql\base.py", line 215, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "localhost" (::1), port 5432 failed: n'a pas pu lancer le nouveau processus fils pour la connexion : unrecognized winsock error 10004
+
+"GET /admin/crm/client/ HTTP/1.1" 500 231085

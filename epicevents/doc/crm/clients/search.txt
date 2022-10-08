@@ -1,12 +1,60 @@
-
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//clients/?email=first@client.co[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           first_name   : first                  
+           last_name    : client                 
+           email        : first@client.co        
+           phone        : 01                     
+           mobile       : 06                     
+           company_name : World                  
+           date_created : 2022-10-05             
+           contact      : de@de.co               
 
 
+                                                                 ----------
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//clients/?last_name=client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           first_name   : first                  
+           last_name    : client                 
+           email        : first@client.co        
+           phone        : 01                     
+           mobile       : 06                     
+           company_name : World                  
+           date_created : 2022-10-05             
+           contact      : de@de.co               
 
 
+                                                                 ----------
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//clients/?email__icontains=first@client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           first_name   : first                  
+           last_name    : client                 
+           email        : first@client.co        
+           phone        : 01                     
+           mobile       : 06                     
+           company_name : World                  
+           date_created : 2022-10-05             
+           contact      : de@de.co               
 
 
+                                                                 ----------
 Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//clients/?last_name__icontains=clien[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           first_name   : first                  
+           last_name    : client                 
+           email        : first@client.co        
+           phone        : 01                     
+           mobile       : 06                     
+           company_name : World                  
+           date_created : 2022-10-05             
+           contact      : de@de.co               
 
+
+                                                                 ----------
