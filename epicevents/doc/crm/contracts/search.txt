@@ -1,180 +1,225 @@
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?client__email=first@client.co[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__email=first@client.co[0m                                  login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
 
 
                                                                  ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name=client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name=Client[0m                                       login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
 
 
                                                                  ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?client__email__icontains=first@client[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__email__icontains=first@client[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
 
 
                                                                  ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name__icontains=clien[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name__icontains=Clien[0m                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
 
 
                                                                  ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?amount=10[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-                                                                 ----------
-                 [4;33mResponse Data[0m                                   
-           id           : 1                      
-           contact      : de@de.co               
-           client_id    : 1                      
-           date_created : 2022-10-05             
-           status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
-
-
-                                                                 ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?amount__gt=9[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount=1000[0m                                                    login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
+
+
+                                                                 ----------
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__gt=25000[0m                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 2                      
+           contact      : de@de.co               
+           client_id    : 1                      
+           date_created : 2022-10-08             
+           status       : False                  
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
+
+
+           id           : 6                      
+           contact      : de@de.co               
+           client_id    : 3                      
+           date_created : 2022-10-08             
+           status       : False                  
+           amount       : 30000.0                
+           payment_due  : 2032-10-10             
+
+
+                                                                 ----------
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=25000[0m                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           contact      : de@de.co               
+           client_id    : 1                      
+           date_created : 2022-10-08             
+           status       : True                   
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
+
+
+           id           : 5                      
+           contact      : de@de.co               
+           client_id    : 3                      
+           date_created : 2022-10-08             
+           status       : True                   
+           amount       : 10000.0                
+           payment_due  : 2042-10-10             
+
+
+                                                                 ----------
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date-created__lt=2040-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+                                                                 ----------
+                 [4;33mResponse Data[0m                                   
+           id           : 1                      
+           contact      : de@de.co               
+           client_id    : 1                      
+           date_created : 2022-10-08             
+           status       : True                   
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
+
+
+           id           : 5                      
+           contact      : de@de.co               
+           client_id    : 3                      
+           date_created : 2022-10-08             
+           status       : True                   
+           amount       : 10000.0                
+           payment_due  : 2042-10-10             
+
+
+           id           : 6                      
+           contact      : de@de.co               
+           client_id    : 3                      
+           date_created : 2022-10-08             
+           status       : False                  
+           amount       : 30000.0                
+           payment_due  : 2032-10-10             
 
 
                                                                  ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=99[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date-created__gt=2010-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
-
-
-                                                                 ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?date_created__lt=2022-10-09[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-                                                                 ----------
-                 [4;33mResponse Data[0m                                   
-           id           : 1                      
-           contact      : de@de.co               
-           client_id    : 1                      
-           date_created : 2022-10-05             
-           status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 1000.0                 
+           payment_due  : 2040-10-10             
 
 
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
-           date_created : 2022-10-05             
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 100000.0               
+           payment_due  : 2030-10-10             
 
 
-                                                                 ----------
-Request:  [1;33mGET[0m    [4;34mhttp://127.0.0.1:8000//contracts/?date_created__gt=1981-09-13[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
-                                                                 ----------
-                 [4;33mResponse Data[0m                                   
-           id           : 1                      
+           id           : 5                      
            contact      : de@de.co               
-           client_id    : 1                      
-           date_created : 2022-10-05             
+           client_id    : 3                      
+           date_created : 2022-10-08             
            status       : True                   
-           amount       : 10.0                   
-           payment_due  : 2022-11-02             
+           amount       : 10000.0                
+           payment_due  : 2042-10-10             
 
 
-           id           : 2                      
+           id           : 6                      
            contact      : de@de.co               
-           client_id    : 1                      
-           date_created : 2022-10-05             
+           client_id    : 3                      
+           date_created : 2022-10-08             
            status       : False                  
-           amount       : 100.0                  
-           payment_due  : 2022-11-02             
+           amount       : 30000.0                
+           payment_due  : 2032-10-10             
 
 
                                                                  ----------

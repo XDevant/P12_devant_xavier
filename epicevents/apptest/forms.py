@@ -4,7 +4,7 @@ The expected is the expected response to this creation
 The expected_1 items are supposed to be the pk=1 of each model. This last one
 is heavily dependent on the copy_Epic-Events DB.
 """
-from datetime import datetime, date, timedelta, timezone
+from datetime import datetime
 
 
 client_form = {
@@ -16,7 +16,7 @@ client_form = {
                 "company_name":  "World"
               }
 
-expected_client = {'id': 3,
+expected_client = {'id': 5,
                    'first_name': 'third',
                    'last_name': 'client',
                    'email': 'third@client.co',
@@ -27,8 +27,8 @@ expected_client = {'id': 3,
                    }
 
 expected_client_1 = {'id': 1,
-                     'first_name': 'first',
-                     'last_name': 'client',
+                     'first_name': 'First',
+                     'last_name': 'Client',
                      'email': 'first@client.co',
                      'phone': '01',
                      'mobile': '06',
@@ -40,44 +40,44 @@ expected_client_1 = {'id': 1,
 contract_form = {
     "client_id":  1,
     "amount":  15,
-    "payment_due":  "2022-08-17"
+    "payment_due":  "2050-10-10T10:00:00+01:00"
 }
 
 expected_contract = {
-    "id": 5,
+    "id": 9,
     "contact": "de@de.co",
     "client_id": 1,
     "date_created": datetime.now(),
     "status": False,
     "amount":  15.,
-    "payment_due": "2022-08-17"
+    "payment_due": "2050-10-10T10:00:00+01:00"
 }
 
 expected_contract_1 = {
     "id": 1,
     "client_id": 1,
     "status": True,
-    "amount": 10.,
-    "payment_due": datetime.now() + timedelta(days=28),
+    "amount": 1000.,
+    "payment_due": "2040-10-10T10:00:00+01:00",
     "contact": "de@de.co",
     "date_created": "2022-10-05T23:00:00Z"
 }
 
 event_form = {
         "contact_email": "bi@bi.co",
-        "status":  3,
+        "status":  2,
         "attendees":  15,
-        "event_date":  "2022-08-17T00:00:00Z",
+        "event_date":  "2030-10-10T10:00:00+01:00",
         "notes": "bla"
 }
 
 expected_event = {
-    'id': 3,
+    'id': 5,
     'client_id': '1',
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 15,
-    'event_date': '2022-08-17',
+    'event_date': "2030-10-10T10:00:00+01:00",
     'notes': 'bla',
     'date_created': datetime.now()
 }
@@ -88,7 +88,7 @@ expected_event_1 = {
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 10,
-    'event_date': '2022-11-14',
+    'event_date': "2026-10-10T10:00:00+01:00",
     'notes': 'test event 1',
     'date_created': '2022-09-29'
 }

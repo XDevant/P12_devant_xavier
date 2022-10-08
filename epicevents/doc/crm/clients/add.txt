@@ -1,13 +1,13 @@
-Request:  [1;33mPOST[0m    [4;34mhttp://127.0.0.1:8000//clients/[0m      logs: {'email': 'de@de.co', 'password': 'mdp1'}
+Request:  [1;33mPOST[0m   [4;34mhttp://127.0.0.1:8000//clients/[0m                                                                 login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mRequest  Body[0m                                   [4;33mResponse Data[0m                                   
-           first_name   : third                             [0;32mid[0m           : [0;32m3[0m                      
-           last_name    : client                            [0;32mfirst_name[0m   : [0;32mthird[0m                  
-           email        : third@client.co                   [0;32mlast_name[0m    : [0;32mclient[0m                 
-           phone        : 01                                [0;32memail[0m        : [0;32mthird@client.co[0m        
-           mobile       : 08                                [0;32mphone[0m        : [0;32m01[0m                     
-           company_name : World                             [0;32mmobile[0m       : [0;32m08[0m                     
-                                                            [0;32mcompany_name[0m : [0;32mWorld[0m                  
-                                                            [0;32mdate_created[0m : [0;32m2022-10-08[0m             
+                                                            [0;32mid[0m           : [0;32m5[0m                      
+                                                            [0;32mfirst_name[0m   : [0;32mthird[0m                  
+           first_name   : third                             [0;32mlast_name[0m    : [0;32mclient[0m                 
+           last_name    : client                            [0;32memail[0m        : [0;32mthird@client.co[0m        
+           email        : third@client.co                   [0;32mphone[0m        : [0;32m01[0m                     
+           phone        : 01                                [0;32mmobile[0m       : [0;32m08[0m                     
+           mobile       : 08                                [0;32mcompany_name[0m : [0;32mWorld[0m                  
+           company_name : World                             [0;32mdate_created[0m : [0;32m2022-10-08[0m             
                                                             [0;32mcontact[0m      : [0;32mde@de.co[0m               
                                                                  ----------

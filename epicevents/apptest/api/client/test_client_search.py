@@ -5,9 +5,9 @@ from utils.prettyprints import PrettifyReport, Report
 @pytest.mark.django_db
 class TestClientSearch:
     @pytest.mark.parametrize("key, value", [("email", "first@client.co"),
-                                            ("last_name", "client"),
+                                            ("last_name", "Client"),
                                             ("email__icontains", "first@client"),
-                                            ("last_name__icontains", "clien")])
+                                            ("last_name__icontains", "Clien")])
     def test_search_clients_by(self, api_client, logins, key, value):
         url = f'/clients/?{key}={value}'
         logs = logins.sales_1
@@ -37,6 +37,6 @@ class TestClientSearch:
 
     def test_search_clients_by_both(self, api_client, logins):
         api_client.login(**logins.sales_1)
-        response = api_client.get(f'/clients/?email=first@client.co&last_name=client')
+        response = api_client.get(f'/clients/?email=first@client.co&last_name=Client')
         assert response.status_code == 200
-        assert len(response.data) >= 1
+        assert len(response.data) == 1

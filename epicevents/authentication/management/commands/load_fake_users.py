@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import make_password
 from django.db.utils import IntegrityError
 from authentication.models import User, UserManager
 from authentication.fixtures.fake_users import test_users, superuser
+from utils.prettyprints import PRR
 
 
 class Command(BaseCommand):
@@ -20,11 +21,12 @@ class Command(BaseCommand):
                 User.objects.create(**user)
                 count += 1
             except IntegrityError:
-                print(f"User {user['email']} already exists.")
-        print(f"{count} users created")
+                user = PRR.colorize(user['email'], False)
+                print(f"User {user} already exists!")
+        print(PRR.colorize(f"{count}/6 ", count == 6) + "users created.")
         if options['super']:
             try:
                 User.objects.create_superuser(**superuser)
-                print("superuser created")
+                print(PRR.colorize("Superuser", True) + " created.")
             except IntegrityError:
-                print("superuser already exists.")
+                print(PRR.colorize("Superuser", False) + " already exists!")

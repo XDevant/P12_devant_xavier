@@ -24,7 +24,7 @@ class TestEventCreation:
         logs = getattr(logins, user)
         api_client.login(**logs)
         data["status"] = int(user.split('_')[-1]) * 2
-        expected["id"] = int(user.split('_')[-1]) + 2
+        expected["id"] = int(user.split('_')[-1]) + 4
         expected["client_id"] = int(user.split('_')[-1])
         response = api_client.post(url, data=data)
         assert response.status_code == 201

@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from psycopg2.errors import ObjectInUse, OperationalError
 from utils.utils import run_sql
+from utils.prettyprints import PRR
 from django.conf import settings
 
 
@@ -24,10 +25,13 @@ class Command(BaseCommand):
         try:
             run_sql(sql_1)
             run_sql(sql_2)
-            print(f"Database {name} successfully created")
+            print(f"Database {PRR.colorize(name, True)} successfully created")
         except ObjectInUse:
-            print(f"DB {settings.DATABASES['default']['NAME']} already in use, make sure to quit pgAdmin")
+            db = PRR.colorize(name, False)
+            print(f"DB {bd} already in use, make sure to quit pgAdmin")
         except OperationalError:
-            print(f"Unable to connect to database, check Postgres credentials in Django settings")
+            db = PRR.colorize(name, False)
+            print(f"Unable to connect to {db}, credentials are in config.py.")
         except Exception:
-            print(f"Unable to create database {name}")
+            db = PRR.colorize(name, False)
+            print(f"Unable to create database {db}")

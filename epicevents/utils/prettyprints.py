@@ -96,11 +96,16 @@ class PRR:
         return total
 
     @staticmethod
-    def get_title(method, request_url, request_logs=''):
-        title = 'Request:  ' + Colors.get('METHOD', method) + '    '
-        title += Colors.get('URL', PRR.BASE_URL + request_url) + '      '
-        if request_logs:
-            title += 'logs: ' + str(request_logs)
+    def get_title(method, url, logs=None):
+        title = 'Request:  ' + Colors.get('METHOD', method) + '   '
+        title += Colors.get('URL', PRR.BASE_URL + url)
+        title += ' ' * (100 - len(method) - len(PRR.BASE_URL + url))
+        if logs:
+            email = PRR.colorize("email", False) + '=' + logs["email"]
+            password = PRR.colorize("password", False) + '=' + logs["password"]
+            title += f'login: {email} {password}'
+        else:
+            logs += PRR.colorize('login required', False)
         return title
 
     @staticmethod
@@ -189,7 +194,10 @@ class PrettifyReport(PRR):
         else:
             self.expected_response = [
                 [self.format(k, str(v)) for k, v in report.expected.items()]]
-        self.initial_data = self.expected_response[0]
+        if self.expected_response:
+            self.initial_data = self.expected_response[0]
+        else:
+            self.initial_data = self.expected_response
 
         if isinstance(report.response_body, list):
             self.response_body = [
@@ -199,14 +207,16 @@ class PrettifyReport(PRR):
             items = report.response_body.items()
             self.response_body = [
                 [self.format(k, str(v)) for k, v in items]]
-
-        self.longest_key = self.get_longest_key(
-            self.request_body + self.response_body[0])
+        if self.response_body:
+            self.longest_key = self.get_longest_key(
+                self.request_body + self.response_body[0])
+        else:
+            self.longest_key = self.get_longest_key(self.request_body)
         self.display_expected = False
         if len(self.initial_data) > 0 and report.display_expected:
             self.display_expected = True
         self.display_errors = report.display_errors
-        self.mapping = list(report.mapping)
+        self.mapping = sorted(list(report.mapping), reverse=True)
         self.title = self.get_title(self.method,
                                     self.url,
                                     self.logs)
@@ -241,14 +251,21 @@ class PrettifyReport(PRR):
 
     def get_pretty_post_rows(self):
         """
-        Builds each row with 2 (resp. 3) key_value pairs according to display_expected option
+        Builds each row with 2 (resp. 3) key_value pairs according to
+        display_expected option.
         Checks each key and each value with expected result if provided.
         Failed checks are colored in red, successful ones in green.
         Returns the list of colored and justified rows.
         """
         result = []
-        self.response_body = self.response_body[0]
-        self.expected_response = self.expected_response[0]
+        if self.response_body:
+            self.response_body = self.response_body[0]
+        self.expected_response = self.initial_data
+        for index in self.mapping:
+            if index < len(self.request_body):
+                req = self.request_body
+                self.request_body = req[:index] + [("", "")] + req[index:]
+
         while len(self.request_body) < max(len(self.expected_response),
                                            len(self.response_body)):
             self.request_body += [("", "")]
@@ -256,50 +273,57 @@ class PrettifyReport(PRR):
             self.response_body += [("", "")]
 
         if len(self.expected_response) > 0:
-            for body_row, expected_row, response_row in zip(self.request_body,
-                                                            self.expected_response,
-                                                            self.response_body):
-                row = PRR.prettify_key_value(*body_row, self.longest_key)
+            raw_table = zip(self.request_body,
+                            self.expected_response,
+                            self.response_body)
+            for body_row, expected_row, response_row in raw_table:
+                row = self.prettify_key_value(*body_row, self.longest_key)
 
                 checks = (expected_row[0] == response_row[0],
                           expected_row[1] == response_row[1])
-                row += PRR.prettify_key_value(*response_row,
-                                              self.longest_key,
-                                              checks)
+                row += self.prettify_key_value(*response_row,
+                                               self.longest_key,
+                                               checks)
                 if not checks[0] or not checks[1]:
                     if not checks[0]:
                         self.key_mismatch += 1
                     if not checks[1]:
                         self.value_mismatch += 1
-                    row += PRR.prettify_key_value(*expected_row,
-                                                  self.longest_key,
-                                                  checks)
+                    row += self.prettify_key_value(*expected_row,
+                                                   self.longest_key,
+                                                   checks)
                 elif self.display_expected:
-                    row += PRR.prettify_key_value(*expected_row,
-                                                  self.longest_key,
-                                                  checks)
+                    row += self.prettify_key_value(*expected_row,
+                                                   self.longest_key,
+                                                   checks)
                 result.append(row)
         else:
             for body_row, response_row in zip(self.request_body,
                                               self.response_body):
-                row = PRR.prettify_key_value(*body_row, self.longest_key)
-                row += PRR.prettify_key_value(*response_row,
-                                              self.longest_key)
+                row = self.prettify_key_value(*body_row, self.longest_key)
+                row += self.prettify_key_value(*response_row,
+                                               self.longest_key)
                 result.append(row)
         result.append(65 * ' ' + 10 * '-')
         return result
 
     def get_pretty_put_rows(self):
         """
-        Builds each row with 2 (resp. 3) key_value pairs according to display_expected option
+        Builds each row with 2 (resp. 3) key_value pairs according to
+        display_expected option as cells.
         Checks each key and each value with expected result if provided.
         Failed checks are colored in red, successful ones in green.
         Returns the list of colored and justified rows.
         """
         result = []
         request = dict(self.request_body)
-        initial = dict(self.initial_data)
-        response = dict(self.response_body[0])
+        initial = dict()
+        if self.initial_data:
+            initial = dict(self.initial_data)
+        if self.response_body:
+            response = dict(self.response_body[0])
+        else:
+            response = dict()
         if len(self.initial_data) == 0:
             initial = response
         else:
@@ -457,7 +481,7 @@ if __name__ == "__main__":
                'event_date': '2022-08-17',
                'notes': 'blabla'
     }
-    _logs = {"username": "de@de.co", "password": "xxxx"}
+    _logs = {"email": "de@de.co", "password": "xxxx"}
 
     report_1 = PrettifyReport(Report(url="/events/",
                                          logs=_logs,

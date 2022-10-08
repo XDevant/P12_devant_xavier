@@ -1,4 +1,6 @@
-from datetime import timedelta, timezone, datetime
+from datetime import datetime
+from django.utils.timezone import make_aware
+from django.conf import settings
 
 
 test_clients = [
@@ -43,42 +45,42 @@ test_contracts = [
   {
       "client":  0,
       "amount":  1000,
-      "payment_due": datetime(2040, 10, 10, timezone.utc),
+      "payment_due": "2040-10-10T10:00:00+01:00"
   },
   {
       "client":  1,
       "amount":  2000,
-      "payment_due": datetime(2041, 10, 10, timezone.utc),
+      "payment_due": "2041-10-10T10:00:00+01:00"
   },
-{
+  {
       "client":  0,
       "amount":  10000,
-      "payment_due": datetime(2042, 10, 10, timezone.utc),
+      "payment_due": "2042-10-10T10:00:00+01:00"
   },
   {
       "client":  1,
       "amount":  20000,
-      "payment_due": datetime(2043, 10, 10, timezone.utc),
+      "payment_due": "2043-10-10T10:00:00+01:00"
   },
-{
+  {
       "client":  2,
       "amount":  100000,
-      "payment_due": datetime(2050, 10, 10, timezone.utc),
+      "payment_due": "2030-10-10T10:00:00+01:00"
   },
   {
       "client":  3,
       "amount":  200000,
-      "payment_due": datetime(2051, 10, 10, timezone.utc),
+      "payment_due": "2031-10-10T10:00:00+01:00"
   },
-{
+  {
       "client":  2,
       "amount":  30000,
-      "payment_due": datetime(2052, 10, 10, timezone.utc),
+      "payment_due": "2032-10-10T10:00:00+01:00"
   },
   {
       "client":  3,
       "amount":  40000,
-      "payment_due": datetime(2053, 10, 10, timezone.utc),
+      "payment_due": "2033-10-10T10:00:00+01:00"
   },
 ]
 test_events = [
@@ -86,28 +88,28 @@ test_events = [
       "support_contact":  0,
       "event_status":  0,
       "attendees":  10,
-      "event_date":  datetime(2050, 10, 10, timezone.utc),
+      "event_date":  "2026-10-10T10:00:00+01:00",
       "notes": "test event 1"
   },
   {
       "support_contact":  1,
       "event_status":  1,
       "attendees":  20,
-      "event_date": datetime(2050, 10, 10, timezone.utc),
+      "event_date": "2027-10-10T10:00:00+01:00",
       "notes": "test event 2"
   },
-{
+  {
       "support_contact":  0,
       "event_status":  2,
       "attendees":  1000,
-      "event_date":  datetime(2030, 10, 10, timezone.utc),
+      "event_date":  "2028-10-10T10:00:00+01:00",
       "notes": "test event 3"
   },
   {
       "support_contact":  1,
       "event_status":  3,
       "attendees":  2000,
-      "event_date": datetime(2030, 10, 10, timezone.utc),
+      "event_date": "2029-10-10T10:00:00+01:00",
       "notes": "test event 4"
   },
 ]
