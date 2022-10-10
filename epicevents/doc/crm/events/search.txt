@@ -9,8 +9,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__email=f
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__last_name=Client[0m                                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -23,8 +21,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__last_na
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__email__icontains=first@client[0m                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -37,8 +33,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__email__
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__last_name__icontains=Clien[0m                                login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -51,8 +45,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?client__last_na
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__lt=2040-09-10T00:00:00Z[0m                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -65,8 +57,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__l
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
+                                                                 ----------
           id            : 3                      
           client_id     : 3                      
           status        : True                   
@@ -75,8 +66,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__l
           event_date    : 2028-10-10             
           notes         : test event 3           
           date_created  : 2022-10-08             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__gt=2010-09-10T00:00:00Z[0m                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -89,8 +78,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__g
           event_date    : 2026-10-10             
           notes         : test event 1           
           date_created  : 2022-10-08             
-
-
+                                                                 ----------
           id            : 3                      
           client_id     : 3                      
           status        : True                   
@@ -99,6 +87,4 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/?date_created__g
           event_date    : 2028-10-10             
           notes         : test event 3           
           date_created  : 2022-10-08             
-
-
                                                                  ----------

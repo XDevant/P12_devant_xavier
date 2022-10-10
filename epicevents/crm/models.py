@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models, transaction
 from django.conf import settings
 
@@ -17,8 +18,19 @@ class Client(models.Model):
                                       related_name='client_contact'
                                       )
 
+    class Meta:
+        unique_together = ('first_name', 'last_name', 'company_name')
+
     def __str__(self):
         return str(self.id)
+
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name} ({self.company_name})"
+
+    def save(self, **kwargs):
+        if not self._state.adding:
+            self.date_updated = datetime.now()
+        return super().save(**kwargs)
 
 
 class Contract(models.Model):

@@ -8,8 +8,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__emai
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -17,8 +16,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__emai
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name=Client[0m                                       login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -30,8 +27,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -39,8 +35,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__email__icontains=first@client[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -52,8 +46,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__emai
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -61,8 +54,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__emai
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last_name__icontains=Clien[0m                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -74,8 +65,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -83,8 +73,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?client__last
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount=1000[0m                                                    login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -96,8 +84,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount=1000
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__gt=25000[0m                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -109,8 +95,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__gt=2
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
+                                                                 ----------
            id           : 6                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -118,8 +103,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__gt=2
            status       : False                  
            amount       : 30000.0                
            payment_due  : 2032-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=25000[0m                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -131,8 +114,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=2
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 5                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -140,8 +122,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?amount__lt=2
            status       : True                   
            amount       : 10000.0                
            payment_due  : 2042-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created__lt=2040-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -153,8 +133,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -162,8 +141,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
+                                                                 ----------
            id           : 5                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -171,8 +149,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : True                   
            amount       : 10000.0                
            payment_due  : 2042-10-10             
-
-
+                                                                 ----------
            id           : 6                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -180,8 +157,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : False                  
            amount       : 30000.0                
            payment_due  : 2032-10-10             
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created__gt=2010-09-10T00:00:00Z[0m                          login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -193,8 +168,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : True                   
            amount       : 1000.0                 
            payment_due  : 2040-10-10             
-
-
+                                                                 ----------
            id           : 2                      
            contact      : de@de.co               
            client_id    : 1                      
@@ -202,8 +176,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : False                  
            amount       : 100000.0               
            payment_due  : 2030-10-10             
-
-
+                                                                 ----------
            id           : 5                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -211,8 +184,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : True                   
            amount       : 10000.0                
            payment_due  : 2042-10-10             
-
-
+                                                                 ----------
            id           : 6                      
            contact      : de@de.co               
            client_id    : 3                      
@@ -220,6 +192,4 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/?date_created
            status       : False                  
            amount       : 30000.0                
            payment_due  : 2032-10-10             
-
-
                                                                  ----------

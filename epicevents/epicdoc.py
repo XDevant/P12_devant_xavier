@@ -99,12 +99,12 @@ class Doc:
     models = ["clients", "contracts", "events", "groups", "users"]
     actions = ["add", "change", "detail", "list", "search", "delete",
                "sales", "support", "admin", "visitor"]
-    selected_apps = []
-    selected_models = []
-    selected_actions = []
-    is_help = False
 
     def __init__(self, args):
+        self.selected_apps = []
+        self.selected_models = []
+        self.selected_actions = []
+        self.is_help = False
         for arg in args:
             if arg in self.actions:
                 self.selected_actions.append(arg)

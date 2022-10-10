@@ -40,7 +40,7 @@ class PRR:
             else:
                 value = value.split(' ')[0]
         if "contact" in key:
-            value = value.split(':')[-1]
+            value = value.split(':')[-1].strip()
         if key and len(key) > 20:
             key = key[:18] + '...'
         if value and len(value) > 25:
@@ -48,7 +48,7 @@ class PRR:
         return key, value
 
     @staticmethod
-    def prettify_key_value(key, value, offset, checks=(None, None)):
+    def prettify_key_value(key, value, offset=0, checks=(None, None)):
         len_key = len(key)
         len_value = len(value)
         if key:
@@ -70,7 +70,7 @@ class PRR:
         return longest
 
     @staticmethod
-    def get_headers(method, display_expected, sum_events=0):
+    def get_headers(method, display_expected):
         headers = 17 * ' '
         expect = 'Expected Result'
         if method == 'PUT':
@@ -79,7 +79,7 @@ class PRR:
         if method in ['POST', 'PUT']:
             headers += Colors.HEADER + 'Request  Body' + Colors.END + 35 * ' '
         headers += Colors.HEADER + 'Response Data' + Colors.END + 35 * ' '
-        if display_expected or sum_events != 0:
+        if display_expected:
             headers += Colors.HEADER + expect + Colors.END
         return headers
 
@@ -87,11 +87,11 @@ class PRR:
     def get_errors(k_mismatch, v_mismatch, updated=0):
         string_1 = f"{k_mismatch} key error{'s' if k_mismatch > 1 else ''}. "
         total = PRR.colorize(string_1, k_mismatch == 0)
-        string_2 = f"{v_mismatch} value error{'s' if v_mismatch > 1 else ''}."
+        string_2 = f"{v_mismatch} value error{'s' if v_mismatch > 1 else ''}. "
         total += PRR.colorize(string_2, v_mismatch == 0)
         string_3 = f"{updated} value{'s' if updated > 1 else ''} updated."
         if updated > 0:
-            string_3 += Colors.get('UPDATED', string_3)
+            string_3 = Colors.get('UPDATED', string_3)
             total += string_3
         return total
 
@@ -100,12 +100,12 @@ class PRR:
         title = 'Request:  ' + Colors.get('METHOD', method) + '   '
         title += Colors.get('URL', PRR.BASE_URL + url)
         title += ' ' * (100 - len(method) - len(PRR.BASE_URL + url))
-        if logs:
+        if logs and "email" in logs.keys() and "password" in logs.keys():
             email = PRR.colorize("email", False) + '=' + logs["email"]
             password = PRR.colorize("password", False) + '=' + logs["password"]
             title += f'login: {email} {password}'
         else:
-            logs += PRR.colorize('login required', False)
+            title += PRR.colorize('login required', False)
         return title
 
     @staticmethod
@@ -129,14 +129,16 @@ class PRR:
 
 class Report:
     """A little helper to format the kwargs passed to the PRR subclass
-    kwargs: url(string), logs(dict), method(string), request_body(dict),
-                 expected(dict), response_body(dict), display_expected(bool),
-                 display_errors(bool), mapping(tuple of ints)
+    kwargs: url(string, action(string)), logs(dict), request_body(dict),
+            expected(dict), response_body(dict), display_expected(bool),
+            display_errors(bool), mapping(tuple of positive int)
     """
-    def __init__(self, url="", logs=None, action="",
+    def __init__(self, url="",
+                 action="",
+                 logs=None,
                  request_body=None,
-                 expected=None,
                  response_body=None,
+                 expected=None,
                  display_expected=False,
                  display_errors=False,
                  mapping=()):
@@ -152,7 +154,7 @@ class Report:
         elif self.action.lower() == 'change':
             self.method = 'PUT'
         else:
-            self.method = action
+            self.method = action.upper()
         if request_body is None:
             request_body = {}
         self.request_body = request_body
@@ -221,10 +223,9 @@ class PrettifyReport(PRR):
                                     self.url,
                                     self.logs)
         self.result = self.get_pretty_rows()
-        sum_events = self.key_mismatch + self.value_mismatch + self.updated
-        self.headers = self.get_headers(self.method,
-                                        self.display_expected,
-                                        sum_events=sum_events)
+        self.sum_events = self.key_mismatch + self.value_mismatch + self.updated
+        check = self.display_expected or self.sum_events != 0
+        self.headers = self.get_headers(self.method, check)
         self.errors = self.get_errors(self.key_mismatch,
                                       self.value_mismatch,
                                       self.updated)
@@ -425,8 +426,7 @@ class PrettifyReport(PRR):
                     result.append(self.prettify_key_value(key,
                                                           value,
                                                           self.longest_key))
-                result.append("\n")
-            result.append(65 * ' ' + 10 * '-')
+                result.append(65 * ' ' + 10 * '-')
             return result
 
         expects = [dict(exp) for exp in self.expected_response]
@@ -451,86 +451,3 @@ class PrettifyReport(PRR):
                 result.append(row)
             result.append(65 * ' ' + 10 * '-')
         return result
-
-
-if __name__ == "__main__":
-    _request = {'status': 2,
-                'contact_email': 'bi@bi.co',
-                'attendees': 15,
-                'event_date': '2022-08-17',
-                'notes': 'bla'}
-    _expected = {'id': '3',
-                 'client_id': '1',
-                 'status': 'True',
-                 'contact_email': 'Bi Bo couriel:bi@bi.co',
-                 'attendees': '15',
-                 'event_date': '2022-08-17T00:00:00Z',
-                 'notes': 'bla',
-                 'date_created': '2022-09-29T15:55:46.37Z'}
-    _response = {'id': '3',
-                 'client_id': '1',
-                 'status': 'True',
-                 'contact_email': 'Bi Bi couriel:bi@bi.co',
-                 'attendees': '15',
-                 'event_date': '2022-08-17T00:00:00Z',
-                 'notes': 'bla',
-                 'date_created': '2022-09-29T15:55:46.38Z'}
-    update = {
-               'contact_email': 'bi@bi.co',
-               'attendees': 15,
-               'event_date': '2022-08-17',
-               'notes': 'blabla'
-    }
-    _logs = {"email": "de@de.co", "password": "xxxx"}
-
-    report_1 = PrettifyReport(Report(url="/events/",
-                                         logs=_logs,
-                                         action='add',
-                                         request_body=_request,
-                                         response_body=_response,
-                                         expected=_expected,
-                                         mapping=[0, 0]))
-    report_1.print()
-    report_1 = PrettifyReport(Report(url="/events/",
-                                     display_expected=True,
-                                     logs=_logs,
-                                     action='add',
-                                     request_body=_request,
-                                     response_body=_response,
-                                     expected=_expected,
-                                     mapping=[0, 0]))
-    report_1.print()
-    _response["notes"] = "blabla"
-    report_1 = PrettifyReport(Report(url="/events/3/",
-                                     display_expected=True,
-                                     display_errors=True,
-                                     action='change',
-                                     logs=_logs,
-                                     request_body=update,
-                                     response_body=_response,
-                                     expected=_expected))
-    report_1.print()
-    report_1 = PrettifyReport(Report(url="/events/3/",
-                                     action='change',
-                                     logs=_logs,
-                                     request_body=update,
-                                     response_body=_response,
-                                     expected=_expected))
-    report_1.print()
-    report_1 = PrettifyReport(Report(url="/events/",
-                                     display_expected=True,
-                                     display_errors=True,
-                                     action='list',
-                                     logs=_logs,
-                                     response_body=[_response, _response],
-                                     expected=[_expected, _expected]))
-    report_1.print()
-    report_1 = PrettifyReport(Report(url="/events/",
-                                     action='list',
-                                     logs=_logs,
-                                     response_body=[_response, _response],
-                                     expected=[_expected, _expected]
-                                     ))
-    report_1.print()
-    # PRR.save_report(report_5.report, "change", model="event")
-    # PRR.print_doc("change", model="event")

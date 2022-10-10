@@ -10,8 +10,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email=first@cl
            company_name : World                  
            date_created : 2022-10-08             
            contact      : de@de.co               
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name=Client[0m                                                 login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -25,8 +23,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name=Clie
            company_name : World                  
            date_created : 2022-10-08             
            contact      : de@de.co               
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email__icontains=first@client[0m                                    login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -40,8 +36,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email__icontai
            company_name : World                  
            date_created : 2022-10-08             
            contact      : de@de.co               
-
-
                                                                  ----------
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name__icontains=Clien[0m                                       login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
@@ -55,6 +49,4 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name__ico
            company_name : World                  
            date_created : 2022-10-08             
            contact      : de@de.co               
-
-
                                                                  ----------
