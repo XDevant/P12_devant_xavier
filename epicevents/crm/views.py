@@ -76,12 +76,12 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         """
         try:
             client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id)
+            client = Client.objects.get(id=client_id,
+                                        sales_contact=self.request.user)
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
-        serializer.save(sales_contact=client.sales_contact,
-                        client=client)
+        serializer.save(client=client)
 
     def perform_update(self, serializer):
         try:

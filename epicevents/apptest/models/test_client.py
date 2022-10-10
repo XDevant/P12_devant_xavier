@@ -22,6 +22,7 @@ class TestClientModel:
               f" loaded fixture {index} email={email}.  ",
               end='')
         assert client.email == email
+        assert len(Client.objects.all()) == 4
 
     def test_client_create_update(self, prospects):
         contact = User.objects.filter(role='sales')[0]

@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.db import models, transaction
 from django.conf import settings
+from rest_framework.serializers import ValidationError
 
 
 class Client(models.Model):
@@ -56,6 +57,7 @@ class Contract(models.Model):
     def save(self, **kwargs):
         if not self._state.adding:
             self.date_updated = datetime.now()
+        self.sales_contact = self.client.sales_contact
         return super().save(**kwargs)
 
 

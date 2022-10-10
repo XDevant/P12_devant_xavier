@@ -25,14 +25,6 @@ class ContractAddForm(forms.ModelForm):
         fields = ('client', 'amount', 'payment_due')
         read_only_fields = ('client',)
 
-    def save(self, commit=True):
-        contract = super().save(commit=False)
-        contract.sales_contact = contract.client.sales_contact
-        contract.status = False
-        if commit:
-            contract.save()
-        return contract
-
 
 class ContractChangeForm(forms.ModelForm):
 
