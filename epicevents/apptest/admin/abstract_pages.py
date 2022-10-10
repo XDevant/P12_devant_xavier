@@ -29,7 +29,6 @@ class BasePage:
         if form_update is not None and isinstance(form_update, dict):
             for key, value in form_update.items():
                 form[key] = value
-        print(self.form)
 
         for key, value in form.items():
             locator = BasePageLocator(key).fill_form

@@ -1,5 +1,5 @@
-BASE_URL = "http://127.0.0.1:8000/"
-SLEEP_TIME = 2
+BASE_URL = "http://127.0.0.1:7000/"
+SLEEP_TIME = 1
 
 
 class BaseData:

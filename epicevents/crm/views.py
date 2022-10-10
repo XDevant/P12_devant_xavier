@@ -36,7 +36,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
         serializer.save(sales_contact=current_user)
 
     def perform_update(self, serializer):
-        serializer.save(date_updated=datetime.now())
+        serializer.save()
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
@@ -74,14 +74,14 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         """
         We set the user as sales_contact while saving the new contract
         """
-        current_user = self.request.user
         try:
             client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id, sales_contact=self.request.user)
+            client = Client.objects.get(id=client_id)
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
-        serializer.save(sales_contact=current_user, client=client, status=False)
+        serializer.save(sales_contact=client.sales_contact,
+                        client=client)
 
     def perform_update(self, serializer):
         try:
@@ -90,7 +90,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
         except Exception:
             message = "Invalid client id"
             raise ValidationError(message)
-        serializer.save(client=client, date_updated=datetime.today())
+        serializer.save(client=client)
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""

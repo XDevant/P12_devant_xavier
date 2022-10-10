@@ -7,6 +7,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/1/[0m       
            [0;32mcontact[0m      : [0;32mde@de.co[0m               
            [0;32mamount[0m       : [0;32m1000.0[0m                 
            [0;32mpayment_due[0m  : [0;32m2040-10-10[0m             
-           [0;32mdate_created[0m : [0;32m2022-10-08[0m             
+           [0;32mdate_created[0m : [0;32m2022-10-10[0m             
            [0;32mdate_updated[0m : [0;32mNone[0m                   
                                                                  ----------

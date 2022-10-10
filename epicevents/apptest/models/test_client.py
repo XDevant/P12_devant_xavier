@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from  django.db.utils import IntegrityError
+from django.db.utils import IntegrityError
 from authentication.models import User, UserManager
 from crm.models import Client
 from crm.fixtures.test_data import test_clients
@@ -31,17 +31,18 @@ class TestClientModel:
         prospect["first_name"] = "new_first_name"
         client = Client.objects.create(**prospect)
         assert client.email == "old@email.test"
-        assert client.id == 5
+        client_id = client.id
         assert client.date_updated is None
         assert not client._state.adding
-        print(f"\nChecking if client {client} was created with old email. ",
+        print(f"\nChecking if un updated client {client} "
+              f"was created with old email. ",
               end='')
         client.email = "new@email.test"
         assert not client._state.adding
         client.save()
         assert client.date_updated is not None
         assert not client._state.adding
-        new_client = Client.objects.get(id=5)
+        new_client = Client.objects.get(id=client_id)
         assert new_client.email == "new@email.test"
         print(f" And if {client} was updated with new email.  ",
               end='')
