@@ -1,5 +1,5 @@
 BASE_URL = "http://127.0.0.1:7000/"
-SLEEP_TIME = 1
+SLEEP_TIME = 0
 
 
 class BaseData:
@@ -41,7 +41,7 @@ class AddUserData(BaseData):
 class ChangeUserData(BaseData):
     url = BASE_URL + "admin/authentication/user/$pk$/change/"
     title = "Change user | Django site admin"
-    form = {"first_name": "Ma", "last_name": "La", "email": "ma@la.co", "role": "sales"}
+    form = {"first_name": "Ma", "last_name": "La", "email": "ma@la.co"}
 
     def __init__(self, pk=-1):
         self.pk = pk

@@ -1,10 +1,7 @@
 from django.contrib import admin
-from django.contrib.contenttypes.models import ContentType
-from django.template.response import TemplateResponse
-from django.urls import path
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Client, Contract, Event
+from .models import Client, Contract, Event, EventStatus
 from authentication.models import User
 from .forms import ClientAddForm, ClientChangeForm, ContractAddForm,\
                    ContractChangeForm, EventAddForm, EventChangeForm
@@ -99,3 +96,4 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Contract, ContractAdmin)
 admin.site.register(Event, EventAdmin)
+admin.site.register(EventStatus)

@@ -8,6 +8,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/1/[0m          
           [0;32mattendees[0m     : [0;32m10[0m                     
           [0;32mevent_date[0m    : [0;32m2026-10-10[0m             
           [0;32mnotes[0m         : [0;32mtest event 1[0m           
-          [0;32mdate_created[0m  : [0;32m2022-10-10[0m             
+          [0;32mdate_created[0m  : [0;32m2022-10-12[0m             
           [0;32mdate_updated[0m  : [0;32mNone[0m                   
                                                                  ----------

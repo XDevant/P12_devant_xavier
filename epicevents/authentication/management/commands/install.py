@@ -16,7 +16,7 @@ class Command(BaseCommand):
         parser.add_argument('-s', '--super', action='store_true', help=help_2)
 
     def handle(self, *args, **options):
-        call_command('create_database')
+        call_command('create_database', '--dev')
         call_command('makemigrations')
         call_command('migrate')
         call_command('create_groups')

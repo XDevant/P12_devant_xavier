@@ -82,7 +82,7 @@ WSGI_APPLICATION = "epicevents.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config.POSTGRES_NAME,
+        'NAME': 'dev_' + config.POSTGRES_NAME,
         'USER': config.POSTGRES_USER,
         'PASSWORD': config.POSTGRES_PASSWORD,
         'HOST': 'localhost',
@@ -131,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 

@@ -34,7 +34,9 @@ crm = {
         "global": "Events are related to a single contract via"
                   " the 'Status' model and to a client.",
         "add": "Only members of the sales group can "
-               "create an event for their clients.",
+               "create an event for their clients.\n        "
+               "The 'status' key should refer to the contract tied to the "
+               "event being created.",
         "change": "Only admins and the event's support contact can"
                   " change an event.",
         "detail": "Only admins, client's sales contact"
@@ -50,31 +52,34 @@ crm = {
 authentication = {
     "users": {
         "global": "Users can only be created/edited/viewed by admins"
-                  " on the django admin site.\n"
+                  " on the django admin site.\n "
                   " User have a 'role' that can be either"
                   " 'visitor', 'sales', 'support', 'admin'."
                   " User's roles are in fact associated with a group"
-                  " of the same name.\n Changing the role will change both"
-                  " the group and the permissions.",
-        "delete": "Items in the crm are protected so you can not delete a user"
-                  " if he is contact of an item."
+                  " of the same name.\n",
+        "delete": "Items in the crm are protected so you can not delete"
+                  " a user if he is contact of an item."
                   " You can change the contact of client/clients "
                   "on the admin site with a crm/client action."
                   " This will also set the new contact for"
-                  " all the clients contracts.\n"
-                  " The same action exists to change the contact of event/events, next to the delete action."
+                  " all the clients contracts.\n    "
+                  " The same action exists to change the contact of "
+                  "event/events, next to the delete action."
     },
     "groups": {
-        'global': "Admins should not have to deal with groups"
-                  " and should change the role of the user instead",
+        'global': "Admins should not have to deal with groups but can change"
+                  "a user's group to 'visitor' to delete all permission"
+                  " for that user.\n    "
+                  "If the group and role of a user do not match, the user"
+                  "will likely be unable to access anything.",
         'visitor': "Visitors have no access at all.",
-        'sales': "Members of Sales have add, change, view permission"
+        'sales': "Members of Sales have add, change, view permission."
                  " for clients and contracts, create and view for events. "
-                 "But also need to be contact of the client",
+                 "But also need to be contact of the client.",
         'support': "Support members have view permission of the client, of "
-                   "their events and change/view permission for their events",
+                   "their events and change/view permission for their events.",
         'admin': "Admins have access to the admin site and add/change/view"
-                 " of all items in db"
+                 " of all items in db."
     }
 }
 

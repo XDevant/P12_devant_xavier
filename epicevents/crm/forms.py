@@ -1,6 +1,6 @@
 from django import forms
 from django.db import transaction
-from .models import Client, Contract, Event, Status
+from .models import Client, Contract, Event, EventStatus
 from authentication.models import User
 
 
@@ -48,7 +48,7 @@ class EventAddForm(forms.ModelForm):
         contract.save()
         event = super().save(commit=False)
         event.client = contract.client
-        event.event_status = Status.objects.create(contract=contract)
+        event.event_status = EventStatus.objects.create(contract=contract)
         if commit:
             event.save()
         return event

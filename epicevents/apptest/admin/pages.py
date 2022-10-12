@@ -34,6 +34,10 @@ class AddUserPage(BasePage):
     def __init__(self, driver, data=pages_data.AddUserData):
         super().__init__(driver, data)
 
+    def send_form(self, login=False, form_update=None):
+        ok = super().send_form(login, form_update)
+        return ok
+
 
 class ChangeUserPage(PkPage):
     def __init__(self, driver, data=None, pk=-1):

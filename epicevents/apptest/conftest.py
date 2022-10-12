@@ -9,6 +9,7 @@ from utils.utils import run_sql
 def django_db_setup():
     from django.conf import settings
     name = settings.DATABASES['default']['NAME']
+    name = name.split('_')[-1]
     settings.DATABASES['default']['NAME'] = f"test_{name}"
 
     run_sql(f'DROP DATABASE IF EXISTS "test_{name}"')

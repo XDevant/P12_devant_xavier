@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from authentication.models import User, UserManager
 import crm.fixtures.test_data as data
-from crm.models import Client, Contract, Event, Status
+from crm.models import Client, Contract, Event, EventStatus
 from utils.prettyprints import PRR
 
 
@@ -36,13 +36,12 @@ class Command(BaseCommand):
             contract["client"] = new_client
             contract["status"] = True
             c = Contract.objects.db_manager(db).create(**contract)
-            s = Status.objects.db_manager(db).create(contract=c)
+            s = EventStatus.objects.db_manager(db).create(contract=c)
             contract_count += 1
 
             contract_2["sales_contact"] = sales_list[client_index]
             contract_2["client"] = new_client
-            c = Contract.objects.db_manager(db).create(**contract_2)
-            Status.objects.db_manager(db).create(contract=c)
+            Contract.objects.db_manager(db).create(**contract_2)
             contract_count += 1
 
             event["support_contact"] = support_list[client_index]
