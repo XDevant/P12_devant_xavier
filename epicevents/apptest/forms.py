@@ -51,7 +51,7 @@ expected_contract = {
     "date_created": datetime.now(),
     "status": False,
     "amount":  15.,
-    "payment_due": "2050-10-10T10:00:00+01:00"
+    "payment_due": "2050-10-10T11:00:00"
 }
 
 expected_contract_1 = {
@@ -59,7 +59,7 @@ expected_contract_1 = {
     "client_id": 1,
     "status": True,
     "amount": 1000.,
-    "payment_due": "2040-10-10T10:00:00+01:00",
+    "payment_due": "2040-10-10T11:00:00",
     "contact": "de@de.co",
     "date_created": get_install_date()
 }
@@ -78,7 +78,7 @@ expected_event = {
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 15,
-    'event_date': "2030-10-10T10:00:00+01:00",
+    'event_date': "2030-10-10T11:00:00",
     'notes': 'bla',
     'date_created': datetime.now()
 }
@@ -89,7 +89,7 @@ expected_event_1 = {
     'status': 'True',
     'contact_email': 'Bi Bi couriel:bi@bi.co',
     'attendees': 10,
-    'event_date': "2026-10-10T10:00:00+01:00",
+    'event_date': "2026-10-10T11:00:00",
     'notes': 'test event 1',
     'date_created': get_install_date()
 }

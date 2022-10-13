@@ -11,7 +11,8 @@ class ClientAdmin(admin.ModelAdmin):
     add_form = ClientAddForm
     form = ClientChangeForm
 
-    list_display = ('first_name', 'last_name', 'email', 'phone', 'mobile', 'company_name', 'sales_contact')
+    list_display = ('first_name', 'last_name', 'email', 'phone', 'mobile',
+                    'company_name', 'sales_contact')
     ordering = ('sales_contact', 'last_name')
     actions = ['change_contact']
 
@@ -31,13 +32,13 @@ class ClientAdmin(admin.ModelAdmin):
         if 'apply' in request.POST:
             new_contact_id = request.POST["sales_contact"]
             queryset.update(sales_contact=new_contact_id)
-            self.message_user(request,
-                              f"Changed sales contact for {queryset.count()} clients.")
+            msg = f"Changed sales contact for {queryset.count()} clients."
+            self.message_user(request, msg)
+
             contract = Contract.objects.filter(client__in=queryset)
             contract.update(sales_contact=new_contact_id)
-
-            self.message_user(request,
-                              f"Changed sales contact for {contract.count()} contracts.")
+            msg = f"Changed sales contact for {contract.count()} contracts."
+            self.message_user(request, msg)
             return HttpResponseRedirect(request.get_full_path())
         context['clients'] = queryset
         context['sales_contacts'] = sales_team
@@ -50,7 +51,8 @@ class ContractAdmin(admin.ModelAdmin):
     add_form = ContractAddForm
     form = ContractChangeForm
 
-    list_display = ('sales_contact', 'client', 'status', 'amount', 'payment_due')
+    list_display = ('sales_contact', 'client', 'status',
+                    'amount', 'payment_due')
 
     def get_form(self, request, obj=None, **kwargs):
         defaults = {}
@@ -64,7 +66,8 @@ class EventAdmin(admin.ModelAdmin):
     add_form = EventAddForm
     form = EventChangeForm
 
-    list_display = ('support_contact', 'client', 'event_status', 'attendees', 'event_date', 'notes')
+    list_display = ('support_contact', 'client', 'event_status',
+                    'attendees', 'event_date', 'notes')
     actions = ['change_contact']
 
     def get_form(self, request, obj=None, **kwargs):
@@ -83,8 +86,8 @@ class EventAdmin(admin.ModelAdmin):
         if 'apply' in request.POST:
             new_contact_id = request.POST["support_contact"]
             queryset.update(support_contact=new_contact_id)
-            self.message_user(request,
-                              f"Changed support contact for {queryset.count()} events.")
+            msg = f"Changed support contact for {queryset.count()} events."
+            self.message_user(request, msg)
             return HttpResponseRedirect(request.get_full_path())
         context['events'] = queryset
         context['support_contacts'] = support_team

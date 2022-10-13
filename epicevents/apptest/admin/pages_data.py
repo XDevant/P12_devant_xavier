@@ -1,5 +1,8 @@
-BASE_URL = "http://127.0.0.1:7000/"
-SLEEP_TIME = 0
+import config
+
+
+BASE_URL = config.SELENIUM_BASE_URL
+SLEEP_TIME = config.SLEEP_TIME
 
 
 class BaseData:
@@ -35,7 +38,10 @@ class UserData(BaseData):
 class AddUserData(BaseData):
     url = BASE_URL + "admin/authentication/user/add/"
     title = "Add user | Django site admin"
-    form = {"first_name": "Mi", "last_name": "Lou", "email": "mi@lou.co", "role": "support"}
+    form = {"first_name": "Mi",
+            "last_name": "Lou",
+            "email": "mi@lou.co",
+            "role": "support"}
 
 
 class ChangeUserData(BaseData):
@@ -83,7 +89,9 @@ class AddItemData(BaseData):
                    "event_date_0":  "2022-08-17",
                    "event_date_1": "18:33:30",
                    "notes": "bla"}
-    _item_form = {"client": _client_form, "contract": _contract_form, "event": _event_form}
+    _item_form = {"client": _client_form,
+                  "contract": _contract_form,
+                  "event": _event_form}
     url = BASE_URL + "admin/crm/"
 
     def __init__(self, model):
@@ -96,7 +104,9 @@ class ChangeItemData(BaseData):
     _client_form = {"phone":  "01020304"}
     _contract_form = {"amount": 100}
     _event_form = {"notes": "selenium event"}
-    _item_form = {"client": _client_form, "contract": _contract_form, "event": _event_form}
+    _item_form = {"client": _client_form,
+                  "contract": _contract_form,
+                  "event": _event_form}
     url = BASE_URL + "admin/crm/"
 
     def __init__(self, model, pk=-1):

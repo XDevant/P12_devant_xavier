@@ -4,9 +4,6 @@ The simplest way to test it is to:
 
 The app need to connect to a Postgres database. You can either create a Postgres account with the username and
 password in config.py or edit POSTGRES_USER, POSTGRES_PASSWORD in config.py to enter your account username and password.
-
-## The install command will DROP the tables named Epic-Events, test_Epic-Events and copy_Epic-Events before recreating them.
-If this is a problem you can change the name in config.py (POSTGRES_NAME)
       
 2. Clone the repository on your own computer et navigate into the folder:
 
@@ -34,16 +31,28 @@ This will also create a database Epic-Events and duplicate it for use as testing
 The flag -s ensures the creation of a superuser, needed for admin testing.
 The flag -f loads the fake items in both db instead of only template db.
 
-7. Run the server:
+
+## The "install" command will try to create a Epic-Events database so make sure it doest not already exists
+## or change the name in config.py (POSTGRES_NAME)
+## It will also DROP the tables named dev_{POSTGRES_NAME}, test_{POSTGRES_NAME} and copy_{POSTGRES_NAME} before recreating them.
+
+
+7. Run the selenium test server:
 
         cd epicevents
-        python manage.py runserver
+        python manage.py runseleniumserver
+This will start a test server needed for selenium tests. It should run on Port 7000 instead of 8000
+This will avoid selenium messing with the dev database in case of failure.
 
-8. Test the app:
+9. Test the app:
 
-        pytest -vv -s
+        pytest epicevents\apptest -vv -s
+All tests using the database run on a copy of the database that was created during the installation named copy_Epic-Events.
+Whatever happens to the default database after the install will have no effet on the tests.
+But all tests need the fake users and fake_items to be loaded at install and selenium requires a superuser.
 
-9. Admin url: http://127.0.0.1:8000/admin
+11. Admin url: http://127.0.0.1:8000/admin (runserver) or http://127.0.0.1:7000/admin (runseleniumserver)
+Important: the database used by runseleniumserver is temporary and reinitialized every time the server it restarted.
 
 Notes:
 

@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 @pytest.mark.django_db
@@ -15,7 +15,7 @@ class TestClientUpdate:
         data = response.data[0]
         expected = deepcopy(data)
         data["phone"] = "0123456789"
-        print(f"\n Changing first listed client's phone number to 0123456789  ",
+        print("\n Changing first listed client's phone number to 0123456789 ",
               end='')
         response = api_client.put(url, data=data)
 
@@ -26,17 +26,23 @@ class TestClientUpdate:
                             request_body=data,
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="clients", mode='w')
-            print(f"and comparing updated client with expected result: ", end='')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="clients", mode='w')
+            print("and comparing updated client with expected result: ",
+                  end='')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
 
         assert response.status_code == 200
         assert '0123456789' in response.data["phone"]
 
-    @pytest.mark.parametrize("user", ["sales_2", "support_1", "support_2", "visitor_1"])
-    def test_unauthorized_do_not_update_clients(self, api_client, logins, user):
+    @pytest.mark.parametrize("user", ["sales_2",
+                                      "support_1",
+                                      "support_2",
+                                      "visitor_1"])
+    def test_unauthorized_do_not_update_clients(self,
+                                                api_client,
+                                                logins,
+                                                user):
         api_client.login(**logins.sales_1)
         response = api_client.get('/clients/')
         data = response.data[0]
@@ -44,5 +50,6 @@ class TestClientUpdate:
         api_client.logout()
         api_client.login(**getattr(logins, user))
         response = api_client.put('/clients/1/', data=data)
-        print(f"\n Trying to change first listed client's phone number: ", end='')
+        print("\n Trying to change first listed client's phone number: ",
+              end='')
         assert response.status_code in [403, 404]

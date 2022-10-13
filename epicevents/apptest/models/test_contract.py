@@ -16,8 +16,8 @@ class TestClientModel:
     def test_client_i_was_created(self, index, prospects):
         amount = prospects[index]['amount']
         contract = Contract.objects.get(amount=amount)
-        print(f"\nChecking if contract {contract.id} amount={contract.amount} matches"
-              f" loaded fixture {index} amount={amount}.  ",
+        print(f"\nChecking if contract {contract.id} amount={contract.amount} "
+              f"matches loaded fixture {index} amount={amount}.  ",
               end='')
         assert contract.amount == amount
         assert len(Contract.objects.all()) == 8

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from authentication.models import User, UserManager
+from authentication.models import User
 import crm.fixtures.test_data as data
 from crm.models import Client, Contract, Event, EventStatus
 from utils.prettyprints import PRR
@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'load fake data for testing, 4 clients, 8 contracts, 4 events'
 
     def add_arguments(self, parser):
-        help_1 = 'Loads the data in the test_db template but not in default db'
+        help_1 = 'Loads the data in the test_db template but not in default'
         parser.add_argument('-c', '--copy', action='store_true', help=help_1)
 
     def handle(self, *args, **options):
@@ -23,10 +23,11 @@ class Command(BaseCommand):
         sales_list = User.objects.db_manager(db).filter(role="sales")
         support_list = User.objects.db_manager(db).filter(role="support")
 
-        for client, contract, event, contract_2 in zip(data.test_clients,
-                                                       data.test_contracts[:4],
-                                                       data.test_events,
-                                                       data.test_contracts[4:]):
+        ziped = zip(data.test_clients,
+                    data.test_contracts[:4],
+                    data.test_events,
+                    data.test_contracts[4:])
+        for client, contract, event, contract_2 in ziped:
             client_index = client["sales_contact"] % len(sales_list)
             client["sales_contact"] = sales_list[client_index]
             new_client = Client.objects.db_manager(db).create(**client)

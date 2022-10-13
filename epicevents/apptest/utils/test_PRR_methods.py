@@ -1,7 +1,8 @@
 import io
 import sys
+from datetime import datetime
 import pytest
-from utils.prettyprints import PRR, Colors, BASE_DIR
+from utils.prettyprints import PRR, Colors
 
 
 class TestColors:
@@ -25,14 +26,15 @@ class TestPRR:
 
     def test_format(self):
         date = "date_abcdefghijklmnopqrstuvwxyz"
-        key, value = PRR.format(date, "1211-11-01 23:13")
-        assert value == "1211-11-01" and len(key) == 21
+        key, value = PRR.format(date, datetime(1211, 11, 11, 10, 15, 10))
+        assert value == "1211-11-11 10:15" and len(key) == 21
         key, value = PRR.format("contact_email", "dbd: dd@f.c")
         assert value == "dd@f.c"
 
     def test_prettify_key_value(self):
         pretty = PRR.prettify_key_value("key", "value", 10, (None, None))
-        assert pretty == 13 * ' ' + "key" + 7 * ' ' + ' : ' + "value" + 18 * ' '
+        check = 13 * ' ' + "key" + 7 * ' ' + ' : ' + "value" + 18 * ' '
+        assert pretty == check
         pretty = PRR.prettify_key_value("key", "value", 10, (True, False))
         print(f"\nChecking if key is green and value red:{pretty}", end='')
         assert len(pretty.split('\033[6;31m')) == 2

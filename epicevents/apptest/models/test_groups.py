@@ -1,6 +1,6 @@
 import pytest
 from django.contrib.auth.models import Group
-from authentication.models import User, UserManager
+from authentication.models import User
 
 
 @pytest.mark.django_db

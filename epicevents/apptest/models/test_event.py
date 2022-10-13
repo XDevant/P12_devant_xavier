@@ -1,8 +1,8 @@
 import pytest
 from copy import deepcopy
 from django.db.utils import IntegrityError
-from authentication.models import User, UserManager
-from crm.models import Client, Contract, Event, EventStatus
+from authentication.models import User
+from crm.models import Contract, Event, EventStatus
 from crm.fixtures.test_data import test_events
 
 
@@ -38,12 +38,12 @@ class TestEventModel:
         assert event.support_contact == contact
         assert event.client == contract.client
         assert status.contract.status
-        print(f"\nEvent was created with success. ", end='')
+        print("\nEvent was created with success. ", end='')
         assert len(EventStatus.objects.all()) == len(Event.objects.all())
         prospect["attendees"] = 1234
         with pytest.raises(IntegrityError):
             Event.objects.create(**prospect)
-        print(f"\nAnd same contract does not accept a second event. ", end='')
+        print("\nAnd same contract does not accept a second event. ", end='')
 
     def test_event_update(self):
         event = Event.objects.get(id=1)
@@ -64,5 +64,3 @@ class TestEventModel:
         contract = Contract.objects.get(id=status.contract.id)
         assert not contract.status
         assert len(EventStatus.objects.filter(contract=contract)) == 0
-
-

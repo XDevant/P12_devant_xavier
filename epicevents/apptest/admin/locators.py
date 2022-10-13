@@ -35,7 +35,8 @@ class SearchPageLocator(ListPageLocator):
     def __init__(self, link_url, action=None):
         if action is not None:
             super().__init__(link_url)
-            self.select_action_and_go = (By.CSS_SELECTOR, f"option[value='{action}_selected']")
+            self.select_action_and_go = (By.CSS_SELECTOR,
+                                         f"option[value='{action}_selected']")
 
 
 class ConfirmationPageLocator:

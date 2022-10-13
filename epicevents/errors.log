@@ -1,1 +1,151 @@
-Started: 2022-10-12
+Started: 2022-10-12 03:27
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment
+Internal Server Error: /clients/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment
+Internal Server Error: /clients/2/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment
+Internal Server Error: /clients/1/
+Traceback (most recent call last):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 415, in initial
+    self.check_permissions(request)
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\venv\lib\site-packages\rest_framework\views.py", line 332, in check_permissions
+    if not permission.has_permission(request, self):
+  File "C:\Users\xdeva\Documents\OC_projets\P12_devant_xavier\epicevents\crm\permissions.py", line 11, in has_permission
+    return request.user.groups.filter(name__in=groups[:2]).exists()
+UnboundLocalError: local variable 'groups' referenced before assignment

@@ -1,4 +1,4 @@
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 class TestReport:
@@ -7,12 +7,12 @@ class TestReport:
                         response_body={"key": "value"})
         assert report.logs == {}
         assert report.url == "/client/"
-        assert report.response_body["key"] == "value"
-        assert report.request_body == {}
-        assert report.expected == {}
+        assert report.response_body == [[("key", "value")]]
+        assert report.request_body == [[]]
+        assert report.expected == [[]]
         assert not report.display_expected
         assert not report.display_errors
-        assert report.mapping == ()
+        assert report.mapping == []
         assert report.method == "GET"
         assert Report(action="biz").method == "BIZ"
         assert Report(action="change").method == "PUT"
@@ -23,44 +23,37 @@ class TestReport:
 
 class TestPrettifyReports:
     def test_init_and_rows(self):
-        report = Report(url="/client/", action="list",
-                        response_body={"key": "value"})
-        pretty = PrettifyReport(report)
-        assert pretty.logs == {}
-        assert pretty.url == "/client/"
-        assert pretty.response_body == [[("key", "value")]]
-        assert pretty.request_body == []
-        assert pretty.expected_response == [[]]
-        assert not pretty.display_expected
-        assert not pretty.display_errors
+        report = {"url": "/client/",
+                  "action": "list",
+                  "response_body": {"key": "value"}}
+        pretty = Report(**report)
         assert pretty.longest_key == 3
         assert 'login required' in pretty.title
         assert pretty.sum_events == 0
         assert len(pretty.result) == 2
         assert "key : value" in pretty.result[0]
-        report.response_body["key_2"] = "value_2"
-        pretty = PrettifyReport(report)
+        report["response_body"]["key_2"] = "value_2"
+        pretty = Report(**report)
         assert pretty.response_body == [[("key", "value"),
                                          ("key_2", "value_2")]]
         assert len(pretty.result) == 3
         assert "key   : value" in pretty.result[0]
         assert "key_2 : value_2" in pretty.result[1]
 
-        value_3 = "value_3 test:00:00:00Z"
-        report.response_body["key_date"] = value_3
-        pretty = PrettifyReport(report)
+        value_3 = "2222-11-11 00:00:00.001Z"
+        report["response_body"]["key_date"] = value_3
+        pretty = Report(**report)
         assert pretty.response_body == [[("key", "value"),
                                          ("key_2", "value_2"),
-                                         ("key_date", "value_3")]]
-        assert "key_date : value_3" in pretty.result[2]
-        assert "key_date : value_3 test" not in pretty.result[2]
+                                         ("key_date", "2222-11-11 00:00")]]
+        assert "key_date : 2222-11-11 00:00" in pretty.result[2]
+        assert "key_date : 2222-11-11 00:00:" not in pretty.result[2]
         print("\nChecking format and justification(single):")
         for row in pretty.result:
             if row != "\n":
                 print(row)
-        report = Report(action="list",
+        pretty = Report(action="list",
                         response_body=[{"key": "value"}, {"key": "value"}])
-        pretty = PrettifyReport(report)
         assert pretty.response_body == [[("key", "value")],
                                         [("key", "value")]]
         print("\nChecking format and justification(list):")
@@ -98,57 +91,56 @@ class TestPrettifyReports:
         }
         _logs = {"email": "de@de.co", "password": "xxxx"}
 
-        report = PrettifyReport(Report(url="/events/",
-                                       logs=_logs,
-                                       action='add',
-                                       request_body=_request,
-                                       response_body=_response,
-                                       expected=_expected,
-                                       mapping=[0, 0]))
+        report = Report(url="/events/",
+                        logs=_logs,
+                        action='add',
+                        request_body=_request,
+                        response_body=_response,
+                        expected=_expected,
+                        mapping=[0, 0])
         report.print()
         assert report.sum_events == 0
-        report = PrettifyReport(Report(url="/events/",
-                                       display_expected=True,
-                                       logs=_logs,
-                                       action='add',
-                                       request_body=_request,
-                                       response_body=_response,
-                                       expected=_expected,
-                                       mapping=[0, 0]))
+        report = Report(url="/events/",
+                        display_expected=True,
+                        logs=_logs,
+                        action='add',
+                        request_body=_request,
+                        response_body=_response,
+                        expected=_expected,
+                        mapping=[0, 0])
         report.print()
         assert report.sum_events == 0
         _response["notes"] = "blabla"
-        report = PrettifyReport(Report(url="/events/3/",
-                                       display_expected=True,
-                                       display_errors=True,
-                                       action='change',
-                                       logs=_logs,
-                                       request_body=update,
-                                       response_body=_response,
-                                       expected=_expected))
+        report = Report(url="/events/3/",
+                        display_expected=True,
+                        display_errors=True,
+                        action='change',
+                        logs=_logs,
+                        request_body=update,
+                        response_body=_response,
+                        expected=_expected)
         report.print()
         assert report.updated == 1 and report.sum_events == 1
-        report = PrettifyReport(Report(url="/events/3/",
-                                       action='change',
-                                       logs=_logs,
-                                       request_body=update,
-                                       response_body=_response,
-                                       expected=_expected))
+        report = Report(url="/events/3/",
+                        action='change',
+                        logs=_logs,
+                        request_body=update,
+                        response_body=_response,
+                        expected=_expected)
         report.print()
         assert report.sum_events == 1
-        report = PrettifyReport(Report(url="/events/",
-                                       display_expected=True,
-                                       display_errors=True,
-                                       action='list',
-                                       response_body=[_response, _response],
-                                       expected=[_expected, _expected]))
+        report = Report(url="/events/",
+                        display_expected=True,
+                        display_errors=True,
+                        action='list',
+                        response_body=[_response, _response],
+                        expected=[_expected, _expected])
         report.print()
-        assert report.value_mismatch == 2
+        assert report.value_errors == 2
         _expected["notes"] = "blabla"
-        report = PrettifyReport(Report(url="/events/",
-                                       action='list',
-                                       response_body=[_response, _response],
-                                       expected=[_expected, _expected]
-                                       ))
+        report = Report(url="/events/",
+                        action='list',
+                        response_body=[_response, _response],
+                        expected=[_expected, _expected])
         report.print()
-        assert report.value_mismatch == 0
+        assert report.value_errors == 0

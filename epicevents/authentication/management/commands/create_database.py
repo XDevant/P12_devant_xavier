@@ -6,11 +6,11 @@ from django.conf import settings
 
 
 class Command(BaseCommand):
-    help = 'Creates database according to settings if it does not already exists.'
-    help += 'USER needs to have Postgres credentials.'
+    help = 'Creates database according to settings if it does not '
+    help += 'already exists. USER needs to have Postgres credentials.'
 
     def add_arguments(self, parser):
-        help_1 = 'Create an copy of the default db used as template for test db'
+        help_1 = 'Create an copy of the default db used as template for tests'
         parser.add_argument('-c', '--copy', action='store_true', help=help_1)
         help_2 = 'Create a dev database, even if it already exists.'
         parser.add_argument('-d', '--dev', action='store_true', help=help_2)

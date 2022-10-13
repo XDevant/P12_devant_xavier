@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 from apptest.forms import expected_contract_1
 
 
@@ -26,10 +26,9 @@ class TestContractRead:
                             action="list",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="contracts", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="contracts", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
 
         assert response.status_code == 200
         assert len(response.data) > 0
@@ -53,10 +52,9 @@ class TestContractRead:
                             action="detail",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="contracts", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="contracts", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
 
         assert response.status_code == 200
         assert len(response.data) == 8
@@ -68,7 +66,11 @@ class TestContractRead:
         assert response.status_code in [403, 404]
 
     @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
-    def test_sales_non_contact_do_not_see_contract(self, api_client, logins, user):
+    def test_sales_non_contact_do_not_see_contract(self,
+                                                   api_client,
+                                                   logins,
+                                                   user):
         api_client.login(**getattr(logins, user))
-        response = api_client.get(f"/contracts/{4 - int(user.split('_')[-1])}/")
+        url = f"/contracts/{4 - int(user.split('_')[-1])}/"
+        response = api_client.get(url)
         assert response.status_code == 404

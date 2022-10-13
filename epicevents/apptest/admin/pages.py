@@ -11,7 +11,8 @@ class LoginPage(BasePage):
 
     def log_user(self, logs=None):
         self.get_page(logs)
-        return self.title_url_matches(pages_data.HomeData.title, pages_data.HomeData.url)
+        return self.title_url_matches(pages_data.HomeData.title,
+                                      pages_data.HomeData.url)
 
 
 class LogoutPage(BasePage):

@@ -1,41 +1,49 @@
-from rest_framework.permissions import BasePermission, SAFE_METHODS
-from .models import Client, Contract, Event
+from rest_framework.permissions import BasePermission
 
 
 class IsSaleContactCRUOrSupportContactReadOnly(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'GET':
-            return request.user.groups.filter(name__in=['admin', 'sales', 'support']).exists()
+            groups = ['admin', 'sales', 'support']
+            return request.user.groups.filter(name__in=groups).exists()
         if request.method in ['POST', 'PUT']:
-            return request.user.groups.filter(name__in=['admin', 'sales']).exists()
+            groups = ['admin', 'sales']
+            return request.user.groups.filter(name__in=groups).exists()
 
     def has_object_permission(self, request, view, obj):
         if request.method == 'GET':
-            return request.user.groups.filter(name__in=['admin', 'sales', 'support']).exists()
+            groups = ['admin', 'sales', 'support']
+            return request.user.groups.filter(name__in=groups).exists()
         if request.method in ['POST', 'PUT']:
-            return obj.sales_contact == request.user or request.user.groups.filter(name='admin').exists()
+            check = request.user.groups.filter(name='admin').exists()
+            return check or obj.sales_contact == request.user
         return False
 
 
 class IsSaleContactCRU(BasePermission):
     def has_permission(self, request, view):
         if request.method in ['GET', 'POST', 'PUT']:
-            return request.user.groups.filter(name__in=['admin', 'sales']).exists()
+            groups = ['admin', 'sales']
+            return request.user.groups.filter(name__in=groups).exists()
 
     def has_object_permission(self, request, view, obj):
         if request.method == 'GET':
-            return request.user.groups.filter(name__in=['admin', 'sales']).exists()
+            groups = ['admin', 'sales']
+            return request.user.groups.filter(name__in=groups).exists()
         if request.method in ['POST', 'PUT']:
-            return obj.sales_contact == request.user or request.user.groups.filter(name='admin').exists()
+            check = request.user.groups.filter(name='admin').exists()
+            return check or obj.sales_contact == request.user
         return False
 
 
 class IsInChargeOrReadOnly(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'GET':
-            return request.user.groups.filter(name__in=['admin', 'sales', 'support']).exists()
+            groups = ['admin', 'sales', 'support']
+            return request.user.groups.filter(name__in=groups).exists()
         if request.method == 'POST':
-            return request.user.groups.filter(name__in=['admin', 'sales']).exists()
+            groups = ['admin', 'sales']
+            return request.user.groups.filter(name__in=groups).exists()
         if request.method == 'PUT':
-            return request.user.groups.filter(name__in=['admin', 'support']).exists()
-
+            groups = ['admin', 'support']
+            return request.user.groups.filter(name__in=groups).exists()

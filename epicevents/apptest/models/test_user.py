@@ -1,8 +1,7 @@
 import pytest
 from copy import deepcopy
-from django.db.utils import IntegrityError
 from django.db.models import ProtectedError
-from authentication.models import User, UserManager
+from authentication.models import User
 from authentication.fixtures.fake_users import test_users
 from crm.models import Client
 

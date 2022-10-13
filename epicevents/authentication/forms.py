@@ -3,8 +3,6 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
 from .models import User
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth.models import Group
 
 
 class UserCreationForm(forms.ModelForm):
@@ -41,4 +39,5 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('id', 'email', 'password', 'first_name', 'last_name', 'groups', 'is_active')
+        fields = ('id', 'email', 'password', 'first_name',
+                  'last_name', 'groups', 'is_active')

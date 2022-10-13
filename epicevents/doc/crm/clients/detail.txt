@@ -8,7 +8,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/1/[0m         
            [0;32mphone[0m        : [0;32m01[0m                     
            [0;32mmobile[0m       : [0;32m06[0m                     
            [0;32mcompany_name[0m : [0;32mWorld[0m                  
-           [0;32mdate_created[0m : [0;32m2022-10-12[0m             
+           [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m       
            [0;32mdate_updated[0m : [0;32mNone[0m                   
            [0;32mcontact[0m      : [0;32mde@de.co[0m               
                                                                  ----------

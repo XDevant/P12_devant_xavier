@@ -1,7 +1,7 @@
 import pytest
 from copy import deepcopy
 from apptest.forms import event_form, expected_event
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 @pytest.fixture
@@ -19,7 +19,12 @@ def expected():
 @pytest.mark.django_db
 class TestEventCreation:
     @pytest.mark.parametrize("user", ["sales_1", "sales_2"])
-    def test_sales_create_event(self, api_client, logins, user, data, expected):
+    def test_sales_create_event(self,
+                                api_client,
+                                logins,
+                                user,
+                                data,
+                                expected):
         url = '/events/'
         logs = getattr(logins, user)
         api_client.login(**logs)
@@ -36,11 +41,10 @@ class TestEventCreation:
                             expected=expected,
                             response_body=response.data,
                             mapping=(0, 0))
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="events", mode='w')
-            print(f"\nComparing updated event with expected result. ", end='')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="events", mode='w')
+            print("\nComparing updated event with expected result. ", end='')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert len(response.data) == 8
 
     @pytest.mark.parametrize("user",
@@ -54,7 +58,7 @@ class TestEventCreation:
         api_client.login(**getattr(logins, user))
         data["status"] = 2
         response = api_client.post('/events/', data=data)
-        print(f"\nTrying to create event without being sales contact. ",
+        print("\nTrying to create event without being sales contact. ",
               end='')
         assert response.status_code in [400, 403]
 
@@ -68,6 +72,6 @@ class TestEventCreation:
         resp_status = [1, 3]
         data["status"] = resp_status[int(user.split('_')[-1]) - 1]
         response = api_client.post('/events/', data=data)
-        print(f"\nTrying to create second event for same contract. ",
+        print("\nTrying to create second event for same contract. ",
               end='')
         assert response.status_code == 400

@@ -1,6 +1,5 @@
 import pytest
-from datetime import date, timedelta
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 @pytest.mark.django_db
@@ -22,11 +21,10 @@ class TestEventSearch:
                         logs=logs,
                         action="search",
                         response_body=response.data)
-        pretty_report = PrettifyReport(report)
         mode = 'a'
         if key == "client__email":
             mode = 'w'
-        pretty_report.save(model="events", mode=mode)
+        report.save(model="events", mode=mode)
         if "date_created" not in key:
             assert len(response.data) == 1
         else:

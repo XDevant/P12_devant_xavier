@@ -1,6 +1,8 @@
-from selenium.webdriver.remote.errorhandler import InvalidElementStateException, NoSuchElementException
+from selenium.webdriver.remote.errorhandler import InvalidElementStateException
+from selenium.webdriver.remote.errorhandler import NoSuchElementException
 from time import sleep
-from .locators import BasePageLocator, PkPageLocator, ListPageLocator, SearchPageLocator, Selector
+from .locators import BasePageLocator, PkPageLocator, ListPageLocator,\
+                      SearchPageLocator, Selector
 from .pages_data import LoginData
 
 
@@ -58,7 +60,9 @@ class BasePage:
 
     def find_nav_link_and_follow(self, model, action=None):
         try:
-            locator = BasePageLocator(model=model, action=action).find_nav_link_and_follow
+            locator = BasePageLocator(model=model,
+                                      action=action
+                                      ).find_nav_link_and_follow
             link = self.driver.find_element(*locator)
             link.click()
             return True
@@ -80,13 +84,14 @@ class BasePage:
         self._submit_form(True)
 
     def get_page(self, logs=None):
-        """Navigates to the page url. If logs are provided, will first log the admin if needed.
-        Note that without logs provided, any page other than login page will only be reached if
-        an admin is already logged.
+        """Navigates to the page url. If logs are provided, will first log
+         the admin if needed. Note that without logs provided, any page other
+          than login page will only be reached if an admin is already logged.
          Returns True if the page is reached and False otherwise."""
         if logs is not None:
             logs["username"] = logs.pop("email")
-            if Selector(logs["username"]).logged not in self.driver.page_source:
+            selector = Selector(logs["username"])
+            if selector.logged not in self.driver.page_source:
                 self.logout()
                 form = logs
                 self._login(form)
@@ -94,7 +99,8 @@ class BasePage:
         return self.title_url_matches()
 
     def _was_created_with_pk(self):
-        """Looks for the message following a successfull creation and extracts the id of the created item"""
+        """Looks for the message following a successfull creation
+        and extracts the id of the created item"""
         locator = BasePageLocator.created_successfully
         try:
             link = self.driver.find_element(*locator)
@@ -110,8 +116,8 @@ class PkPage(BasePage):
         self.pk = data.pk
 
     def get_pk_and_update_url(self, model):
-        """Extracts the pk in the driver's current url to update page data that depends on pk
-        like url and pk. Return True if a pk is found."""
+        """Extracts the pk in the driver's current url to update page data
+         that depends on pk like url and pk. Return True if a pk is found."""
         real_url = self.driver.current_url
         needle = f'{model}/'
         if needle in real_url:

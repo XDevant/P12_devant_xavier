@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 @pytest.mark.django_db
@@ -17,7 +17,7 @@ class TestEventUpdate:
         data["contact_email"] = data["contact_email"].split(':')[-1]
         data.pop("date_updated", None)
         response = api_client.put(url, data=data)
-        print(f"\n Trying to change first listed event's notes: ", end='')
+        print("\n Trying to change first listed event's notes: ", end='')
         assert response.status_code == 200
         if user == "sales_1":
             report = Report(url=url,
@@ -26,11 +26,10 @@ class TestEventUpdate:
                             request_body=data,
                             expected=response_1.data,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="events", mode='w')
-            print(f"Comparing updated event with expected result: ", end='')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="events", mode='w')
+            print("Comparing updated event with expected result: ", end='')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert response.data["notes"] == 'changing notes'
 
     @pytest.mark.parametrize("user",

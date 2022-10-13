@@ -137,21 +137,22 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
             raise ValidationError(message)
         with transaction.atomic():
             try:
+                user = self.request.user
                 contract_id = serializer.initial_data['status']
                 contract = Contract.objects.get(id=contract_id,
-                                                sales_contact=self.request.user,
+                                                sales_contact=user,
                                                 status=False)
                 contract.status = True
                 with transaction.atomic():
                     contract.save()
                     client = contract.client
-                    event_status = EventStatus.objects.create(contract=contract)
+                    e_status = EventStatus.objects.create(contract=contract)
             except Exception:
                 message = "Invalid contract id"
                 raise ValidationError(message)
             serializer.save(support_contact=contact,
                             client=client,
-                            event_status=event_status)
+                            event_status=e_status)
 
     def perform_update(self, serializer):
         old_event = Event.objects.get(id=serializer.initial_data['id'])
