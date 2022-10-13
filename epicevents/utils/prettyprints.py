@@ -74,6 +74,20 @@ class PRR:
         return dt.split(split)[0] + ' ' + dt.split(split)[1]
 
     @staticmethod
+    def compare_datetimes(dt_1, dt_2):
+        if dt_1 == dt_2:
+            return True
+        try:
+            trouble = ["23:59", "00:00"]
+            check_1 = abs(dt_1[-2:] - dt_2[-2:]) % 60 < 5
+            check_2 = abs(dt_1[-5:-3] - dt_2[-5:-3]) % 60 < 2
+            check_3 = dt_1[:10] == dt_1[:10] or dt_1[-5:] in trouble
+            return check_1 and check_2 and check_3
+        except IndexError:
+            return False
+
+
+    @staticmethod
     def prettify_key_value(key, value, offset=0, checks=(None, None)):
         len_key = len(key)
         len_value = len(value)
@@ -188,17 +202,17 @@ class Report(PRR):
         else:
             self.method = action.upper()
         if request_body is None:
-            self.request_body = [[]]
+            self.request_body = None
         else:
             self.request_body = self.format_list([request_body])
         if expected is None:
-            self.expected = [[]]
+            self.expected = None
         else:
             if isinstance(expected, dict):
                 expected = [expected]
             self.expected = self.format_list(expected)
         if response_body is None:
-            self.response_body = [[]]
+            self.response_body = None
         else:
             if isinstance(response_body, dict):
                 response_body = [response_body]
@@ -210,14 +224,15 @@ class Report(PRR):
         else:
             self.initial_data = []
         if self.response_body:
-            self.longest_key = self.get_longest_key(
-                self.request_body[0] + self.response_body[0])
-        else:
-            self.longest_key = self.get_longest_key(self.request_body)
+            self.longest_key = self.get_longest_key(self.response_body[0])
+        if self.request_body:
+            longest_key = self.get_longest_key(self.request_body[0])
+            self.longest_key = max(self.longest_key, longest_key)
         self.display_expected = False
         if len(self.initial_data) > 0 and display_expected:
             self.display_expected = True
         self.display_errors = display_errors
+
         self.title = self.get_title(self.method,
                                     self.url,
                                     self.logs)
@@ -421,7 +436,7 @@ class Report(PRR):
 
     def get_pretty_get_rows(self):
         result = []
-        if not self.expected[0]:
+        if not self.expected:
             for resp in self.response_body:
                 for key, value in resp:
                     result.append(self.prettify_key_value(key,

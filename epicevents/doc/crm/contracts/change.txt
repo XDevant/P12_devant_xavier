@@ -8,5 +8,5 @@ Request:  [1;33mPUT[0m   [4;34mhttp://127.0.0.1:8000//contracts/1/[0m       
            [0;32mamount[0m       : [0;32m156331.0[0m                          [0;32mamount[0m       : [0;32m156331.0[0m               [0;33m           amount       : 1000.0                 [0m
            [0;32mpayment_due[0m  : [0;32m2040-10-10 11:00[0m                  [0;32mpayment_due[0m  : [0;32m2040-10-10 11:00[0m       
            [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m                  [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m       
-                                                                                                             date_updated : 2022-10-13 12:55       
+                                                                                                             date_updated : 2022-10-13 21:51       
                                                                  ----------

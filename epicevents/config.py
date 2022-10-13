@@ -16,4 +16,3 @@ SLEEP_TIME = 1
 
 # epidoc,  display only
 BASE_URL = "http://127.0.0.1:8000/"
-
