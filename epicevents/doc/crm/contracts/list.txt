@@ -4,8 +4,8 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//contracts/[0m         
            [0;32mid[0m           : [0;32m1[0m                      
            [0;32mcontact[0m      : [0;32mde@de.co[0m               
            [0;32mclient_id[0m    : [0;32m1[0m                      
-           [0;32mdate_created[0m : [0;32m2022-10-10[0m             
+           [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m       
            [0;32mstatus[0m       : [0;32mTrue[0m                   
            [0;32mamount[0m       : [0;32m1000.0[0m                 
-           [0;32mpayment_due[0m  : [0;32m2040-10-10[0m             
+           [0;32mpayment_due[0m  : [0;32m2040-10-10 11:00[0m       
                                                                  ----------

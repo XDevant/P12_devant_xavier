@@ -5,14 +5,13 @@ from utils.prettyprints import PRR
 
 
 class Command(BaseCommand):
-    help = 'creates "sales", "support, "admin" and "visitor" groups and gives them permissions'
+    help = 'Creates "sales", "support, "admin" and "visitor" groups '
+    help += 'with their permissions.'
 
     def add_arguments(self, parser):
         pass
 
     def handle(self, *args, **options):
-        oks = []
-        kos = []
         for key, value in groups.items():
             kos = []
             try:

@@ -1,13 +1,13 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth.hashers import make_password
 from django.db.utils import IntegrityError
-from authentication.models import User, UserManager
+from authentication.models import User
 from authentication.fixtures.fake_users import test_users, superuser
 from utils.prettyprints import PRR
 
 
 class Command(BaseCommand):
-    help = 'load 6 fake users for testing, 2 sales, 2 support, 1 admin, 1 without role'
+    help = 'load 6 fake users: 2 sales, 2 support, 1 admin, 1 without role'
 
     def add_arguments(self, parser):
         help_1 = 'Creates a superuser'

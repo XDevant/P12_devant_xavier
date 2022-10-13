@@ -1,7 +1,7 @@
 import pytest
 from copy import deepcopy
 from apptest.forms import contract_form, expected_contract
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 
 
 @pytest.fixture
@@ -39,10 +39,9 @@ class TestContractCreation:
                             expected=expected,
                             response_body=response.data,
                             mapping=(0, 0))
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="contracts", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="contracts", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert logs["email"] in response.data["contact"]
 
     @pytest.mark.parametrize(

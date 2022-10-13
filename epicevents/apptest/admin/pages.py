@@ -11,7 +11,8 @@ class LoginPage(BasePage):
 
     def log_user(self, logs=None):
         self.get_page(logs)
-        return self.title_url_matches(pages_data.HomeData.title, pages_data.HomeData.url)
+        return self.title_url_matches(pages_data.HomeData.title,
+                                      pages_data.HomeData.url)
 
 
 class LogoutPage(BasePage):
@@ -33,6 +34,10 @@ class UserPage(SearchPage):
 class AddUserPage(BasePage):
     def __init__(self, driver, data=pages_data.AddUserData):
         super().__init__(driver, data)
+
+    def send_form(self, login=False, form_update=None):
+        ok = super().send_form(login, form_update)
+        return ok
 
 
 class ChangeUserPage(PkPage):

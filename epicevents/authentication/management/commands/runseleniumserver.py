@@ -12,6 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         from django.conf import settings
         name = settings.DATABASES['default']['NAME']
+        name = name.split('_')[-1]
         settings.DATABASES['default']['NAME'] = f"selenium_{name}"
         run_sql(f'DROP DATABASE IF EXISTS "selenium_{name}"')
         run_sql(f'CREATE DATABASE "selenium_{name}" TEMPLATE "copy_{name}"')

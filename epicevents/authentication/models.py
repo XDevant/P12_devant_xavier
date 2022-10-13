@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, Group, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser,\
+                                       Group,\
+                                       PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -41,7 +43,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    role = models.CharField(choices=Role.choices, max_length=16, default='none')
+    role = models.CharField(choices=Role.choices,
+                            max_length=16,
+                            default='none')
     is_active = models.BooleanField(default=True)
 
     objects = UserManager()
@@ -57,14 +61,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.is_superuser or self.role == "admin"
 
     def save(self, *args, **kwargs):
-        super().save()
-        self.groups.clear()
-        try:
-            group = Group.objects.get(name=self.role)
-            self.groups.add(group)
-        except ObjectDoesNotExist:
+        if self._state.adding:
+            super().save(*args, **kwargs)
             try:
-                group = Group.objects.get(name="visitor")
-                self.groups.add(group)
+                group = Group.objects.get(name=self.role)
             except ObjectDoesNotExist:
-                pass
+                group = Group.objects.get(name="visitor")
+            self.groups.add(group)
+        else:
+            super().save(*args, **kwargs)

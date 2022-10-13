@@ -1,11 +1,11 @@
 Request:  [1;33mPOST[0m   [4;34mhttp://127.0.0.1:8000//contracts/[0m                                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
-                 [4;33mRequest  Body[0m                                   [4;33mResponse Data[0m                                   
+                 [4;33mRequest  Body[0m                                   [4;33mResponse Data[0m                                   [4;33mExpected Result[0m
                                                             [0;32mid[0m           : [0;32m9[0m                      
                                                             [0;32mcontact[0m      : [0;32mde@de.co[0m               
            client_id    : 1                                 [0;32mclient_id[0m    : [0;32m1[0m                      
-           amount       : 15                                [0;32mdate_created[0m : [0;32m2022-10-10[0m             
-           payment_due  : 2050-10-10                        [0;32mstatus[0m       : [0;32mFalse[0m                  
+           amount       : 15                                [0;32mdate_created[0m : [6;31m2022-10-13 21:51[0m                  [0;32mdate_created[0m : [6;31m2022-10-13 21:50[0m       
+           payment_due  : 2050-10-10 10:00                  [0;32mstatus[0m       : [0;32mFalse[0m                  
                                                             [0;32mamount[0m       : [0;32m15.0[0m                   
-                                                            [0;32mpayment_due[0m  : [0;32m2050-10-10[0m             
+                                                            [0;32mpayment_due[0m  : [0;32m2050-10-10 11:00[0m       
                                                                  ----------

@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 from apptest.forms import expected_event_1
 
 
@@ -27,10 +27,9 @@ class TestEventRead:
                             action="list",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="events", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="events", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert len(response.data) > 0
 
     @pytest.mark.parametrize("user", ["visitor_1"])
@@ -53,10 +52,9 @@ class TestEventRead:
                             action="detail",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="events", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="events", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert len(response.data) == 9
 
     @pytest.mark.parametrize(

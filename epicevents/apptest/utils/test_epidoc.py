@@ -19,13 +19,21 @@ class TestDoc:
         assert doc.selected_actions == doc.actions
         assert doc.selected_apps == doc.apps
 
-    @pytest.mark.parametrize("arg", ["client", "crm client", "add client", "add client"])
+    @pytest.mark.parametrize("arg", ["client",
+                                     "crm client",
+                                     "add client",
+                                     "add client"
+                                     ])
     def test_doc_init_model(self, arg):
         doc = Doc(arg.split(' '))
         assert list(set(doc.selected_models)) == ["clients"]
         assert list(set(doc.selected_apps)) == ["crm"]
 
-    @pytest.mark.parametrize("arg", ["add", "crm add", "add client", "crm add client"])
+    @pytest.mark.parametrize("arg", ["add",
+                                     "crm add",
+                                     "add client",
+                                     "crm add client"
+                                     ])
     def test_doc_init_action(self, arg):
         doc = Doc(arg.split(' '))
         assert list(set(doc.selected_actions)) == ["add"]

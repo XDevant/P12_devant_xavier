@@ -8,8 +8,8 @@ class ClientListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile', 'company_name', 'date_created',
-                  'contact']
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile',
+                  'company_name', 'date_created', 'contact']
         read_only_fields = ['date_created', 'contact']
 
 
@@ -18,8 +18,8 @@ class ClientDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile', 'company_name', 'date_created',
-                  'date_updated', 'contact']
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile',
+                  'company_name', 'date_created', 'date_updated', 'contact']
         read_only_fields = ['date_created', 'contact']
 
 
@@ -36,7 +36,8 @@ class ContractListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contract
-        fields = ['id', 'contact', 'client_id', 'date_created', 'status', 'amount', 'payment_due']
+        fields = ['id', 'contact', 'client_id', 'date_created', 'status',
+                  'amount', 'payment_due']
         read_only_fields = ['contact', 'date_created']
 
 
@@ -44,8 +45,10 @@ class ContractDetailSerializer(ContractListSerializer):
 
     class Meta:
         model = Contract
-        fields = ['id', 'client_id', 'status', 'contact', 'amount', 'payment_due', 'date_created', 'date_updated']
-        read_only_fields = ['status', 'contact', 'date_created', 'date_updated']
+        fields = ['id', 'client_id', 'status', 'contact', 'amount',
+                  'payment_due', 'date_created', 'date_updated']
+        read_only_fields = ['status', 'contact', 'date_created',
+                            'date_updated']
 
 
 class ContractSerializerSelector:
@@ -73,7 +76,8 @@ class EventDetailSerializer(EventListSerializer):
         model = Event
         fields = ['id', 'client_id', 'status', 'contact_email', 'attendees',
                   'event_date', 'notes', 'date_created', 'date_updated']
-        read_only_fields = ['client_id', 'status', 'date_created', 'date_updated']
+        read_only_fields = ['client_id', 'status',
+                            'date_created', 'date_updated']
 
 
 class EventSerializerSelector:

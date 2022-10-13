@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 import pytest
 from . import pages
+import config
 
 
 class Memory:
@@ -17,7 +18,8 @@ class Memory:
 def selenium(request):
     driver = request.param
     if driver == "chrome":
-        service = ChromeService('C:/ProgramData/Miniconda3/Webdrivers/chromedriver')
+        pathfile = config.PATH_WEBDRIVERS + 'chromedriver'
+        service = ChromeService(pathfile)
         options = webdriver.ChromeOptions()
         options.add_argument("no-sandbox")
         options.add_argument("--disable-gpu")
@@ -25,9 +27,11 @@ def selenium(request):
         options.add_argument("--disable-dev-shm-usage")
         options.set_capability("detach", True)
     elif driver == "firefox":
-        service = FirefoxService('C:/ProgramData/Miniconda3/Webdrivers/geckodriver')
+        pathfile = config.PATH_WEBDRIVERS + 'geckodriver'
+        service = FirefoxService(pathfile)
         options = webdriver.FirefoxOptions()
-        options.binary_location = r"C:\Users\xdeva\AppData\Local\Mozilla Firefox\firefox.exe"
+        loc = r"C:\Users\xdeva\AppData\Local\Mozilla Firefox\firefox.exe"
+        options.binary_location = loc
     else:
         return None
     service.start()
@@ -43,19 +47,27 @@ class TestAdminStories:
         assert login_page.get_page()
         assert login_page.log_user(logins.admin_1)
 
-    def test_admin_can_cru_user(self, selenium, logins):
+    @pytest.mark.parametrize("run", [1, 2])
+    def test_admin_can_cru_user(self, selenium, logins, run):
         home_page = pages.HomePage(selenium)
         assert home_page.get_page(logins.admin_1)
         home_page.find_nav_link_and_follow('user', 'add')
 
         add_user_page = pages.AddUserPage(selenium)
         assert add_user_page.title_url_matches()
-        assert add_user_page.send_form()
+        if run == 2:
+            form_update = {"role": "sales"}
+            assert add_user_page.send_form(form_update=form_update)
+        else:
+            assert add_user_page.send_form()
 
         change_user_page = pages.ChangeUserPage(selenium)
         assert change_user_page.get_pk_and_update_url('user')
         assert change_user_page.title_url_matches()
-        assert change_user_page.send_form()
+        if run == 1:
+            assert change_user_page.send_form()
+        else:
+            change_user_page._submit_form()
 
         user_page = pages.UserPage(selenium)
         assert user_page.title_url_matches()
@@ -80,7 +92,8 @@ class TestAdminStories:
     def test_admin_can_change_item(self, selenium, item, logins):
         item_page = pages.ItemPage(selenium, item)
         assert item_page.get_page(logins.admin_1)
-        assert item_page.find_list_link_and_follow(getattr(Memory, f"last_created_{item}"))
+        pk = getattr(Memory, f"last_created_{item}")
+        assert item_page.find_list_link_and_follow(pk)
 
         change_item_page = pages.ChangeItemPage(selenium, item)
         assert change_item_page.get_pk_and_update_url(item)
@@ -90,14 +103,17 @@ class TestAdminStories:
     def test_superuser_can_cascade_delete_items(self, selenium, logins):
         client_page = pages.ItemPage(selenium, "client")
         assert client_page.get_page(logins.superuser)
-        assert client_page.find_list_link_and_follow(Memory.last_created_client)
-
+        assert client_page.find_list_link_and_follow(
+                                            Memory.last_created_client
+                                                    )
         change_item_page = pages.ChangeItemPage(selenium, "client")
         assert change_item_page.get_pk_and_update_url("client")
         assert change_item_page.title_url_matches()
         assert change_item_page.delete_item()
 
-        confirmation_page = pages.ConfirmationPage(selenium, 'crm', 'client')
+        confirmation_page = pages.ConfirmationPage(selenium,
+                                                   'crm',
+                                                   'client')
         assert confirmation_page.title_url_matches()
         assert confirmation_page.confirm_delete()
         assert client_page.title_url_matches()
@@ -114,7 +130,9 @@ class TestAdminStories:
         user_page.check_result_1_box()
         user_page.select_action_and_go('delete')
 
-        confirmation_page = pages.ConfirmationPage(selenium, 'authentication', 'user')
+        confirmation_page = pages.ConfirmationPage(selenium,
+                                                   'authentication',
+                                                   'user')
         assert confirmation_page.title_url_matches()
         assert confirmation_page.confirm_delete()
         assert user_page.title_url_matches()

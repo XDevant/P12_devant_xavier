@@ -5,18 +5,22 @@ from utils.errorlog import get_install_date, set_install_date
 
 
 class Command(BaseCommand):
-    help = 'Will chain the following manage.py commands to install the app after cloning: \
-            makemigrations, create_database, migrate, create_groups, load_fake_users, \
-           load_fake_data. Depending on the flags, fake data will be in test db only or both db.'
+    help = 'Will chain the following manage.py commands to install the app ' \
+           'after cloning: makemigrations, create_database, migrate, ' \
+           'create_groups, load_fake_users load_fake_data. '
 
     def add_arguments(self, parser):
-        help_1 = 'Fake items will be loaded in default db in addition to test db template'
-        parser.add_argument('-f', '--fake', action='store_true', help=help_1)
+        help_1 = 'Fake items will be loaded in default db and test db'
+        parser.add_argument('-f', '--fake',
+                            action='store_true',
+                            help=help_1)
         help_2 = 'Will create a superuser, logs are in fixture'
-        parser.add_argument('-s', '--super', action='store_true', help=help_2)
+        parser.add_argument('-s', '--super',
+                            action='store_true',
+                            help=help_2)
 
     def handle(self, *args, **options):
-        call_command('create_database')
+        call_command('create_database', '--dev')
         call_command('makemigrations')
         call_command('migrate')
         call_command('create_groups')
@@ -37,6 +41,6 @@ class Command(BaseCommand):
         except OSError:
             created = None
         if created:
-            print("An errors.log file has been successfully created in the base dir.")
+            print("An errors.log file has been created in the base dir.")
         else:
             print("Unable to create errors.log")

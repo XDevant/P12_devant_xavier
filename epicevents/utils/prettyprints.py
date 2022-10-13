@@ -1,4 +1,6 @@
 from pathlib import Path
+from datetime import datetime
+import config
 
 
 BASE_DIR = str(Path(__file__).resolve().parent.parent)
@@ -19,10 +21,7 @@ class Colors:
 
 
 class PRR:
-    BASE_URL = "http://127.0.0.1:8000/"
-    key_mismatch = 0
-    value_mismatch = 0
-    updated = 0
+    BASE_URL = config.BASE_URL
 
     @staticmethod
     def colorize(string, check):
@@ -33,19 +32,60 @@ class PRR:
         return string
 
     @staticmethod
+    def format_list(list_of_dicts):
+        if list_of_dicts:
+            return [[PRR.format(k, v) for k, v in data.items()]
+                    for data in list_of_dicts
+                    ]
+        return [[]]
+
+    @staticmethod
     def format(key, value):
-        if ("date" in key or "payment_due" in key) and value != "None":
-            if "T" in value:
-                value = value.split('T')[0]
-            else:
-                value = value.split(' ')[0]
+        if not key or not value:
+            return key, str(value)
+        if "date_" in key or "_date" in key or key == "payment_due":
+            value = PRR.format_datetime(value)
+        elif isinstance(value, dict):
+            value = "{...}"
+        elif isinstance(value, list):
+            value = "[...]"
+        else:
+            value = str(value)
         if "contact" in key:
             value = value.split(':')[-1].strip()
         if key and len(key) > 20:
             key = key[:18] + '...'
-        if value and len(value) > 25:
-            value = value[:23] + '...'
+        if value and len(value) > 23:
+            value = value[:21] + '...'
         return key, value
+
+    @staticmethod
+    def format_datetime(dt):
+        if isinstance(dt, datetime):
+            return f"{dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}"
+        split = ' '
+        if 'T' in dt:
+            split = 'T'
+        dts = dt.split(split)
+        if len(dts) == 1:
+            return dt + ' 00:00'
+        if len(dts[1]) > 5:
+            return dt.split(split)[0] + ' ' + dt.split(split)[1][:5]
+        return dt.split(split)[0] + ' ' + dt.split(split)[1]
+
+    @staticmethod
+    def compare_datetimes(dt_1, dt_2):
+        if dt_1 == dt_2:
+            return True
+        try:
+            trouble = ["23:59", "00:00"]
+            check_1 = abs(dt_1[-2:] - dt_2[-2:]) % 60 < 5
+            check_2 = abs(dt_1[-5:-3] - dt_2[-5:-3]) % 60 < 2
+            check_3 = dt_1[:10] == dt_1[:10] or dt_1[-5:] in trouble
+            return check_1 and check_2 and check_3
+        except IndexError:
+            return False
+
 
     @staticmethod
     def prettify_key_value(key, value, offset=0, checks=(None, None)):
@@ -127,12 +167,17 @@ class PRR:
                 print(row, end='')
 
 
-class Report:
+class Report(PRR):
     """A little helper to format the kwargs passed to the PRR subclass
     kwargs: url(string, action(string)), logs(dict), request_body(dict),
             expected(dict), response_body(dict), display_expected(bool),
             display_errors(bool), mapping(tuple of positive int)
+    Dicts are turned in lists of dicts.
     """
+    key_errors = 0
+    value_errors = 0
+    updated = 0
+
     def __init__(self, url="",
                  action="",
                  logs=None,
@@ -142,6 +187,7 @@ class Report:
                  display_expected=False,
                  display_errors=False,
                  mapping=()):
+
         self.url = url
         if logs is None:
             logs = {}
@@ -156,78 +202,46 @@ class Report:
         else:
             self.method = action.upper()
         if request_body is None:
-            request_body = {}
-        self.request_body = request_body
+            self.request_body = None
+        else:
+            self.request_body = self.format_list([request_body])
         if expected is None:
-            expected = {}
-        self.expected = expected
+            self.expected = None
+        else:
+            if isinstance(expected, dict):
+                expected = [expected]
+            self.expected = self.format_list(expected)
         if response_body is None:
-            response_body = {}
-        self.response_body = response_body
-        self.display_expected = display_expected
+            self.response_body = None
+        else:
+            if isinstance(response_body, dict):
+                response_body = [response_body]
+            self.response_body = self.format_list(response_body)
         self.display_errors = display_errors
-        self.mapping = mapping
-
-
-class PrettifyReport(PRR):
-
-    def __init__(self, report):
-        """
-        Agr : report (Report object)
-        The init is the workhorse of the system.
-        It builds a list of key, value tuples for each column of data we
-        want to display from the passed dicts.
-        It also formats the values and keys before any check,
-        turning DateTimes into Dates.
-        Finally, the init calls get_pretty rows and other helpers
-        to build every line of the report."""
-        self.url = report.url
-        self.logs = report.logs
-        self.action = report.action
-        self.method = report.method
-
-        items = report.request_body.items()
-        self.request_body = [self.format(k, str(v)) for k, v in items]
-
-        if isinstance(report.expected, list):
-            self.expected_response = [
-                [self.format(k, str(v)) for k, v in data.items()]
-                for data in report.expected]
+        self.mapping = sorted(list(mapping), reverse=True)
+        if self.expected:
+            self.initial_data = self.expected[0]
         else:
-            self.expected_response = [
-                [self.format(k, str(v)) for k, v in report.expected.items()]]
-        if self.expected_response:
-            self.initial_data = self.expected_response[0]
-        else:
-            self.initial_data = self.expected_response
-
-        if isinstance(report.response_body, list):
-            self.response_body = [
-                [self.format(k, str(v)) for k, v in data.items()]
-                for data in report.response_body]
-        else:
-            items = report.response_body.items()
-            self.response_body = [
-                [self.format(k, str(v)) for k, v in items]]
+            self.initial_data = []
         if self.response_body:
-            self.longest_key = self.get_longest_key(
-                self.request_body + self.response_body[0])
-        else:
-            self.longest_key = self.get_longest_key(self.request_body)
+            self.longest_key = self.get_longest_key(self.response_body[0])
+        if self.request_body:
+            longest_key = self.get_longest_key(self.request_body[0])
+            self.longest_key = max(self.longest_key, longest_key)
         self.display_expected = False
-        if len(self.initial_data) > 0 and report.display_expected:
+        if len(self.initial_data) > 0 and display_expected:
             self.display_expected = True
-        self.display_errors = report.display_errors
-        self.mapping = sorted(list(report.mapping), reverse=True)
+        self.display_errors = display_errors
+
         self.title = self.get_title(self.method,
                                     self.url,
                                     self.logs)
         self.result = self.get_pretty_rows()
-        self.sum_events = self.key_mismatch + self.value_mismatch + self.updated
+        self.sum_events = self.key_errors + self.value_errors + self.updated
         check = self.display_expected or self.sum_events != 0
         self.headers = self.get_headers(self.method, check)
-        self.errors = self.get_errors(self.key_mismatch,
-                                      self.value_mismatch,
+        self.errors = self.get_errors(self.key_errors,
+                                      self.value_errors,
                                       self.updated)
         self.report = [self.title]
         self.report += [65 * ' ' + 10 * '-', self.headers] + self.result
@@ -259,23 +273,25 @@ class PrettifyReport(PRR):
         Returns the list of colored and justified rows.
         """
         result = []
+        if self.request_body:
+            self.request_body = self.request_body[0]
         if self.response_body:
             self.response_body = self.response_body[0]
-        self.expected_response = self.initial_data
+        self.expected = self.initial_data
         for index in self.mapping:
             if index < len(self.request_body):
                 req = self.request_body
                 self.request_body = req[:index] + [("", "")] + req[index:]
 
-        while len(self.request_body) < max(len(self.expected_response),
+        while len(self.request_body) < max(len(self.expected),
                                            len(self.response_body)):
             self.request_body += [("", "")]
-        while len(self.response_body) < len(self.expected_response):
+        while len(self.response_body) < len(self.expected):
             self.response_body += [("", "")]
 
-        if len(self.expected_response) > 0:
+        if len(self.expected) > 0:
             raw_table = zip(self.request_body,
-                            self.expected_response,
+                            self.expected,
                             self.response_body)
             for body_row, expected_row, response_row in raw_table:
                 row = self.prettify_key_value(*body_row, self.longest_key)
@@ -287,9 +303,9 @@ class PrettifyReport(PRR):
                                                checks)
                 if not checks[0] or not checks[1]:
                     if not checks[0]:
-                        self.key_mismatch += 1
+                        self.key_errors += 1
                     if not checks[1]:
-                        self.value_mismatch += 1
+                        self.value_errors += 1
                     row += self.prettify_key_value(*expected_row,
                                                    self.longest_key,
                                                    checks)
@@ -317,7 +333,7 @@ class PrettifyReport(PRR):
         Returns the list of colored and justified rows.
         """
         result = []
-        request = dict(self.request_body)
+        request = dict(self.request_body[0])
         initial = dict()
         if self.initial_data:
             initial = dict(self.initial_data)
@@ -350,7 +366,7 @@ class PrettifyReport(PRR):
                             self.updated += 1
                         row += expected
                     if not check:
-                        self.value_mismatch += 1
+                        self.value_errors += 1
                     request.pop(key, None)
                     initial.pop(key, None)
                 elif key in initial.keys():
@@ -366,7 +382,7 @@ class PrettifyReport(PRR):
                                                        self.longest_key,
                                                        (True, check))
                     if not check:
-                        self.value_mismatch += 1
+                        self.value_errors += 1
                     initial.pop(key, None)
                 elif key in request.keys():
                     check = request[key] == value
@@ -375,9 +391,9 @@ class PrettifyReport(PRR):
                                                    self.longest_key,
                                                    (False, check))
                     if not check:
-                        self.value_mismatch += 1
+                        self.value_errors += 1
                     initial.pop(key, None)
-                    self.key_mismatch += 1
+                    self.key_errors += 1
                     request.pop(key, None)
                 else:
                     row += ' ' * 98
@@ -399,7 +415,7 @@ class PrettifyReport(PRR):
                                                    self.longest_key,
                                                    (True, check))
                 if not check:
-                    self.value_mismatch += 1
+                    self.value_errors += 1
                 request.pop(key, None)
             else:
                 row += ' ' * 49
@@ -407,7 +423,7 @@ class PrettifyReport(PRR):
                                                value,
                                                self.longest_key,
                                                (False, None))
-                self.key_mismatch += 1
+                self.key_errors += 1
             result.append(row)
 
         for key, value in request.items():
@@ -420,7 +436,7 @@ class PrettifyReport(PRR):
 
     def get_pretty_get_rows(self):
         result = []
-        if not self.expected_response[0]:
+        if not self.expected:
             for resp in self.response_body:
                 for key, value in resp:
                     result.append(self.prettify_key_value(key,
@@ -429,7 +445,7 @@ class PrettifyReport(PRR):
                 result.append(65 * ' ' + 10 * '-')
             return result
 
-        expects = [dict(exp) for exp in self.expected_response]
+        expects = [dict(exp) for exp in self.expected]
         responses = [dict(resp) for resp in self.response_body]
         for resp, expect in zip(responses, expects):
             for key, value in resp.items():
@@ -445,9 +461,9 @@ class PrettifyReport(PRR):
                                                    self.longest_key,
                                                    (True, check_2))
                 if not check_1:
-                    self.key_mismatch += 1
+                    self.key_errors += 1
                 if not check_2:
-                    self.value_mismatch += 1
+                    self.value_errors += 1
                 result.append(row)
             result.append(65 * ' ' + 10 * '-')
         return result

@@ -1,6 +1,6 @@
 import pytest
 from copy import deepcopy
-from utils.prettyprints import PrettifyReport, Report
+from utils.prettyprints import Report
 from apptest.forms import expected_client_1
 
 
@@ -13,7 +13,11 @@ def expected():
 
 @pytest.mark.django_db
 class TestClientRead:
-    @pytest.mark.parametrize("user", ["sales_1", "sales_2", "support_1", "support_2", "admin_1"])
+    @pytest.mark.parametrize("user", ["sales_1",
+                                      "sales_2",
+                                      "support_1",
+                                      "support_2",
+                                      "admin_1"])
     def test_contact_see_clients(self, api_client, logins, user, expected):
         url = '/clients/'
         logs = getattr(logins, user)
@@ -25,10 +29,9 @@ class TestClientRead:
                             action="list",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="clients", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="clients", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert response.status_code == 200
         assert len(response.data) > 0
 
@@ -49,10 +52,9 @@ class TestClientRead:
                             action="detail",
                             expected=expected,
                             response_body=response.data)
-            pretty_report = PrettifyReport(report)
-            pretty_report.save(model="clients", mode='w')
-            assert "0 key error" in pretty_report.errors
-            assert "0 value error" in pretty_report.errors
+            report.save(model="clients", mode='w')
+            assert "0 key error" in report.errors
+            assert "0 value error" in report.errors
         assert response.status_code == 200
         assert len(response.data) == 10
 
@@ -70,7 +72,7 @@ class TestClientRead:
         assert len(response.data) == 10
 
     @pytest.mark.parametrize("user", ["sales_1", "support_1", "visitor_1"])
-    def test_non_contact_do_not_see_client_1(self, api_client, logins, user):
+    def test_non_contact_do_not_see_client_2(self, api_client, logins, user):
         api_client.login(**getattr(logins, user))
         response = api_client.get('/clients/2/')
         assert response.status_code in [403, 404]

@@ -6,24 +6,32 @@ from django.conf import settings
 
 
 class Command(BaseCommand):
-    help = 'Creates database according to settings. USER needs to have Postgres credentials.'
+    help = 'Creates database according to settings if it does not '
+    help += 'already exists. USER needs to have Postgres credentials.'
 
     def add_arguments(self, parser):
-        help_1 = 'Create an copy of the default db used as template for test db'
+        help_1 = 'Create an copy of the default db used as template for tests'
         parser.add_argument('-c', '--copy', action='store_true', help=help_1)
+        help_2 = 'Create a dev database, even if it already exists.'
+        parser.add_argument('-d', '--dev', action='store_true', help=help_2)
 
     def handle(self, *args, **options):
-        name = settings.DATABASES['default']['NAME']
+        name = settings.DATABASES['default']['NAME'].split('_')[-1]
         if options['copy']:
             sql_1 = f'DROP DATABASE IF EXISTS "copy_{name}"'
-            sql_2 = f'CREATE DATABASE "copy_{name}" TEMPLATE "{name}"'
+            sql_2 = f'CREATE DATABASE "copy_{name}" TEMPLATE "dev_{name}"'
             name = 'copy_' + name
+        elif options['dev']:
+            sql_1 = f'DROP DATABASE IF EXISTS "dev_{name}"'
+            sql_2 = f'CREATE DATABASE "dev_{name}"'
+            name = 'dev_' + name
         else:
-            sql_1 = f'DROP DATABASE IF EXISTS "{name}"'
+            sql_1 = ""
             sql_2 = f'CREATE DATABASE "{name}"'
 
         try:
-            run_sql(sql_1)
+            if sql_1:
+                run_sql(sql_1)
             run_sql(sql_2)
             print(f"Database {PRR.colorize(name, True)} successfully created")
         except ObjectInUse:
