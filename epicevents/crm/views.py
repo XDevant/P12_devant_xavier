@@ -8,9 +8,7 @@ from .models import Client, Contract, Event, EventStatus
 from .serializers import ClientSerializerSelector,\
                          ContractSerializerSelector,\
                          EventSerializerSelector
-from .permissions import IsSaleContactCRUOrSupportContactReadOnly,\
-                         IsSaleContactCRU,\
-                         IsInChargeOrReadOnly
+from .permissions import IsSalesOrAdmin, IsInTeam
 from authentication.models import User
 
 
@@ -28,8 +26,7 @@ class MultipleSerializerMixin:
 class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ClientSerializerSelector.list
     multi_serializer_class = ClientSerializerSelector
-    permission_classes = [DjangoModelPermissions,
-                          IsSaleContactCRUOrSupportContactReadOnly]
+    permission_classes = [DjangoModelPermissions, IsInTeam]
     queryset = Client.objects.all()
     filterset_fields = {'last_name': ['exact', 'icontains'],
                         'email': ['exact', 'icontains']}
@@ -69,7 +66,7 @@ class ClientViewSet(MultipleSerializerMixin, ModelViewSet):
 class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ContractSerializerSelector.list
     multi_serializer_class = ContractSerializerSelector
-    permission_classes = [DjangoModelPermissions, IsSaleContactCRU]
+    permission_classes = [DjangoModelPermissions, IsSalesOrAdmin]
     queryset = Contract.objects.all()
     filterset_fields = {'client__last_name': ['exact', 'icontains'],
                         'client__email': ['exact', 'icontains'],
@@ -118,7 +115,7 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
 class EventViewSet(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EventSerializerSelector.list
     multi_serializer_class = EventSerializerSelector
-    permission_classes = [DjangoModelPermissions, IsInChargeOrReadOnly]
+    permission_classes = [DjangoModelPermissions, IsInTeam]
     queryset = Event.objects.all()
     filterset_fields = {'client__last_name': ['exact', 'icontains'],
                         'client__email': ['exact', 'icontains'],
