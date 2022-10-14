@@ -25,12 +25,19 @@ class TestEventRead:
             report = Report(url=url,
                             logs=logs,
                             action="list",
-                            expected=expected,
                             response_body=response.data)
             report.save(model="events", mode='w')
+            report = Report(url=url,
+                            logs=logs,
+                            action="list",
+                            expected=expected,
+                            response_body=response.data)
             assert "0 key error" in report.errors
             assert "0 value error" in report.errors
-        assert len(response.data) > 0
+        if user != "admin_1":
+            assert len(response.data) == 2
+        else:
+            assert len(response.data) == 4
 
     @pytest.mark.parametrize("user", ["visitor_1"])
     def test_unauthorized_do_not_see_events(self, api_client, logins, user):

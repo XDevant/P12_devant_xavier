@@ -86,15 +86,6 @@ class ContractViewSet(MultipleSerializerMixin, ModelViewSet):
             raise ValidationError(message)
         serializer.save(client=client)
 
-    def perform_update(self, serializer):
-        try:
-            client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id)
-        except Exception:
-            message = "Invalid client id"
-            raise ValidationError(message)
-        serializer.save(client=client)
-
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
@@ -150,28 +141,6 @@ class EventViewSet(MultipleSerializerMixin, ModelViewSet):
             serializer.save(support_contact=contact,
                             client=client,
                             event_status=e_status)
-
-    def perform_update(self, serializer):
-        old_event = Event.objects.get(id=serializer.initial_data['id'])
-        try:
-            contact_email = serializer.initial_data['contact_email']
-            contact = User.objects.get(email=contact_email)
-            check = self.request.user.groups.filter(name='admin').exists()
-            assert contact == self.request.user or check
-        except Exception:
-            message = "Invalid support contact email"
-            raise ValidationError(message)
-        try:
-            client_id = serializer.initial_data['client_id']
-            client = Client.objects.get(id=client_id)
-            assert client == old_event.client
-        except Exception:
-            message = "Invalid client id"
-            raise ValidationError(message)
-
-        serializer.save(support_contact=contact,
-                        client=client,
-                        event_status=old_event.event_status)
 
     def partial_update(self, *args, **kwargs):
         """This method is not implemented"""

@@ -7,5 +7,5 @@ Request:  [1;33mPOST[0m   [4;34mhttp://127.0.0.1:8000/contracts/[0m         
                                                             [0;32mcontact[0m      : [0;32mde@de.co[0m               
            amount       : 15                                [0;32mamount[0m       : [0;32m15.0[0m                   
            payment_due  : 2050-10-10 10:00                  [0;32mpayment_due[0m  : [0;32m2050-10-10 11:00[0m       
-                                                            [0;32mdate_created[0m : [0;32m2022-10-14 15:57[0m       
+                                                            [0;32mdate_created[0m : [0;32m2022-10-14 22:04[0m       
                                                                  ----------

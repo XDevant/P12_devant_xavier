@@ -1,13 +1,23 @@
 Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/[0m                                                                   login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
-           [0;32mid[0m           : [0;32m1[0m                      
-           [0;32mfirst_name[0m   : [0;32mFirst[0m                  
-           [0;32mlast_name[0m    : [0;32mClient[0m                 
-           [0;32memail[0m        : [0;32mfirst@client.co[0m        
-           [0;32mphone[0m        : [0;32m01[0m                     
-           [0;32mmobile[0m       : [0;32m06[0m                     
-           [0;32mcompany_name[0m : [0;32mWorld[0m                  
-           [0;32mcontact[0m      : [0;32mde@de.co[0m               
-           [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m       
+           id           : 1                      
+           first_name   : First                  
+           last_name    : Client                 
+           email        : first@client.co        
+           phone        : 01                     
+           mobile       : 06                     
+           company_name : World                  
+           contact      : de@de.co               
+           date_created : 2022-10-14 16:59       
+                                                                 ----------
+           id           : 3                      
+           first_name   : Third                  
+           last_name    : Brave                  
+           email        : third@brave.co         
+           phone        : 03                     
+           mobile       : 08                     
+           company_name : BlackPebble            
+           contact      : de@de.co               
+           date_created : 2022-10-14 16:59       
                                                                  ----------

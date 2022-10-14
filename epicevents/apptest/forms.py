@@ -56,7 +56,7 @@ expected_contract = {
 
 expected_contract_1 = {
     "id": 1,
-    "client_id": 1,
+    "client": 1,
     "status": True,
     "contact": "de@de.co",
     "amount": 1000.,
@@ -74,9 +74,9 @@ event_form = {
 
 expected_event = {
     'id': 5,
-    'client_id': '1',
+    'client': '1',
     'status': 'True',
-    'contact_email': 'Bi Bi couriel:bi@bi.co',
+    'contact': 'Bi Bi couriel:bi@bi.co',
     'attendees': 15,
     'event_date': "2030-10-10T11:00:00",
     'notes': 'bla',
@@ -85,9 +85,9 @@ expected_event = {
 
 expected_event_1 = {
     'id': 1,
-    'client_id': '1',
+    'client': '1',
     'status': 'True',
-    'contact_email': 'Bi Bi couriel:bi@bi.co',
+    'contact': 'Bi Bi couriel:bi@bi.co',
     'attendees': 10,
     'event_date': "2026-10-10T11:00:00",
     'notes': 'test event 1',

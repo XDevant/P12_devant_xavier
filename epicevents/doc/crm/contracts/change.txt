@@ -1,12 +1,12 @@
 Request:  [1;33mPUT[0m   [4;34mhttp://127.0.0.1:8000/contracts/1/[0m                                                               login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                    [4;33mRequest  Body[0m                                   [4;33mResponse Data[0m                                   [4;33mTarget Item[0m
-           [0;32mid[0m           : [0;32m1[0m                                 [0;32mid[0m           : [0;32m1[0m                      
-           [0;32mclient_id[0m    : [0;32m1[0m                                 [0;32mclient_id[0m    : [0;32m1[0m                      
-           [0;32mstatus[0m       : [0;32mTrue[0m                              [0;32mstatus[0m       : [0;32mTrue[0m                   
-           [0;32mcontact[0m      : [0;32mde@de.co[0m                          [0;32mcontact[0m      : [0;32mde@de.co[0m               
+                                                            [0;32mid[0m           : [0;32m1[0m                      
+                                                            [0;32mclient[0m       : [0;32m1[0m                      
+                                                            [0;32mstatus[0m       : [0;32mTrue[0m                   
+                                                            [0;32mcontact[0m      : [0;32mde@de.co[0m               
            [0;32mamount[0m       : [0;32m156331.0[0m                          [0;32mamount[0m       : [0;32m156331.0[0m               [0;33m           amount       : 1000.0                 [0m
            [0;32mpayment_due[0m  : [0;32m2040-10-10 11:00[0m                  [0;32mpayment_due[0m  : [0;32m2040-10-10 11:00[0m       
-           [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m                  [0;32mdate_created[0m : [0;32m2022-10-12 03:27[0m       
-                                                 [0;33m           date_updated : 2022-10-14 15:58       [0m
+                                                            [0;32mdate_created[0m : [0;32m2022-10-14 16:59[0m       
+                                                            [0;32mdate_updated[0m : [0;32m2022-10-14 22:05[0m       
                                                                  ----------

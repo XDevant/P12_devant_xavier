@@ -27,13 +27,20 @@ class TestClientRead:
             report = Report(url=url,
                             logs=logs,
                             action="list",
-                            expected=expected,
                             response_body=response.data)
             report.save(model="clients", mode='w')
+            report = Report(url=url,
+                            logs=logs,
+                            action="list",
+                            expected=expected,
+                            response_body=response.data)
             assert "0 key error" in report.errors
             assert "0 value error" in report.errors
         assert response.status_code == 200
-        assert len(response.data) > 0
+        if user != "admin_1":
+            assert len(response.data) == 2
+        else:
+            assert len(response.data) == 4
 
     def test_unauthorized_do_not_see_clients(self, api_client, logins):
         api_client.login(**logins.visitor_1)

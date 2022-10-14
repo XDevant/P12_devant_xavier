@@ -19,19 +19,27 @@ class TestContractRead:
         logs = getattr(logins, user)
         api_client.login(**logs)
         response = api_client.get(url)
+        expected = {k if k != "client" else "client_id": v for k, v in expected.items()}
 
         if user == "sales_1":
             report = Report(url=url,
                             logs=logs,
                             action="list",
-                            expected=expected,
                             response_body=response.data)
             report.save(model="contracts", mode='w')
+            report = Report(url=url,
+                            logs=logs,
+                            action="list",
+                            expected=expected,
+                            response_body=response.data)
             assert "0 key error" in report.errors
             assert "0 value error" in report.errors
 
         assert response.status_code == 200
-        assert len(response.data) > 0
+        if user != "admin_1":
+            assert len(response.data) == 4
+        else:
+            assert len(response.data) == 8
 
     @pytest.mark.parametrize("user", ["support_1", "support_2", "visitor_1"])
     def test_unauthorized_do_not_see_contracts(self, api_client, logins, user):
@@ -45,6 +53,7 @@ class TestContractRead:
         logs = getattr(logins, user)
         api_client.login(**logs)
         response = api_client.get(url)
+        expected["date_updated"] = None
 
         if user == "sales_1":
             report = Report(url=url,

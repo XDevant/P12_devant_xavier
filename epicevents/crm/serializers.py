@@ -38,16 +38,16 @@ class ContractListSerializer(serializers.ModelSerializer):
         model = Contract
         fields = ['id', 'client_id', 'status', 'contact',
                   'amount', 'payment_due', 'date_created']
-        read_only_fields = ['contact', 'date_created']
+        read_only_fields = ['status', 'contact', 'date_created']
 
 
 class ContractDetailSerializer(ContractListSerializer):
 
     class Meta:
         model = Contract
-        fields = ['id', 'client_id', 'status', 'contact', 'amount',
+        fields = ['id', 'client', 'status', 'contact', 'amount',
                   'payment_due', 'date_created', 'date_updated']
-        read_only_fields = ['status', 'contact', 'date_created',
+        read_only_fields = ['client', 'status', 'contact', 'date_created',
                             'date_updated']
 
 
@@ -59,24 +59,23 @@ class ContractSerializerSelector:
 
 class EventListSerializer(serializers.ModelSerializer):
     """"""
-    contact_email = serializers.EmailField(source='support_contact')
-    client_id = serializers.StringRelatedField(source='client')
-    status = serializers.CharField(source='event_status')
+    contact = serializers.StringRelatedField(source='support_contact')
+    status = serializers.StringRelatedField(source='event_status')
 
     class Meta:
         model = Event
-        fields = ['id', 'client_id', 'status', 'contact_email',
+        fields = ['id', 'client', 'status', 'contact',
                   'attendees', 'event_date', 'notes', 'date_created']
-        read_only_fields = ['client_id', 'status', 'date_created']
+        read_only_fields = ['client', 'status', 'contact', 'date_created']
 
 
 class EventDetailSerializer(EventListSerializer):
 
     class Meta:
         model = Event
-        fields = ['id', 'client_id', 'status', 'contact_email', 'attendees',
+        fields = ['id', 'client', 'status', 'contact', 'attendees',
                   'event_date', 'notes', 'date_created', 'date_updated']
-        read_only_fields = ['client_id', 'status',
+        read_only_fields = ['client', 'status', 'contact',
                             'date_created', 'date_updated']
 
 

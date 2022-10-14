@@ -10,12 +10,11 @@ class TestEventUpdate:
         logs = getattr(logins, user)
         api_client.login(**logs)
         url = f"/events/{int(user.split('_')[-1])}/"
-        response = api_client.get("/events/")
-        data = response.data[0]
-        assert f"test event {int(user.split('_')[-1])}" == data["notes"]
-        expected = deepcopy(data)
-        data["notes"] = "changing notes"
-        data["contact_email"] = data["contact_email"].split(':')[-1]
+        expected = api_client.get(url).data
+        assert f"test event {int(user.split('_')[-1])}" == expected["notes"]
+        data = {"attendees": 15,
+                "event_date": "2026-10-10T12:00:00",
+                "notes": "changing notes"}
         response = api_client.put(url, data=data)
         print("\n Trying to change first listed event's notes: ", end='')
         assert response.status_code == 200
@@ -36,28 +35,29 @@ class TestEventUpdate:
                              ["sales_1", "sales_2", "support_2", "visitor_1"])
     def test_unauthorized_cant_update_events(self, api_client, logins, user):
         api_client.login(**logins.admin_1)
-        response = api_client.get('/events/')
-        data = response.data[0]
+        url = "/events/1/"
+        data = api_client.get(url).data
         assert data["notes"] == "test event 1"
-        data["contact_email"] = data["contact_email"].split("couriel:")[-1]
+        data = {"attendees": 15,
+                "event_date": "2026-10-10T14:00:00Z",
+                "notes": "changing notes"}
         api_client.login(**getattr(logins, user))
-        url = f"/events/{int(user.split('_')[-1])}/"
         response = api_client.put(url, data=data)
         assert response.status_code >= 400
 
     @pytest.mark.parametrize("key, value",
-                             [pytest.param("contact_email", "bo@bo.co"),
-                              pytest.param("client_id", 2)])
+                             [pytest.param("contact", "bo@bo.co"),
+                              pytest.param("client", 2)])
     def test_support_do_not_corrupt_events(self,
                                            api_client,
                                            logins,
                                            key,
                                            value):
         api_client.login(**logins.support_1)
-        response = api_client.get('/events/')
-        data = response.data[0]
+        data = api_client.get('/events/1/').data
         assert 'test event 1' == data["notes"]
-        data["contact_email"] = data["contact_email"].split("couriel:")[-1]
         data[key] = value
+        data.pop("date_updated", None)
         response = api_client.put('/events/1/', data=data)
-        assert response.status_code >= 400
+        assert key in response.data.keys()
+        assert data[key] != response.data[key]
