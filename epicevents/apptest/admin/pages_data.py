@@ -32,7 +32,7 @@ class HomeData(BaseData):
 class UserData(BaseData):
     url = BASE_URL + "admin/authentication/user/"
     title = "Select user to change | Django site admin"
-    search = "ma@la.co"
+    search_list = ["ma@la.co", "mi@lou.co"]
 
 
 class AddUserData(BaseData):

@@ -115,20 +115,32 @@ class PkPage(BasePage):
         super().__init__(driver, data)
         self.pk = data.pk
 
+    @staticmethod
+    def find_pk_in_url(url, needle):
+        if needle in url:
+            url_parts = url.split(needle)
+            if '/' not in url_parts[1]:
+                print("Wrong url.")
+                return 0
+            pk = url_parts[1].split('/')[0]
+            return pk
+        else:
+            print("Wrong model.")
+            return 0
+
     def get_pk_and_update_url(self, model):
         """Extracts the pk in the driver's current url to update page data
          that depends on pk like url and pk. Return True if a pk is found."""
         real_url = self.driver.current_url
         needle = f'{model}/'
-        if needle in real_url:
-            url_parts = real_url.split(needle)
-            if len(url_parts) < 2:
-                print("wrong model")
-                return 0
-            pk = url_parts[1].split('/')[0]
-            self.url = self.url.replace("$pk$", pk)
-            self.pk = int(pk)
-            return self.pk > 0
+        pk = self.find_pk_in_url(real_url, needle)
+        if not pk.isnumeric():
+            sleep(3)
+            pk = self.find_pk_in_url(real_url, needle)
+            assert pk.isnumeric()
+        self.url = self.url.replace("$pk$", pk)
+        self.pk = int(pk)
+        return self.pk > 0
 
     def delete_item(self):
         try:
@@ -161,12 +173,12 @@ class ListPage(BasePage):
 class SearchPage(ListPage):
     def __init__(self, driver, data):
         super().__init__(driver, data)
-        self.search = data.search
+        self.search_list = data.search_list
 
-    def search_created(self):
+    def search_created(self, index=0):
         locator = SearchPageLocator.search_created
         search_input = self.driver.find_element(*locator)
-        search_input.send_keys(self.search)
+        search_input.send_keys(self.search_list[index])
         search_input.submit()
 
     def check_result_1_box(self):

@@ -9,5 +9,5 @@ Request:  [1;33mPUT[0m   [4;34mhttp://127.0.0.1:8000/events/1/[0m           
           [0;32mevent_date[0m    : [0;32m2026-10-10 11:00[0m                 [0;32mevent_date[0m    : [0;32m2026-10-10 11:00[0m       
           [0;32mnotes[0m         : [0;32mchanging notes[0m                   [0;32mnotes[0m         : [0;32mchanging notes[0m         [0;33m          notes         : test event 1           [0m
           [0;32mdate_created[0m  : [0;32m2022-10-12 03:27[0m                 [0;32mdate_created[0m  : [0;32m2022-10-12 03:27[0m       
-                                                 [0;33m          date_updated  : 2022-10-14 15:17       [0m
+                                                 [0;33m          date_updated  : 2022-10-14 15:58       [0m
                                                                  ----------

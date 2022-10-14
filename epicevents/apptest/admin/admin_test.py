@@ -49,6 +49,7 @@ class TestAdminStories:
 
     @pytest.mark.parametrize("run", [1, 2])
     def test_admin_can_cru_user(self, selenium, logins, run):
+        print("\n", end='')
         home_page = pages.HomePage(selenium)
         assert home_page.get_page(logins.admin_1)
         home_page.find_nav_link_and_follow('user', 'add')
@@ -74,6 +75,7 @@ class TestAdminStories:
 
     @pytest.mark.parametrize("item", ["client", "contract", "event"])
     def test_superuser_can_create_items(self, selenium, item, logins):
+        print("\n", end='')
         home_page = pages.HomePage(selenium)
         assert home_page.get_page(logins.superuser)
         assert home_page.find_nav_link_and_follow(item, 'add')
@@ -90,6 +92,7 @@ class TestAdminStories:
 
     @pytest.mark.parametrize("item", ["client", "contract", "event"])
     def test_admin_can_change_item(self, selenium, item, logins):
+        print("\n", end='')
         item_page = pages.ItemPage(selenium, item)
         assert item_page.get_page(logins.admin_1)
         pk = getattr(Memory, f"last_created_{item}")
@@ -101,6 +104,7 @@ class TestAdminStories:
         assert change_item_page.send_form()
 
     def test_superuser_can_cascade_delete_items(self, selenium, logins):
+        print("\n", end='')
         client_page = pages.ItemPage(selenium, "client")
         assert client_page.get_page(logins.superuser)
         assert client_page.find_list_link_and_follow(
@@ -118,14 +122,16 @@ class TestAdminStories:
         assert confirmation_page.confirm_delete()
         assert client_page.title_url_matches()
 
-    def test_admin_can_find_and_delete_user(self, selenium, logins):
+    @pytest.mark.parametrize("run", [1, 2])
+    def test_admin_can_find_and_delete_user(self, selenium, logins, run):
+        print("\n", end='')
         home_page = pages.HomePage(selenium)
         assert home_page.get_page(logins.superuser)
         home_page.find_nav_link_and_follow('user')
 
         user_page = pages.UserPage(selenium)
         assert user_page.title_url_matches()
-        user_page.search_created()
+        user_page.search_created(run - 1)
         assert ">0 results" not in selenium.page_source
         user_page.check_result_1_box()
         user_page.select_action_and_go('delete')
