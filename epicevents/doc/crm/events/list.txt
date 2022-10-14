@@ -1,4 +1,4 @@
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//events/[0m                                                                   login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/events/[0m                                                                    login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
           [0;32mid[0m            : [0;32m1[0m                      

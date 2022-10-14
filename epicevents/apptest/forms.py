@@ -23,8 +23,8 @@ expected_client = {'id': 5,
                    'email': 'third@client.co',
                    'phone': '01', 'mobile': '08',
                    'company_name': 'World',
-                   'date_created': datetime.now(),
-                   'contact': 'De De couriel:de@de.co'
+                   'contact': 'De De couriel:de@de.co',
+                   'date_created': datetime.now()
                    }
 
 expected_client_1 = {'id': 1,
@@ -34,8 +34,8 @@ expected_client_1 = {'id': 1,
                      'phone': '01',
                      'mobile': '06',
                      'company_name': 'World',
-                     'date_created': get_install_date(),
-                     'contact': 'De De couriel:de@de.co'
+                     'contact': 'De De couriel:de@de.co',
+                     'date_created': get_install_date()
                      }
 
 contract_form = {
@@ -46,27 +46,27 @@ contract_form = {
 
 expected_contract = {
     "id": 9,
-    "contact": "de@de.co",
     "client_id": 1,
-    "date_created": datetime.now(),
     "status": False,
+    "contact": "de@de.co",
     "amount":  15.,
-    "payment_due": "2050-10-10T11:00:00"
+    "payment_due": "2050-10-10T11:00:00",
+    "date_created": datetime.now()
 }
 
 expected_contract_1 = {
     "id": 1,
     "client_id": 1,
     "status": True,
+    "contact": "de@de.co",
     "amount": 1000.,
     "payment_due": "2040-10-10T11:00:00",
-    "contact": "de@de.co",
     "date_created": get_install_date()
 }
 
 event_form = {
-        "contact_email": "bi@bi.co",
         "status":  2,
+        "contact_email": "bi@bi.co",
         "attendees":  15,
         "event_date":  "2030-10-10T10:00:00+01:00",
         "notes": "bla"

@@ -10,21 +10,21 @@ class TestEventUpdate:
         logs = getattr(logins, user)
         api_client.login(**logs)
         url = f"/events/{int(user.split('_')[-1])}/"
-        response_1 = api_client.get(url)
-        data = deepcopy(response_1.data)
+        response = api_client.get("/events/")
+        data = response.data[0]
         assert f"test event {int(user.split('_')[-1])}" == data["notes"]
+        expected = deepcopy(data)
         data["notes"] = "changing notes"
         data["contact_email"] = data["contact_email"].split(':')[-1]
-        data.pop("date_updated", None)
         response = api_client.put(url, data=data)
         print("\n Trying to change first listed event's notes: ", end='')
         assert response.status_code == 200
-        if user == "sales_1":
+        if user == "support_1":
             report = Report(url=url,
                             logs=logs,
                             action="change",
                             request_body=data,
-                            expected=response_1.data,
+                            expected=expected,
                             response_body=response.data)
             report.save(model="events", mode='w')
             print("Comparing updated event with expected result: ", end='')

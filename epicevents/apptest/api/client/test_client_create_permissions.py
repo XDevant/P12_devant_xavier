@@ -36,7 +36,7 @@ class TestClientCreation:
                             request_body=data,
                             expected=expected,
                             response_body=response.data,
-                            mapping=(0, 0))
+                            mapping=(0,))
             report.save(model="clients", mode='w')
             assert "0 key error" in report.errors
             assert "0 value error" in report.errors

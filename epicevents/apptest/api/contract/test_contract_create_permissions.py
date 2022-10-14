@@ -38,7 +38,7 @@ class TestContractCreation:
                             request_body=data,
                             expected=expected,
                             response_body=response.data,
-                            mapping=(0, 0))
+                            mapping=(0, 1, 1))
             report.save(model="contracts", mode='w')
             assert "0 key error" in report.errors
             assert "0 value error" in report.errors

@@ -8,8 +8,8 @@ class TestReport:
         assert report.logs == {}
         assert report.url == "/client/"
         assert report.response_body == [[("key", "value")]]
-        assert report.request_body == [[]]
-        assert report.expected == [[]]
+        assert report.request_body is None
+        assert report.expected is None
         assert not report.display_expected
         assert not report.display_errors
         assert report.mapping == []

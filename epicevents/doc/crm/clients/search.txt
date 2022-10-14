@@ -1,4 +1,4 @@
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email=first@client.co[0m                                            login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/?email=first@client.co[0m                                             login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
@@ -8,10 +8,10 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email=first@cl
            phone        : 01                     
            mobile       : 06                     
            company_name : World                  
-           date_created : 2022-10-12 03:27       
            contact      : de@de.co               
+           date_created : 2022-10-12 03:27       
                                                                  ----------
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name=Client[0m                                                 login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/?last_name=Client[0m                                                  login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
@@ -21,10 +21,10 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name=Clie
            phone        : 01                     
            mobile       : 06                     
            company_name : World                  
-           date_created : 2022-10-12 03:27       
            contact      : de@de.co               
+           date_created : 2022-10-12 03:27       
                                                                  ----------
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email__icontains=first@client[0m                                    login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/?email__icontains=first@client[0m                                     login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
@@ -34,10 +34,10 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?email__icontai
            phone        : 01                     
            mobile       : 06                     
            company_name : World                  
-           date_created : 2022-10-12 03:27       
            contact      : de@de.co               
+           date_created : 2022-10-12 03:27       
                                                                  ----------
-Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name__icontains=Clien[0m                                       login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
+Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/?last_name__icontains=Clien[0m                                        login: [6;31memail[0m=de@de.co [6;31mpassword[0m=mdp1
                                                                  ----------
                  [4;33mResponse Data[0m                                   
            id           : 1                      
@@ -47,6 +47,6 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000//clients/?last_name__ico
            phone        : 01                     
            mobile       : 06                     
            company_name : World                  
-           date_created : 2022-10-12 03:27       
            contact      : de@de.co               
+           date_created : 2022-10-12 03:27       
                                                                  ----------

@@ -9,7 +9,7 @@ class ClientListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile',
-                  'company_name', 'date_created', 'contact']
+                  'company_name', 'contact', 'date_created']
         read_only_fields = ['date_created', 'contact']
 
 
@@ -19,8 +19,8 @@ class ClientDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'mobile',
-                  'company_name', 'date_created', 'date_updated', 'contact']
-        read_only_fields = ['date_created', 'contact']
+                  'company_name', 'contact', 'date_created', 'date_updated']
+        read_only_fields = ['contact', 'date_created', 'date_updated']
 
 
 class ClientSerializerSelector:
@@ -36,8 +36,8 @@ class ContractListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contract
-        fields = ['id', 'contact', 'client_id', 'date_created', 'status',
-                  'amount', 'payment_due']
+        fields = ['id', 'client_id', 'status', 'contact',
+                  'amount', 'payment_due', 'date_created']
         read_only_fields = ['contact', 'date_created']
 
 
