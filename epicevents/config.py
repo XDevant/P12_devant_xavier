@@ -10,7 +10,7 @@ POSTGRES_USER = 'postgres'
 POSTGRES_PASSWORD = 'supermdp'
 
 # selenium
-PATH_WEBDRIVERS = 'C:/ProgramData/Miniconda3/Webdrivers/'
+PATH_WEBDRIVERS = './'
 SELENIUM_BASE_URL = "http://127.0.0.1:7000/"
 SLEEP_TIME = 1
 

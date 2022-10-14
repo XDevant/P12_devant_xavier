@@ -8,5 +8,5 @@ Request:  [1;33mPOST[0m   [4;34mhttp://127.0.0.1:8000/events/[0m            
           attendees     : 15                               [0;32mattendees[0m     : [0;32m15[0m                     
           event_date    : 2030-10-10 10:00                 [0;32mevent_date[0m    : [0;32m2030-10-10 11:00[0m       
           notes         : bla                              [0;32mnotes[0m         : [0;32mbla[0m                    
-                                                           [0;32mdate_created[0m  : [0;32m2022-10-14 22:05[0m       
+                                                           [0;32mdate_created[0m  : [0;32m2022-10-14 23:09[0m       
                                                                  ----------

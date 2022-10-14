@@ -19,7 +19,8 @@ class TestContractRead:
         logs = getattr(logins, user)
         api_client.login(**logs)
         response = api_client.get(url)
-        expected = {k if k != "client" else "client_id": v for k, v in expected.items()}
+        kvs = expected.items()
+        expected = {k if k != "client" else "client_id": v for k, v in kvs}
 
         if user == "sales_1":
             report = Report(url=url,
