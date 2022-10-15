@@ -7,7 +7,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/contracts/[0m          
            contact      : de@de.co               
            amount       : 1000.0                 
            payment_due  : 2040-10-10 11:00       
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------
            id           : 2                      
            client_id    : 1                      
@@ -15,7 +15,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/contracts/[0m          
            contact      : de@de.co               
            amount       : 100000.0               
            payment_due  : 2030-10-10 11:00       
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------
            id           : 5                      
            client_id    : 3                      
@@ -23,7 +23,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/contracts/[0m          
            contact      : de@de.co               
            amount       : 10000.0                
            payment_due  : 2042-10-10 11:00       
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------
            id           : 6                      
            client_id    : 3                      
@@ -31,5 +31,5 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/contracts/[0m          
            contact      : de@de.co               
            amount       : 30000.0                
            payment_due  : 2032-10-10 11:00       
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------

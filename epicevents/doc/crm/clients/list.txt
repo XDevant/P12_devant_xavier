@@ -9,7 +9,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/[0m            
            mobile       : 06                     
            company_name : World                  
            contact      : de@de.co               
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------
            id           : 3                      
            first_name   : Third                  
@@ -19,5 +19,5 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/clients/[0m            
            mobile       : 08                     
            company_name : BlackPebble            
            contact      : de@de.co               
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------

@@ -8,7 +8,7 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/events/[0m             
            attendees    : 10                     
            event_date   : 2026-10-10 11:00       
            notes        : test event 1           
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------
            id           : 3                      
            client       : 3                      
@@ -17,5 +17,5 @@ Request:  [1;33mGET[0m   [4;34mhttp://127.0.0.1:8000/events/[0m             
            attendees    : 1000                   
            event_date   : 2028-10-10 11:00       
            notes        : test event 3           
-           date_created : 2022-10-14 16:59       
+           date_created : 2022-10-15 15:21       
                                                                  ----------

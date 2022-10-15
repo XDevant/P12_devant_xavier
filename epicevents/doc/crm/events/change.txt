@@ -8,6 +8,6 @@ Request:  [1;33mPUT[0m   [4;34mhttp://127.0.0.1:8000/events/1/[0m           
            [0;32mattendees[0m    : [0;32m15[0m                                [0;32mattendees[0m    : [0;32m15[0m                     [0;33m           attendees    : 10                     [0m
            [0;32mevent_date[0m   : [0;32m2026-10-10 12:00[0m                  [0;32mevent_date[0m   : [0;32m2026-10-10 12:00[0m       [0;33m           event_date   : 2026-10-10 11:00       [0m
            [0;32mnotes[0m        : [0;32mchanging notes[0m                    [0;32mnotes[0m        : [0;32mchanging notes[0m         [0;33m           notes        : test event 1           [0m
-                                                            [0;32mdate_created[0m : [0;32m2022-10-14 16:59[0m       
-                                                            [0;32mdate_updated[0m : [0;32m2022-10-14 23:10[0m       
+                                                            [0;32mdate_created[0m : [0;32m2022-10-15 15:21[0m       
+                                                            [0;32mdate_updated[0m : [0;32m2022-10-15 15:25[0m       
                                                                  ----------
